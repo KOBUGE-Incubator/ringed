@@ -11,7 +11,7 @@ func _ready():
 	Input.set_mouse_mode(1)
 
 func _fixed_process(delta):
-	logic() # Think first
+	logic(delta) # Think first
 	
 	if(force.length_squared() > 1):
 		force = force.normalized() # Prevent too fast movements
@@ -22,6 +22,6 @@ func _fixed_process(delta):
 	c_dir = c_dir.linear_interpolate(t_dir, min(rotation_speed * delta, 1))
 	set_rot(atan2(c_dir.x,c_dir.y))
 
-func logic():
-	force = Vector2(0, 0)
+func logic(delta):
+	pass
 

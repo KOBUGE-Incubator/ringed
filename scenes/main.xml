@@ -1,9 +1,105 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="5" version="1.1" version_name="Godot Engine v1.1.rc2.custom_build">
+<resource_file type="PackedScene" subresource_count="8" version="1.1" version_name="Godot Engine v1.1.rc2.custom_build">
 	<ext_resource path="res://scripts/main.gd" type="Script"></ext_resource>
-	<ext_resource path="res://gfx/grass.png" type="Texture"></ext_resource>
+	<ext_resource path="res://icon.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scenes/player.xml" type="PackedScene"></ext_resource>
 	<ext_resource path="res://gfx/cursor.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gfx/grass.png" type="Texture"></ext_resource>
+	<resource type="CanvasItemShaderGraph" path="local://1">
+		<dictionary name="_code" shared="false">
+			<string> "fragment" </string>
+			<string> "vec3 nd2sl2=vec3(UV,0);&#000a;uniform vec3 Offset=vec3(0,0,0);&#000a;vec3 nd1sl0=Offset;&#000a;vec3 nd4sl0=nd2sl2+nd1sl0;&#000a;vec4 rt_default_tex3=tex(TEXTURE,nd4sl0.xy);&#000a;vec3 nd3sl0=rt_default_tex3.rgb;&#000a;float nd3sl1=rt_default_tex3.a;&#000a;COLOR.rgb=nd3sl0;&#000a;" </string>
+			<string> "fragment_ofs" </string>
+			<int> 0 </int>
+			<string> "light" </string>
+			<string> "" </string>
+			<string> "light_ofs" </string>
+			<int> 0 </int>
+			<string> "vertex" </string>
+			<string> "" </string>
+			<string> "vertex_ofs" </string>
+			<int> 0 </int>
+		</dictionary>
+		<dictionary name="_data" shared="false">
+			<string> "shaders" </string>
+			<array  len="3" shared="false">
+				<array  len="6" shared="false">
+					<int> 0 </int>
+					<int> 33 </int>
+					<vector2> 250, 20 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+				</array>
+				<array  len="30" shared="false">
+					<int> 0 </int>
+					<int> 33 </int>
+					<vector2> 956, 19 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="3" shared="false">
+						<int> 0 </int>
+						<int> 3 </int>
+						<int> 0 </int>
+					</array>
+					<int> 1 </int>
+					<int> 27 </int>
+					<vector2> 186, 108 </vector2>
+					<string> "Offset" </string>
+					<vector3> 0, 0, 0 </vector3>
+					<array  len="0" shared="false">
+					</array>
+					<int> 2 </int>
+					<int> 0 </int>
+					<vector2> 57, 8 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+					<int> 3 </int>
+					<int> 32 </int>
+					<vector2> 651, 96 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="3" shared="false">
+						<int> 0 </int>
+						<int> 4 </int>
+						<int> 0 </int>
+					</array>
+					<int> 4 </int>
+					<int> 8 </int>
+					<vector2> 451, 79 </vector2>
+					<int> 0 </int>
+					<nil>  </nil>
+					<array  len="6" shared="false">
+						<int> 0 </int>
+						<int> 2 </int>
+						<int> 2 </int>
+						<int> 1 </int>
+						<int> 1 </int>
+						<int> 0 </int>
+					</array>
+				</array>
+				<array  len="6" shared="false">
+					<int> 0 </int>
+					<int> 33 </int>
+					<vector2> 250, 20 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+				</array>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="CanvasItemMaterial" path="local://2">
+		<resource name="shader/shader" resource_type="Shader" path="local://1">  </resource>
+		<int name="shader/shading_mode"> 0 </int>
+		<vector3 name="shader_param/Offset"> 0, 0, 0 </vector3>
+
+	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -11,7 +107,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="30">
+			<string_array  len="35">
 				<string> "world" </string>
 				<string> "Node2D" </string>
 				<string> "_import_path" </string>
@@ -26,7 +122,6 @@
 				<string> "z/relative" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
-				<string> "background" </string>
 				<string> "Sprite" </string>
 				<string> "texture" </string>
 				<string> "centered" </string>
@@ -42,13 +137,19 @@
 				<string> "player" </string>
 				<string> "RigidBody2D" </string>
 				<string> "cursor" </string>
+				<string> "CanvasLayer" </string>
+				<string> "layer" </string>
+				<string> "rotation" </string>
+				<string> "scale" </string>
+				<string> "background" </string>
+				<string> "material/material" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 4 </int>
+			<int> 6 </int>
 			<string> "nodes" </string>
-			<int_array  len="142"> 				-1, -1, 1, 0, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 0, 0, 0, 15, 14, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 10, 8, 5, 9, 6, 10, 7, 11, 1, 16, 11, 17, 1, 18, 4, 19, 12, 20, 12, 21, 3, 22, 3, 23, 7, 24, 13, 25, 12, 26, 14, 0, 0, 0, 28, 27, 15, 3, 2, 0, 7, 16, 13, 17, 0, 0, 0, 15, 29, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 16, 18, 17, 1, 18, 4, 19, 12, 20, 12, 21, 3, 22, 3, 23, 7, 24, 13, 25, 12, 26, 14, 0 </int_array>
+			<int_array  len="210"> 				-1, -1, 1, 0, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 0, 0, 0, 14, 14, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 10, 8, 5, 9, 6, 10, 7, 11, 1, 15, 11, 16, 1, 17, 4, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 12, 25, 14, 0, 0, 0, 27, 26, 15, 3, 2, 0, 7, 16, 13, 17, 0, 0, 0, 14, 28, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 15, 18, 16, 1, 17, 4, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 12, 25, 14, 0, 0, 0, 29, 29, -1, 5, 2, 0, 30, 19, 17, 4, 31, 5, 32, 6, 0, 4, 0, 14, 33, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 34, 20, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 15, 21, 16, 12, 17, 4, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 22, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="19" shared="false">
+			<array  len="23" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -66,7 +167,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -533.594, -172.06 </vector2>
+							<vector2> -458.773, -22.4189 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -202,8 +303,8 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<vector2> 511, 384 </vector2>
-				<resource  resource_type="Texture" path="res://gfx/grass.png">  </resource>
+				<vector2> 197.254, 341.454 </vector2>
+				<resource  resource_type="Texture" path="res://icon.png">  </resource>
 				<bool> False </bool>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
@@ -350,6 +451,10 @@
 					</dictionary>
 				</dictionary>
 				<resource  resource_type="Texture" path="res://gfx/cursor.png">  </resource>
+				<int> -1 </int>
+				<resource  resource_type="CanvasItemMaterial" path="local://2">  </resource>
+				<resource  resource_type="Texture" path="res://gfx/grass.png">  </resource>
+				<rect2> 0, 0, 1024, 768 </rect2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>

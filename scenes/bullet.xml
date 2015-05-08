@@ -4,7 +4,7 @@
 	<ext_resource path="res://gfx/bullet.png" type="Texture"></ext_resource>
 	<resource type="RectangleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2 name="extents"> 10, 10 </vector2>
+		<vector2 name="extents"> 5, 5 </vector2>
 
 	</resource>
 	<main_resource>
@@ -71,9 +71,9 @@
 			<string> "node_count" </string>
 			<int> 3 </int>
 			<string> "nodes" </string>
-			<int_array  len="157"> 				-1, -1, 1, 0, -1, 35, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 3, 26, 11, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 12, 33, 12, 34, 13, 35, 14, 36, 15, 0, 0, 0, 37, 37, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 38, 16, 39, 1, 40, 4, 41, 8, 42, 8, 43, 3, 44, 3, 45, 7, 46, 17, 47, 8, 48, 18, 0, 0, 0, 49, 49, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 50, 9, 51, 8, 0 </int_array>
+			<int_array  len="157"> 				-1, -1, 1, 0, -1, 35, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 11, 21, 2, 22, 5, 23, 2, 24, 8, 25, 3, 26, 12, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 13, 33, 13, 34, 14, 35, 15, 36, 16, 0, 0, 0, 37, 37, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 38, 17, 39, 1, 40, 4, 41, 8, 42, 8, 43, 3, 44, 3, 45, 7, 46, 18, 47, 8, 48, 19, 0, 0, 0, 49, 49, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 50, 9, 51, 8, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="19" shared="false">
+			<array  len="20" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -84,19 +84,20 @@
 				<int> 0 </int>
 				<bool> False </bool>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
-				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
+				<matrix32> 1, -0, 0, 1, 0, 0 </matrix32>
+				<real> 0.1 </real>
 				<int> 4 </int>
 				<real> -1 </real>
 				<resource  resource_type="Script" path="res://scripts/bullet.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -116.101, -109.522 </vector2>
+							<vector2> -53.6365, -27.9639 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -116,7 +117,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1 </real>
+							<real> 10.585567 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
