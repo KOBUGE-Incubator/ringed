@@ -7,6 +7,7 @@ var y = 0
 var x = 0
 
 func _ready():
+	randomize()
 	set_fixed_process(true)
 	
 func _fixed_process(delta):

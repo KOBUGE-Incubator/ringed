@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="18" version="1.1" version_name="Godot Engine v1.1.rc1.custom_build">
+<resource_file type="PackedScene" subresource_count="18" version="1.1" version_name="Godot Engine v1.1.rc2.custom_build">
 	<ext_resource path="res://scripts/enemy_1.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/1.png" type="Texture"></ext_resource>
@@ -14,9 +14,10 @@
 	<ext_resource path="res://gfx/enemy_1/7.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/8.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/9.png" type="Texture"></ext_resource>
-	<resource type="RectangleShape2D" path="local://1">
+	<resource type="CapsuleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2 name="extents"> 32, 32 </vector2>
+		<real name="radius"> 20 </real>
+		<real name="height"> 25 </real>
 
 	</resource>
 	<resource type="SpriteFrames" path="local://2">
@@ -38,26 +39,24 @@
 
 	</resource>
 	<resource type="Animation" path="local://3">
+		<string name="resource/name"> "walking" </string>
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
-		<string name="resource/name"> "walking" </string>
 		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "" </node_path>
 		<int name="tracks/0/interp"> 1 </int>
 		<dictionary name="tracks/0/keys" shared="false">
 			<string> "cont" </string>
 			<bool> True </bool>
 			<string> "times" </string>
-			<real_array  len="2"> 				0, 1 </real_array>
+			<real_array  len="0"> 				 </real_array>
 			<string> "transitions" </string>
-			<real_array  len="2"> 				1, 1 </real_array>
+			<real_array  len="0"> 				 </real_array>
 			<string> "values" </string>
-			<array  len="2" shared="false">
-				<int> 0 </int>
-				<int> 12 </int>
+			<array  len="0" shared="false">
 			</array>
 		</dictionary>
-		<node_path name="tracks/0/path"> ".:frame" </node_path>
-		<string name="tracks/0/type"> "value" </string>
 
 	</resource>
 	<main_resource>
@@ -67,9 +66,9 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="39">
+			<string_array  len="56">
 				<string> "enemy_1" </string>
-				<string> "KinematicBody2D" </string>
+				<string> "RigidBody2D" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
 				<string> "visibility/opacity" </string>
@@ -85,10 +84,27 @@
 				<string> "shapes/0/shape" </string>
 				<string> "shapes/0/transform" </string>
 				<string> "shapes/0/trigger" </string>
-				<string> "layers" </string>
-				<string> "collision/margin" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "mode" </string>
+				<string> "mass" </string>
+				<string> "friction" </string>
+				<string> "bounce" </string>
+				<string> "gravity_scale" </string>
+				<string> "custom_integrator" </string>
+				<string> "continuous_cd" </string>
+				<string> "contacts_reported" </string>
+				<string> "contact_monitor" </string>
+				<string> "sleeping" </string>
+				<string> "can_sleep" </string>
+				<string> "velocity/linear" </string>
+				<string> "velocity/angular" </string>
+				<string> "damp_override/linear" </string>
+				<string> "damp_override/angular" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
+				<string> "speed" </string>
+				<string> "rotation_speed" </string>
 				<string> "AnimatedSprite" </string>
 				<string> "frames" </string>
 				<string> "centered" </string>
@@ -111,9 +127,9 @@
 			<string> "node_count" </string>
 			<int> 4 </int>
 			<string> "nodes" </string>
-			<int_array  len="138"> 				-1, -1, 1, 0, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 11, 19, 12, 20, 13, 0, 0, 0, 21, 21, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 22, 14, 23, 1, 24, 8, 25, 8, 26, 15, 0, 1, 0, 27, 27, -1, 9, 2, 0, 28, 3, 29, 5, 30, 16, 31, 17, 32, 1, 33, 2, 34, 18, 35, 19, 0, 0, 0, 36, 36, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 37, 9, 38, 8, 0 </int_array>
+			<int_array  len="172"> 				-1, -1, 1, 0, -1, 36, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 7, 26, 7, 27, 8, 28, 8, 29, 1, 30, 4, 31, 5, 32, 11, 33, 12, 34, 13, 35, 14, 36, 15, 37, 16, 0, 0, 0, 38, 38, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 39, 17, 40, 1, 41, 8, 42, 8, 43, 18, 0, 1, 0, 44, 44, -1, 9, 2, 0, 45, 3, 46, 5, 47, 19, 48, 20, 49, 1, 50, 2, 51, 21, 52, 22, 0, 0, 0, 53, 53, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 23, 8, 5, 9, 6, 10, 7, 11, 1, 54, 9, 55, 8, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="20" shared="false">
+			<array  len="24" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -124,18 +140,19 @@
 				<int> 0 </int>
 				<bool> False </bool>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
-				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
-				<real> 0.08 </real>
+				<matrix32> 1, -0, 0, 1, 0.257027, 5.14049 </matrix32>
+				<real> 4 </real>
+				<real> -1 </real>
 				<resource  resource_type="Script" path="res://scripts/enemy_1.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -164.365, -218.962 </vector2>
+							<vector2> -104.526, -48.3724 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -155,7 +172,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 2.050546 </real>
+							<real> 7.781364 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -252,7 +269,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 3 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="4" shared="false">
 								<string> "res://scripts/enemy_1.gd" </string>
@@ -270,6 +287,8 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<real> 700 </real>
+				<real> 1000 </real>
 				<resource  resource_type="SpriteFrames" path="local://2">  </resource>
 				<color> 1, 1, 1, 1 </color>
 				<node_path> ".." </node_path>
@@ -277,6 +296,7 @@
 				<array  len="0" shared="false">
 				</array>
 				<string> "walking" </string>
+				<vector2> 0.257027, 5.14049 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
