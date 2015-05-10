@@ -2,9 +2,9 @@
 <resource_file type="PackedScene" subresource_count="4" version="1.1" version_name="Godot Engine v1.1.rc2.custom_build">
 	<ext_resource path="res://scripts/bullet.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/bullet.png" type="Texture"></ext_resource>
-	<resource type="RectangleShape2D" path="local://1">
+	<resource type="CircleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2 name="extents"> 5, 5 </vector2>
+		<real name="radius"> 8.5 </real>
 
 	</resource>
 	<main_resource>
@@ -14,7 +14,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="52">
+			<string_array  len="54">
 				<string> "bullet" </string>
 				<string> "RigidBody2D" </string>
 				<string> "_import_path" </string>
@@ -52,6 +52,8 @@
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "speed" </string>
+				<string> "time_left" </string>
+				<string> "damage" </string>
 				<string> "Sprite" </string>
 				<string> "texture" </string>
 				<string> "centered" </string>
@@ -71,9 +73,9 @@
 			<string> "node_count" </string>
 			<int> 3 </int>
 			<string> "nodes" </string>
-			<int_array  len="157"> 				-1, -1, 1, 0, -1, 35, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 11, 21, 2, 22, 5, 23, 2, 24, 8, 25, 3, 26, 12, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 13, 33, 13, 34, 14, 35, 15, 36, 16, 0, 0, 0, 37, 37, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 38, 17, 39, 1, 40, 4, 41, 8, 42, 8, 43, 3, 44, 3, 45, 7, 46, 18, 47, 8, 48, 19, 0, 0, 0, 49, 49, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 50, 9, 51, 8, 0 </int_array>
+			<int_array  len="161"> 				-1, -1, 1, 0, -1, 37, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 11, 18, 3, 19, 7, 20, 12, 21, 2, 22, 5, 23, 2, 24, 8, 25, 3, 26, 13, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 14, 33, 14, 34, 15, 35, 16, 36, 17, 37, 18, 38, 2, 0, 0, 0, 39, 39, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 40, 19, 41, 1, 42, 4, 43, 8, 44, 8, 45, 3, 46, 3, 47, 7, 48, 20, 49, 8, 50, 21, 0, 0, 0, 51, 51, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 52, 9, 53, 8, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="20" shared="false">
+			<array  len="22" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -85,6 +87,7 @@
 				<bool> False </bool>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
 				<matrix32> 1, -0, 0, 1, 0, 0 </matrix32>
+				<int> 2 </int>
 				<real> 0.1 </real>
 				<int> 4 </int>
 				<real> -1 </real>
@@ -232,6 +235,7 @@
 					</dictionary>
 				</dictionary>
 				<real> 700 </real>
+				<real> 10 </real>
 				<resource  resource_type="Texture" path="res://gfx/bullet.png">  </resource>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
