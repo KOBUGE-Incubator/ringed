@@ -131,7 +131,7 @@
 				<resource  resource_type="Script" path="res://scripts/player.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -254,7 +254,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 5 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="6" shared="false">
 								<string> "res://scripts/moveable_object.gd" </string>
@@ -277,7 +277,7 @@
 				<real> 1500 </real>
 				<real> 100 </real>
 				<real> 0.4 </real>
-				<int> 10 </int>
+				<real> 10 </real>
 				<real> 0.1 </real>
 				<vector2> 0, -22 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/player.png">  </resource>

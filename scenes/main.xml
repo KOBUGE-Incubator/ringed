@@ -167,7 +167,7 @@
 				<resource  resource_type="Script" path="res://scripts/main.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -290,14 +290,15 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 3 </int>
+							<int> 1 </int>
 							<string> "sources" </string>
-							<array  len="5" shared="false">
+							<array  len="6" shared="false">
 								<string> "res://scripts/player.gd" </string>
 								<string> "res://scripts/bullet.gd" </string>
 								<string> "res://scripts/timer.gd" </string>
 								<string> "res://scripts/main.gd" </string>
 								<string> "res://scripts/enemy_1.gd" </string>
+								<string> "res://scripts/living_object.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>

@@ -2,7 +2,7 @@
 extends "moveable_object.gd" # Thing that are alive can move
 
 export var heal_cooldown = 0.2 # Time between two succesive auto-heals, or between a damage and an auto-heal
-export var max_health = 6 # The maximum amount of health the creature can have
+export var max_health = 6.0 # The maximum amount of health the creature can have
 var health # The amount of health
 export var hide_when_full = false # Should we hide the healthbar when it is full?
 var healthbar # The healthbar node
@@ -37,7 +37,7 @@ func _fixed_process(delta):
 
 func update_health(): # Update the healthbar (or die)
 	var new_region = healthbar_region # Take the original region
-	new_region.size.x *= health*1.0/max_health # Resize the region on X (We multiply by 1.0 to make them floats and not ints)
+	new_region.size.x *= health/max_health # Resize the region on X
 	healthbar.set_region_rect(new_region) # Apply the new region
 	if(health <= 0):
 		die() # Die when no health is left
@@ -50,12 +50,13 @@ func heal(amount): # Heal by a given amount
 	health = min(health + amount, max_health) # Make sure not to get over max_health
 	update_health() # Update the healthbar
 	
-func can_get_damage(from):
-	return true # Get damage from everything
+func amount_of_damage(from): # Returns a value from 0 to 1 (float) if damaged (how many percent), or returns 0 (int) if no damage is taken
+	return 1.0 # Get full (1.0 == 100%) damage from everything
 
 func damage(from, amount): # Damage the creature from a given source
-	if(can_get_damage(from)):
-		health -= amount # Decrease the health
+	var amount = amount_of_damage(from)
+	if(amount != 0):
+		health -= amount * amount # Decrease the health
 		time_for_next_heal = heal_cooldown # Reset the auto-heal timer
 		update_health() # Update the healthbar
 		return true # Say that the creature was damaged

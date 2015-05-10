@@ -50,10 +50,10 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	
 	get_node("../cursor").set_pos(relative_mouse_pos) # Move the cursor
 
-func can_get_damage(from): # We override the function defined in living_object.gd
+func amount_of_damage(from): # We override the function defined in living_object.gd
 	if(from != "player"): # Don't receive self-damage
-		return true
-	return false
+		return 1.0
+	return 0
 
 func die(): # We override the function defined in living_object.gd
 	get_tree().set_pause(true) # Pause the game when dead
