@@ -69,7 +69,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="70">
+			<string_array  len="72">
 				<string> "enemy_1" </string>
 				<string> "RigidBody2D" </string>
 				<string> "_import_path" </string>
@@ -108,7 +108,9 @@
 				<string> "__meta__" </string>
 				<string> "speed" </string>
 				<string> "rotation_speed" </string>
+				<string> "heal_cooldown" </string>
 				<string> "max_health" </string>
+				<string> "hide_when_full" </string>
 				<string> "cooldown" </string>
 				<string> "AnimatedSprite" </string>
 				<string> "frames" </string>
@@ -144,7 +146,7 @@
 			<string> "node_count" </string>
 			<int> 7 </int>
 			<string> "nodes" </string>
-			<int_array  len="301"> 				-1, -1, 1, 0, -1, 38, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 7, 26, 11, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 12, 33, 13, 34, 14, 35, 15, 36, 16, 37, 17, 38, 18, 39, 19, 0, 0, 0, 40, 40, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 41, 20, 42, 1, 43, 8, 44, 8, 45, 21, 0, 1, 0, 46, 46, -1, 9, 2, 0, 47, 3, 48, 5, 49, 22, 50, 23, 51, 1, 52, 2, 53, 24, 54, 25, 0, 0, 0, 55, 55, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 26, 8, 5, 9, 6, 10, 7, 11, 1, 56, 9, 57, 8, 0, 0, 0, 59, 58, -1, 10, 2, 0, 3, 8, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 0, 4, 0, 61, 60, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 27, 8, 5, 9, 28, 10, 3, 11, 1, 62, 29, 42, 8, 63, 4, 43, 8, 44, 8, 64, 3, 65, 3, 66, 7, 45, 21, 67, 1, 68, 30, 0, 4, 0, 61, 69, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 27, 8, 5, 9, 28, 10, 3, 11, 1, 62, 31, 42, 8, 63, 4, 43, 8, 44, 8, 64, 3, 65, 3, 66, 7, 45, 21, 67, 1, 68, 30, 0 </int_array>
+			<int_array  len="305"> 				-1, -1, 1, 0, -1, 40, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 7, 26, 11, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 12, 33, 13, 34, 14, 35, 15, 36, 16, 37, 17, 38, 2, 39, 18, 40, 1, 41, 19, 0, 0, 0, 42, 42, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 43, 20, 44, 1, 45, 8, 46, 8, 47, 21, 0, 1, 0, 48, 48, -1, 9, 2, 0, 49, 3, 50, 5, 51, 22, 52, 23, 53, 1, 54, 2, 55, 24, 56, 25, 0, 0, 0, 57, 57, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 26, 8, 5, 9, 6, 10, 7, 11, 1, 58, 9, 59, 8, 0, 0, 0, 61, 60, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 0, 4, 0, 63, 62, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 27, 8, 5, 9, 28, 10, 3, 11, 1, 64, 29, 44, 8, 65, 4, 45, 8, 46, 8, 66, 3, 67, 3, 68, 7, 47, 21, 69, 1, 70, 30, 0, 4, 0, 63, 71, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 27, 8, 5, 9, 28, 10, 3, 11, 1, 64, 31, 44, 8, 65, 4, 45, 8, 46, 8, 66, 3, 67, 3, 68, 7, 47, 21, 69, 1, 70, 30, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="32" shared="false">
 				<node_path> "" </node_path>
@@ -164,7 +166,7 @@
 				<resource  resource_type="Script" path="res://scripts/enemy_1.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -287,15 +289,16 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 3 </int>
+							<int> 6 </int>
 							<string> "sources" </string>
-							<array  len="6" shared="false">
+							<array  len="7" shared="false">
 								<string> "res://scripts/enemy_1.gd" </string>
 								<string> "res://scripts/player.gd" </string>
 								<string> "res://scripts/bullet.gd" </string>
 								<string> "res://scripts/main.gd" </string>
 								<string> "res://scripts/moveable_object.gd" </string>
 								<string> "res://scripts/enemy.gd" </string>
+								<string> "res://scripts/living_object.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>
@@ -307,7 +310,7 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<real> 2000 </real>
+				<real> 1500 </real>
 				<real> 1000 </real>
 				<int> 4 </int>
 				<real> 0.2 </real>
