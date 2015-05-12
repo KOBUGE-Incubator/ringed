@@ -54,9 +54,9 @@ func amount_of_damage(from): # Returns a value from 0 to 1 (float) if damaged (h
 	return 1.0 # Get full (1.0 == 100%) damage from everything
 
 func damage(from, amount): # Damage the creature from a given source
-	var amount = amount_of_damage(from)
+	var percent = amount_of_damage(from) # Percent of damage we will get
 	if(amount != 0):
-		health -= amount * amount # Decrease the health
+		health -= percent * amount # Decrease the health
 		time_for_next_heal = heal_cooldown # Reset the auto-heal timer
 		update_health() # Update the healthbar
 		return true # Say that the creature was damaged

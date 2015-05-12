@@ -3,7 +3,7 @@ extends Node2D
 var time = 0 # The time after we spawned the last spider
 var enemy_scn = load("res://scenes/enemy_1.xml") # The spider scene
 var background # The grass node
-var offset # The offset of the background
+var offset = Vector2(0,0)# The offset of the background
 
 func _ready():
 	randomize() # Randomize the seed for all random functions

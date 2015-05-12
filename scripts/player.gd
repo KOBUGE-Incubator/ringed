@@ -2,11 +2,14 @@
 extends "living_object.gd" # The player is alive
 
 export var shot_cooldown = 0.2 # Time between two auto-shots
+export var bomb_cooldown = 0.2 # Time between two auto-bombs
 var bullet_scn = preload("res://scenes/bullet.xml") # The bullet scene
+var bomb_scn = preload("res://scenes/bomb.xml") # The bomb scene
 var mouse_pos = Vector2(0, 0) # The position of the mouse on the screen
 var relative_mouse_pos = Vector2(0, 0) # The position of the mouse in relation to 0,0
 var bullet_offset = Vector2(0, 0) # The offset of the bullet (taken from the "Bullet" node)
 var time_for_next_shot = 0.0 # How much time is left till the next shot?
+var time_for_next_bomb = 0.0 # How much time is left till the next bomb?
 
 func _ready():
 	bullet_offset = get_node("Bullet").get_pos() # We need the position of the tip of the rifle
@@ -27,6 +30,7 @@ func _input(event):
 
 func logic(delta): # We override the function defined in moveable_object.gd
 	time_for_next_shot -= delta # We decrease the time till the next shot by the time elapsed
+	time_for_next_bomb -= delta # We decrease the time till the next bomb by the time elapsed
 	force = Vector2(0,0) # Then we reset the force
 	# We add a vector to the force depending of the direction in which we move
 	if(Input.is_action_pressed("D")):
@@ -37,7 +41,7 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		force += Vector2(0,1)
 	if(Input.is_action_pressed("W")):
 		force += Vector2(0,-1)
-	# If we are pressing "shoot" and we are 
+	# If we are pressing "shoot" and we have no cooldown left
 	if(Input.is_action_pressed("Shot") && time_for_next_shot <= 0):
 		var bullet = bullet_scn.instance() # We instance the bullet scene
 		get_parent().add_child(bullet) # Then we add it to the scene
@@ -45,6 +49,12 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		bullet.angle = get_rot() + deg2rad(180) # We set its course
 		bullet.source = "player" # The player shoots the bullet
 		time_for_next_shot = shot_cooldown # To prevent ultra-fast fire
+	# If we are pressing "bomb" and we have no cooldown left
+	if(Input.is_action_pressed("Bomb") && time_for_next_bomb <= 0):
+		var bomb = bomb_scn.instance() # We instance the bomb scene
+		get_parent().add_child(bomb) # Then we add it to the scene
+		bomb.set_pos(get_pos() + bullet_offset.rotated(get_rot())) # We move the bomb to the right position
+		time_for_next_bomb = bomb_cooldown # To prevent ultra-fast fire
 	
 	target_angle = get_pos().angle_to_point( relative_mouse_pos ) + deg2rad(0) # Set the angle in which the player looks
 	
@@ -56,5 +66,7 @@ func amount_of_damage(from): # We override the function defined in living_object
 	return 0
 
 func die(): # We override the function defined in living_object.gd
-	get_tree().set_pause(true) # Pause the game when dead
+	set_layer_mask(0) # Disable Collisions
+	set_collision_mask(0) # Disable Collisions
+	get_node("AnimationPlayer").play("die")
 
