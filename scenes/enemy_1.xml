@@ -161,13 +161,13 @@
 				<bool> False </bool>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
 				<matrix32> 1, -0, 0, 1, 0.257027, 5.14049 </matrix32>
-				<int> 8 </int>
+				<int> 4 </int>
 				<real> 4 </real>
 				<real> -1 </real>
 				<resource  resource_type="Script" path="res://scripts/enemy_1.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -290,7 +290,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 0 </int>
+							<int> 5 </int>
 							<string> "sources" </string>
 							<array  len="6" shared="false">
 								<string> "res://scripts/enemy_1.gd" </string>

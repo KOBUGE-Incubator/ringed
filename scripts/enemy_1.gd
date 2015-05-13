@@ -18,7 +18,6 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		if(body.has_method("damage") && cooldown_left <= 0):
 			if(body.damage("spider",damage)): # If we can damage them
 				cooldown_left = cooldown # Increase the timeout
-				heal(0.5) # Heal a bit
 
 func amount_of_damage(from): # We override the function defined in living_object.gd
 	if(from != "spider"):
