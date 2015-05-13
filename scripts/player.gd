@@ -69,4 +69,6 @@ func die(): # We override the function defined in living_object.gd
 	set_layer_mask(0) # Disable Collisions
 	set_collision_mask(0) # Disable Collisions
 	get_node("AnimationPlayer").play("die")
+	get_tree().set_pause(true)
+	get_node("../CanvasLayer 2/death_screen").show()
 
