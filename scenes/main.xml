@@ -174,7 +174,7 @@
 				<resource  resource_type="Script" path="res://scripts/main.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -465,8 +465,6 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_show_subtree" </string>
-					<bool> True </bool>
-					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<vector2> 1.5, 1.5 </vector2>
@@ -760,6 +758,8 @@
 						<string> "run_mode" </string>
 						<int> 0 </int>
 					</dictionary>
+					<string> "__editor_show_subtree" </string>
+					<bool> True </bool>
 				</dictionary>
 				<resource  resource_type="PackedScene" path="res://scenes/death_screen.xml">  </resource>
 				<int> 2 </int>

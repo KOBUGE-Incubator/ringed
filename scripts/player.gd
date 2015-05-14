@@ -72,3 +72,11 @@ func die(): # We override the function defined in living_object.gd
 	get_tree().set_pause(true)
 	get_node("../CanvasLayer 2/death_screen").show()
 
+func camera_shake(max_shake,intensity,explosion_pos,explosion_range): # will shake the camera
+	var relative_distance = (self.get_pos()-explosion_pos).length()
+	var distance_shake = (explosion_range - relative_distance)/explosion_range
+	if distance_shake <= 0:
+		distance_shake = 0
+	var x_shake = rand_range(-1,1) * max_shake * intensity * distance_shake # offset in x direction
+	var y_shake = rand_range(-1,1) * max_shake * intensity * distance_shake # offset in y direction
+	get_node("Camera2D").set_offset(Vector2(x_shake,y_shake))
