@@ -10,6 +10,8 @@ var relative_mouse_pos = Vector2(0, 0) # The position of the mouse in relation t
 var bullet_offset = Vector2(0, 0) # The offset of the bullet (taken from the "Bullet" node)
 var time_for_next_shot = 0.0 # How much time is left till the next shot?
 var time_for_next_bomb = 0.0 # How much time is left till the next bomb?
+var camera_shake_time_left = 0.0 # How much time is left before the shake stops?
+var camera_shake_distance = 0.0 # The range of the shake
 
 func _ready():
 	bullet_offset = get_node("Bullet").get_pos() # We need the position of the tip of the rifle
@@ -23,6 +25,14 @@ func _ready():
 func _process(delta):
 	var offset = -get_viewport().get_canvas_transform().o # Get the offset
 	relative_mouse_pos = mouse_pos + offset # And add it to the mouse position
+	if(camera_shake_time_left > 0):
+		camera_shake_time_left = camera_shake_time_left - delta
+		camera_shake_distance = lerp(camera_shake_distance,0,delta * camera_shake_time_left) # Decrease the distance
+		var x_shake = rand_range(-1,1) * camera_shake_distance # Offset in x direction
+		var y_shake = rand_range(-1,1) * camera_shake_distance # Offset in y direction
+		get_node("Camera2D").set_offset(Vector2(x_shake,y_shake)) # Set the offset of the camera
+	else:
+		camera_shake_time_left = 0.0 # Make it zero
 
 func _input(event):
 	if(event.type == InputEvent.MOUSE_MOTION): # When we move the mouse
@@ -69,14 +79,12 @@ func die(): # We override the function defined in living_object.gd
 	set_layer_mask(0) # Disable Collisions
 	set_collision_mask(0) # Disable Collisions
 	get_node("AnimationPlayer").play("die")
-	get_tree().set_pause(true)
+	#get_tree().set_pause(true)
 	get_node("../CanvasLayer 2/death_screen").show()
 
-func camera_shake(max_shake,intensity,explosion_pos,explosion_range): # will shake the camera
-	var relative_distance = (self.get_pos()-explosion_pos).length()
-	var distance_shake = (explosion_range - relative_distance)/explosion_range
-	if distance_shake <= 0:
-		distance_shake = 0
-	var x_shake = rand_range(-1,1) * max_shake * intensity * distance_shake # offset in x direction
-	var y_shake = rand_range(-1,1) * max_shake * intensity * distance_shake # offset in y direction
-	get_node("Camera2D").set_offset(Vector2(x_shake,y_shake))
+func camera_shake(intensity, explosion_pos, explosion_range, time): # Will shake the camera
+	var explosion_distance = (get_pos()-explosion_pos).length()
+	camera_shake_distance = max((explosion_range - explosion_distance)/explosion_range, 0) # Clam it so it isn't less than 0
+	camera_shake_distance += camera_shake_distance * intensity # Increase the shake distance
+	camera_shake_time_left += time # Increase the shake time
+	

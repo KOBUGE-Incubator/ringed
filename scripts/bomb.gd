@@ -4,10 +4,7 @@ extends RigidBody2D
 export var time_till_explode = 2.0 # Seconds untill the explosion happens
 export var damage = 1.0 # The amount of damage we deal
 var exploded = false # Did we already explode?
-var camera_shake_intensity = 12 # maximum camera offset for the shake animation (in pixels)
-var camera_shake_time # seconds till the explosion animation is finished
-var camera_shake_time_total # total seconds of the camera shake animation
-var camera_shake_distance = 600 # radius around the bomb where the shake still applies (in pixels)
+var camera_shake_distance = 600 # Radius around the bomb where the shake still applies (in pixels)
 var anim_player # for saving the bomb's animation player
 var player # for saving the player node
 
@@ -30,18 +27,11 @@ func _fixed_process(delta):
 		set_layer_mask(0) # Make so the bomb collides with nothing
 		set_collision_mask(0) # Make so nothing collides with the bomb
 		anim_player.play("explode") # Play the explode animation
-		camera_shake_time = anim_player.get_current_animation_length() # seconds till the explosion animation is finished
-		camera_shake_time_total = camera_shake_time # save the initinal shake time
+		player.camera_shake(12, get_pos(), camera_shake_distance, 1) # Shake the player's camera
 		exploded = true # Prevent damage on every frame
-	if(time_till_explode <= 0 && camera_shake_time > 0): # while exploding, shake the camera
-		var intensity = camera_shake_time/camera_shake_time_total # create decreasing intensity
-		var bomb_pos = self.get_pos() # get current position
-		player.camera_shake(camera_shake_intensity,intensity,bomb_pos,camera_shake_distance) # set the new shake position
-		camera_shake_time -= delta # decrease remaining shake time
 
 func finish(): # Called when the animationPlayer finishes playing an animation
 	if(exploded): # Make sure the right animation finished
-		player.camera_shake(0,0,Vector2(0,0),camera_shake_distance) # set the camera offset back to normal
 		queue_free() # Delete
 
 func damage(from, amount):
