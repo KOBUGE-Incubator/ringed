@@ -27,7 +27,7 @@ func _fixed_process(delta):
 		set_layer_mask(0) # Make so the bomb collides with nothing
 		set_collision_mask(0) # Make so nothing collides with the bomb
 		anim_player.play("explode") # Play the explode animation
-		player.camera_shake(12, get_pos(), camera_shake_distance, 1) # Shake the player's camera
+		player.camera_shake(12, get_pos(), camera_shake_distance, 3) # Shake the player's camera
 		exploded = true # Prevent damage on every frame
 
 func finish(): # Called when the animationPlayer finishes playing an animation

@@ -33,6 +33,7 @@ func _process(delta):
 		get_node("Camera2D").set_offset(Vector2(x_shake,y_shake)) # Set the offset of the camera
 	else:
 		camera_shake_time_left = 0.0 # Make it zero
+		get_node("Camera2D").set_offset(Vector2(0,0)) # Reset the offset of the camera
 
 func _input(event):
 	if(event.type == InputEvent.MOUSE_MOTION): # When we move the mouse
@@ -56,7 +57,8 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		var bullet = bullet_scn.instance() # We instance the bullet scene
 		get_parent().add_child(bullet) # Then we add it to the scene
 		bullet.set_pos(get_pos() + bullet_offset.rotated(get_rot())) # We move the bullet to the right position
-		bullet.angle = get_rot() + deg2rad(180) # We set its course
+		bullet.set_rot(get_rot()) # Also we rotate it
+		bullet.force = Vector2(0,bullet.speed).rotated(get_rot() + deg2rad(180)) + get_linear_velocity() # We set its course
 		bullet.source = "player" # The player shoots the bullet
 		time_for_next_shot = shot_cooldown # To prevent ultra-fast fire
 	# If we are pressing "bomb" and we have no cooldown left

@@ -1,7 +1,7 @@
 # bullet.gd -> RigidBody2D
 extends RigidBody2D
 
-var angle = 0.0 # The angle of movement
+var force = Vector2(0,0) # The force of movement
 var source = "magic" # The shooter of the bullet
 export var speed = 60.0 # The speed of the bullet (around 700 makes for a normal spped)
 export var time_left = 10.0 # The time left for the bullet to live
@@ -15,7 +15,7 @@ func _ready():
 func _fixed_process(delta):
 	time_left -= delta # Decrease the time left for the bullet to live
 	
-	set_linear_velocity(Vector2(0,speed).rotated(angle)) # Set its velocity
+	set_linear_velocity(force) # Set its velocity
 	
 	if(time_left < 0):
 		queue_free() # Die when no time is left
