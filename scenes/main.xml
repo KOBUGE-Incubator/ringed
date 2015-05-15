@@ -180,7 +180,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -437.063, -81.3896 </vector2>
+							<vector2> -793.618, -569.892 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -200,7 +200,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.902501 </real>
+							<real> 0.397214 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -297,7 +297,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 6 </int>
+							<int> 5 </int>
 							<string> "sources" </string>
 							<array  len="7" shared="false">
 								<string> "res://scripts/player.gd" </string>
@@ -465,6 +465,8 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_show_subtree" </string>
+					<bool> True </bool>
+					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<vector2> 1.5, 1.5 </vector2>
@@ -758,7 +760,7 @@
 						<string> "run_mode" </string>
 						<int> 0 </int>
 					</dictionary>
-					<string> "__editor_show_subtree" </string>
+					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<resource  resource_type="PackedScene" path="res://scenes/death_screen.xml">  </resource>

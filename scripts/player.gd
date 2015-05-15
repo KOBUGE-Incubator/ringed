@@ -2,20 +2,22 @@
 extends "living_object.gd" # The player is alive
 
 export var shot_cooldown = 0.2 # Time between two auto-shots
-export var bomb_cooldown = 0.2 # Time between two auto-bombs
+export var gun_change_cooldown = 0.2 # Time between two auto-bombs
 var bullet_scn = preload("res://scenes/bullet.xml") # The bullet scene
 var bomb_scn = preload("res://scenes/bomb.xml") # The bomb scene
 var mouse_pos = Vector2(0, 0) # The position of the mouse on the screen
 var relative_mouse_pos = Vector2(0, 0) # The position of the mouse in relation to 0,0
 var bullet_offset = Vector2(0, 0) # The offset of the bullet (taken from the "Bullet" node)
 var time_for_next_shot = 0.0 # How much time is left till the next shot?
-var time_for_next_bomb = 0.0 # How much time is left till the next bomb?
+var time_for_next_gun_change = 0.0 # How much time is left till the next gun change?
 var camera_shake_time_left = 0.0 # How much time is left before the shake stops?
 var camera_shake_distance = 0.0 # The range of the shake
+var current_gun = 0 # The ID of the current gun
+var current_gun_node # The node of that gun
+var switch_weapon = 0 # -1 if we need to switch to the previous weapon, +1 for the next, and 0 otherwise
 
 func _ready():
-	bullet_offset = get_node("Bullet").get_pos() # We need the position of the tip of the rifle
-	
+	current_gun_node = get_node("Guns").get_child(current_gun)
 	set_process(true) # We use _process to offset the mouse
 	set_process_input(true) # We use _input to get the mouse position
 	
@@ -27,7 +29,7 @@ func _process(delta):
 	relative_mouse_pos = mouse_pos + offset # And add it to the mouse position
 	if(camera_shake_time_left > 0):
 		camera_shake_time_left = camera_shake_time_left - delta
-		camera_shake_distance = lerp(camera_shake_distance,0,delta * camera_shake_time_left) # Decrease the distance
+		camera_shake_distance = lerp(camera_shake_distance,0,2 * delta) # Decrease the distance
 		var x_shake = rand_range(-1,1) * camera_shake_distance # Offset in x direction
 		var y_shake = rand_range(-1,1) * camera_shake_distance # Offset in y direction
 		get_node("Camera2D").set_offset(Vector2(x_shake,y_shake)) # Set the offset of the camera
@@ -38,10 +40,15 @@ func _process(delta):
 func _input(event):
 	if(event.type == InputEvent.MOUSE_MOTION): # When we move the mouse
 		mouse_pos = event.pos # We change the position of it
+	if(event.type == InputEvent.MOUSE_BUTTON): # When we click the mouse
+		if(event.button_mask & 16): # Scroll up
+			switch_weapon = 1
+		elif(event.button_mask & 8): # Scroll down
+			switch_weapon = -1
 
 func logic(delta): # We override the function defined in moveable_object.gd
 	time_for_next_shot -= delta # We decrease the time till the next shot by the time elapsed
-	time_for_next_bomb -= delta # We decrease the time till the next bomb by the time elapsed
+	time_for_next_gun_change -= delta # We decrease the time till the next gun change by the time elapsed
 	force = Vector2(0,0) # Then we reset the force
 	# We add a vector to the force depending of the direction in which we move
 	if(Input.is_action_pressed("D")):
@@ -53,20 +60,21 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	if(Input.is_action_pressed("W")):
 		force += Vector2(0,-1)
 	# If we are pressing "shoot" and we have no cooldown left
-	if(Input.is_action_pressed("Shot") && time_for_next_shot <= 0):
-		var bullet = bullet_scn.instance() # We instance the bullet scene
-		get_parent().add_child(bullet) # Then we add it to the scene
-		bullet.set_pos(get_pos() + bullet_offset.rotated(get_rot())) # We move the bullet to the right position
-		bullet.set_rot(get_rot()) # Also we rotate it
-		bullet.force = Vector2(0,bullet.speed).rotated(get_rot() + deg2rad(180)) + get_linear_velocity() # We set its course
-		bullet.source = "player" # The player shoots the bullet
-		time_for_next_shot = shot_cooldown # To prevent ultra-fast fire
-	# If we are pressing "bomb" and we have no cooldown left
-	if(Input.is_action_pressed("Bomb") && time_for_next_bomb <= 0):
-		var bomb = bomb_scn.instance() # We instance the bomb scene
-		get_parent().add_child(bomb) # Then we add it to the scene
-		bomb.set_pos(get_pos() + bullet_offset.rotated(get_rot())) # We move the bomb to the right position
-		time_for_next_bomb = bomb_cooldown # To prevent ultra-fast fire
+	if(Input.is_action_pressed("Shot")):
+		current_gun_node.shot()
+	# If we are pressing "Next Weapon" and we have no cooldown left
+	if(Input.is_action_pressed("Next_weapon") && time_for_next_gun_change <= 0):
+		switch_weapon = 1
+	if(Input.is_action_pressed("Prev_weapon") && time_for_next_gun_change <= 0):
+		switch_weapon = -1
+	if(switch_weapon != 0):
+		var guns = get_node("Guns").get_child_count() # The amount of guns we have
+		current_gun_node.hide() # Hide the current gun
+		current_gun = (current_gun + switch_weapon + guns) % guns # Switch
+		current_gun_node = get_node("Guns").get_child(current_gun) # Take the gun
+		current_gun_node.show() # Show it
+		time_for_next_gun_change = gun_change_cooldown # To prevent ultra-fast change
+		switch_weapon = 0 # To prevent locking
 	
 	target_angle = get_pos().angle_to_point( relative_mouse_pos ) + deg2rad(0) # Set the angle in which the player looks
 	

@@ -3,6 +3,7 @@ extends RigidBody2D
 
 var force = Vector2(0,0) # The force of movement
 var source = "magic" # The shooter of the bullet
+var die_on_timeout = true # Should the bullet be removed when there is no time left?
 export var speed = 60.0 # The speed of the bullet (around 700 makes for a normal spped)
 export var time_left = 10.0 # The time left for the bullet to live
 export var damage = 1.0 # The damage that the bullet will cause
@@ -17,7 +18,7 @@ func _fixed_process(delta):
 	
 	set_linear_velocity(force) # Set its velocity
 	
-	if(time_left < 0):
+	if(time_left < 0 && die_on_timeout):
 		queue_free() # Die when no time is left
 	
 	for body in get_colliding_bodies(): # For each boddy we collide with
