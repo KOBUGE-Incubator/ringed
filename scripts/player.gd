@@ -22,7 +22,6 @@ func _ready():
 	set_process_input(true) # We use _input to get the mouse position
 	
 	Input.set_mouse_mode(1) # Hide the mouse
-	
 
 func _process(delta):
 	var offset = -get_viewport().get_canvas_transform().o # Get the offset
