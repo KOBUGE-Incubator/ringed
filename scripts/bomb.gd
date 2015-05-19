@@ -1,6 +1,7 @@
 # bomb.gd -> bullet.gd -> RigidBody2D
 extends "bullet.gd"
 
+export var push = 500.0 # The amount of power with which the bomb pushes
 var exploded = false # Did we already explode?
 var camera_shake_distance = 600 # Radius around the bomb where the shake still applies (in pixels)
 var anim_player # for saving the bomb's animation player
@@ -18,9 +19,12 @@ func _fixed_process(delta):
 	if(time_left <= 0 && !exploded): # Enough time had passed
 		var bodies = get_node("Area2D").get_overlapping_bodies()
 		for body in bodies: # Loop through all the coliding bodies
+			var diminish = max(200/(get_pos() - body.get_pos()).length() - 1, 0) # Diminish the amount of damage and push based on the distance
 			if(body.has_method("damage")): # And damage them, if possible
-				var diminish = max(200/(get_pos() - body.get_pos()).length() - 1, 0) # Diminish the amount of damage based on the distance
 				body.damage("bomb",damage * diminish)
+			if(body extends RigidBody2D): # When it is a rigidbody
+				var direction = (body.get_pos() - get_pos()).normalized() # The direction in which we push
+				body.apply_impulse(get_pos(), direction * diminish * push) # Move it awaty from the bomb
 		set_layer_mask(0) # Make so the bomb collides with nothing
 		set_collision_mask(0) # Make so nothing collides with the bomb
 		anim_player.play("explode") # Play the explode animation

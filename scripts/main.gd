@@ -20,6 +20,7 @@ func _process(delta):
 
 func _fixed_process(delta):
 	time += delta # Increase the time left till the next spider by the time elapsed
+	return
 	if time > 1: # Enough time had passed
 		time = 0 # Reset the timer
 		var x = 0 # The X position of the new spider
