@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="10" version="1.1" version_name="Godot Engine v1.1.rc3.custom_build">
+<resource_file type="PackedScene" subresource_count="11" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://scripts/player.gd" type="Script"></ext_resource>
+	<ext_resource path="res://gfx/light.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scenes/gun.xml" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scenes/gun_bomb.xml" type="PackedScene"></ext_resource>
 	<ext_resource path="res://gfx/player.png" type="Texture"></ext_resource>
@@ -79,7 +80,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="93">
+			<string_array  len="108">
 				<string> "player" </string>
 				<string> "RigidBody2D" </string>
 				<string> "_import_path" </string>
@@ -126,6 +127,23 @@
 				<string> "hide_when_full" </string>
 				<string> "shot_cooldown" </string>
 				<string> "gun_change_cooldown" </string>
+				<string> "Light2D" </string>
+				<string> "enabled" </string>
+				<string> "texture" </string>
+				<string> "offset" </string>
+				<string> "scale" </string>
+				<string> "color" </string>
+				<string> "energy" </string>
+				<string> "range/height" </string>
+				<string> "range/z_min" </string>
+				<string> "range/z_max" </string>
+				<string> "range/layer_min" </string>
+				<string> "range/layer_max" </string>
+				<string> "range/item_mask" </string>
+				<string> "shadow/enabled" </string>
+				<string> "shadow/buffer_size" </string>
+				<string> "shadow/esm_multiplier" </string>
+				<string> "shadow/item_mask" </string>
 				<string> "CollisionShape2D" </string>
 				<string> "shape" </string>
 				<string> "trigger" </string>
@@ -135,9 +153,7 @@
 				<string> "Normal" </string>
 				<string> "Bomb" </string>
 				<string> "Sprite" </string>
-				<string> "texture" </string>
 				<string> "centered" </string>
-				<string> "offset" </string>
 				<string> "flip_h" </string>
 				<string> "flip_v" </string>
 				<string> "vframes" </string>
@@ -175,11 +191,11 @@
 				<string> "autoplay" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 12 </int>
+			<int> 13 </int>
 			<string> "nodes" </string>
-			<int_array  len="464"> 				-1, -1, 1, 0, -1, 44, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 8, 17, 12, 18, 13, 19, 8, 20, 3, 21, 3, 22, 9, 23, 2, 24, 2, 25, 5, 26, 2, 27, 8, 28, 7, 29, 7, 30, 8, 31, 8, 32, 1, 33, 4, 34, 5, 35, 14, 36, 15, 37, 16, 38, 17, 39, 18, 40, 19, 41, 2, 42, 20, 43, 8, 44, 21, 45, 22, 0, 0, 0, 46, 46, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 23, 8, 5, 9, 6, 10, 7, 11, 1, 47, 10, 48, 8, 0, 0, 0, 46, 49, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 24, 8, 5, 9, 6, 10, 7, 11, 1, 47, 12, 48, 8, 0, 0, 0, 51, 50, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 25, 8, 5, 9, 6, 10, 7, 11, 1, 0, 3, 0, 51, 52, 26, 2, 2, 0, 38, 27, 0, 3, 0, 51, 53, 28, 3, 2, 0, 3, 8, 38, 29, 0, 0, 0, 54, 54, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 30, 8, 5, 9, 6, 10, 7, 11, 1, 55, 31, 56, 1, 57, 4, 58, 8, 59, 8, 60, 3, 61, 3, 62, 7, 63, 32, 64, 8, 65, 33, 0, 0, 0, 66, 66, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 56, 1, 67, 8, 68, 1, 69, 34, 70, 6, 71, 35, 72, 35, 73, 36, 74, 36, 75, 1, 76, 1, 77, 37, 78, 37, 79, 37, 80, 37, 0, 0, 0, 51, 81, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 9, 11, 1, 0, 8, 0, 54, 82, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 38, 8, 5, 9, 6, 10, 7, 11, 1, 55, 39, 56, 8, 57, 4, 58, 8, 59, 8, 60, 3, 61, 3, 62, 7, 63, 32, 64, 1, 65, 40, 0, 8, 0, 54, 83, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 38, 8, 5, 9, 6, 10, 7, 11, 1, 55, 41, 56, 8, 57, 4, 58, 8, 59, 8, 60, 3, 61, 3, 62, 7, 63, 32, 64, 1, 65, 40, 0, 0, 0, 84, 84, -1, 9, 2, 0, 85, 3, 86, 5, 87, 42, 88, 43, 89, 1, 90, 2, 91, 44, 92, 45, 0 </int_array>
+			<int_array  len="525"> 				-1, -1, 1, 0, -1, 44, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 8, 17, 12, 18, 13, 19, 8, 20, 3, 21, 3, 22, 9, 23, 2, 24, 2, 25, 5, 26, 2, 27, 8, 28, 7, 29, 7, 30, 8, 31, 8, 32, 1, 33, 4, 34, 5, 35, 14, 36, 15, 37, 16, 38, 17, 39, 18, 40, 19, 41, 2, 42, 20, 43, 8, 44, 21, 45, 22, 0, 0, 0, 46, 46, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 23, 8, 5, 9, 24, 10, 7, 11, 1, 47, 1, 48, 25, 49, 4, 50, 2, 51, 26, 52, 2, 22, 7, 53, 2, 54, 27, 55, 28, 56, 7, 57, 7, 58, 3, 59, 1, 60, 29, 61, 30, 62, 3, 0, 0, 0, 63, 63, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 31, 8, 5, 9, 6, 10, 7, 11, 1, 64, 10, 65, 8, 0, 0, 0, 63, 66, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 32, 8, 5, 9, 6, 10, 7, 11, 1, 64, 12, 65, 8, 0, 0, 0, 68, 67, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 33, 8, 5, 9, 6, 10, 7, 11, 1, 0, 4, 0, 68, 69, 34, 2, 2, 0, 38, 35, 0, 4, 0, 68, 70, 36, 3, 2, 0, 3, 8, 38, 37, 0, 0, 0, 71, 71, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 38, 8, 5, 9, 6, 10, 7, 11, 1, 48, 39, 72, 1, 49, 4, 73, 8, 74, 8, 75, 3, 76, 3, 77, 7, 78, 40, 79, 8, 80, 41, 0, 0, 0, 81, 81, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 72, 1, 82, 8, 83, 1, 84, 42, 85, 6, 86, 43, 87, 43, 88, 44, 89, 44, 90, 1, 91, 1, 92, 45, 93, 45, 94, 45, 95, 45, 0, 0, 0, 68, 96, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 9, 11, 1, 0, 9, 0, 71, 97, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 46, 8, 5, 9, 6, 10, 7, 11, 1, 48, 47, 72, 8, 49, 4, 73, 8, 74, 8, 75, 3, 76, 3, 77, 7, 78, 40, 79, 1, 80, 48, 0, 9, 0, 71, 98, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 46, 8, 5, 9, 6, 10, 7, 11, 1, 48, 49, 72, 8, 49, 4, 73, 8, 74, 8, 75, 3, 76, 3, 77, 7, 78, 40, 79, 1, 80, 48, 0, 0, 0, 99, 99, -1, 9, 2, 0, 100, 3, 101, 5, 102, 50, 103, 51, 104, 1, 105, 2, 106, 52, 107, 53, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="46" shared="false">
+			<array  len="54" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -199,13 +215,13 @@
 				<resource  resource_type="Script" path="res://scripts/player.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -223.16, -132.093 </vector2>
+							<vector2> -363.398, -201.034 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -225,7 +241,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 3.794779 </real>
+							<real> 1.50734 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -322,7 +338,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 5 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="7" shared="false">
 								<string> "res://scripts/moveable_object.gd" </string>
@@ -348,6 +364,14 @@
 				<real> 10 </real>
 				<real> 0.1 </real>
 				<real> 0.2 </real>
+				<vector2> 5.29622, 0.776039 </vector2>
+				<vector2> 0.595073, 0.595073 </vector2>
+				<resource  resource_type="Texture" path="res://gfx/light.png">  </resource>
+				<color> 0.681111, 0.681111, 0.681111, 1 </color>
+				<int> -1024 </int>
+				<int> 1024 </int>
+				<int> 2048 </int>
+				<real> 80 </real>
 				<vector2> -0.460541, -0.338449 </vector2>
 				<vector2> -0.460541, -27.1862 </vector2>
 				<vector2> 1.35597, -14.9158 </vector2>

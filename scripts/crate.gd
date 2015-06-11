@@ -6,9 +6,11 @@ export var step = 10.0 # The step after which we make one particle
 var camera_shake_distance = 300 # Radius around the bomb where the shake still applies (in pixels)
 var health = 0.0 # The current amount of health
 var anim_player # Then animation player node
+var occluder # The light occluder of the box
 
 func _ready():
 	anim_player = get_node("AnimationPlayer") # Get the node
+	occluder = get_node("Sprite/LightOccluder2D") # Get the node
 	anim_player.connect("finished", self, "finish") # We connect the animation player's finished signal to the finish function
 	health = max_health # Reset health
 
