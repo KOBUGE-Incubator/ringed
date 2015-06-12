@@ -4,12 +4,10 @@ var time = 3 # The time after we spawned the last spider
 var enemy_scn = load("res://scenes/enemy_1.xml") # The spider scene
 var background # The grass node
 var offset = Vector2(0,0)# The offset of the background
-var player # The player
 
 func _ready():
 	randomize() # Randomize the seed for all random functions
-	background = get_node("background") # Take the background node
-	player = get_node("player")
+	background = get_node("CanvasLayer/background") # Take the background node
 	set_fixed_process(true) # We use _fixed_process to spawn spiders
 	set_process(true) # We use _process to move the background
 	
@@ -17,10 +15,9 @@ func _process(delta):
 	offset = -get_viewport().get_canvas_transform().o # The offset of the viewport
 	var o = offset/Vector2(1024,768) # We divide it by the original screen size, so it will match the UV coordinates of the background sprite
 	background.get_material().set_shader_param("Offset",Vector3(o.x,o.y,0)) # Pass the offset to the shader
-	#background.set_region_rect(get_viewport_rect()) # And set the region of the background
+	background.set_region_rect(get_viewport_rect()) # And set the region of the background
 
 func _fixed_process(delta):
-	background.set_pos(player.get_pos())
 	time += delta # Increase the time left till the next spider by the time elapsed
 	if time > 1: # Enough time had passed
 		time = 0 # Reset the timer
