@@ -1,5 +1,5 @@
 # ringed
 Topdown Shooter
-![](http://kobuge.org/wp-content/uploads/2015/05/ringed.jpg)
+![](http://s8.postimg.org/ulwe7dbtv/Ringed.png)
 
 www.kobuge.org
