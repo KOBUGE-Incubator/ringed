@@ -74,6 +74,22 @@
 				<bool> False </bool>
 			</array>
 		</dictionary>
+		<string name="tracks/2/type"> "value" </string>
+		<node_path name="tracks/2/path"> "Sprite/LightOccluder2D:transform/scale" </node_path>
+		<int name="tracks/2/interp"> 1 </int>
+		<dictionary name="tracks/2/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 0.5 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<vector2> 8, 8 </vector2>
+				<vector2> 1e-005, 1e-005 </vector2>
+			</array>
+		</dictionary>
 
 	</resource>
 	<main_resource>
@@ -234,7 +250,7 @@
 				<resource  resource_type="Script" path="res://scripts/crate.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
