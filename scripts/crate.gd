@@ -31,6 +31,6 @@ func damage(from, amount): # Damage the creature from a given source
 				break
 	return true # Say that the box was damaged
 
-func finished():
+func finish():
 	if(health < 0.0): # Make sure that we should really remove it
 		queue_free()
