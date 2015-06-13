@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="3" version="1.1" version_name="Godot Engine v1.1.rc2.custom_build">
+<resource_file type="PackedScene" subresource_count="3" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://scripts/gun.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/gun_bomb.png" type="Texture"></ext_resource>
 	<main_resource>
@@ -9,7 +9,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="30">
+			<string_array  len="31">
 				<string> "Gun" </string>
 				<string> "Node2D" </string>
 				<string> "_import_path" </string>
@@ -26,6 +26,7 @@
 				<string> "__meta__" </string>
 				<string> "shot_cooldown" </string>
 				<string> "bullet_scn_path" </string>
+				<string> "hasShotLight" </string>
 				<string> "Sprite" </string>
 				<string> "texture" </string>
 				<string> "centered" </string>
@@ -44,7 +45,7 @@
 			<string> "node_count" </string>
 			<int> 3 </int>
 			<string> "nodes" </string>
-			<int_array  len="111"> 				-1, -1, 1, 0, -1, 14, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 0, 0, 0, 16, 16, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 12, 8, 5, 9, 6, 10, 7, 11, 1, 17, 13, 18, 1, 19, 14, 20, 15, 21, 15, 22, 3, 23, 3, 24, 7, 25, 16, 26, 15, 27, 17, 0, 0, 0, 29, 28, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 18, 8, 5, 9, 6, 10, 7, 11, 1, 0 </int_array>
+			<int_array  len="113"> 				-1, -1, 1, 0, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 0, 0, 0, 17, 17, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 13, 8, 5, 9, 6, 10, 7, 11, 1, 18, 14, 19, 1, 20, 15, 21, 12, 22, 12, 23, 3, 24, 3, 25, 7, 26, 16, 27, 12, 28, 17, 0, 0, 0, 30, 29, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 18, 8, 5, 9, 6, 10, 7, 11, 1, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="19" shared="false">
 				<node_path> "" </node_path>
@@ -64,7 +65,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -132.652, -67.1597 </vector2>
+							<vector2> -335.137, -202.414 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -84,7 +85,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 5.72002 </real>
+							<real> 2.272074 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -181,7 +182,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 1 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="3" shared="false">
 								<string> "res://scripts/gun.gd" </string>
@@ -200,10 +201,10 @@
 				</dictionary>
 				<real> 0.6 </real>
 				<string> "res://scenes/bomb.xml" </string>
+				<bool> False </bool>
 				<vector2> -0.427193, -6.40781 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/gun_bomb.png">  </resource>
 				<vector2> 0, 0 </vector2>
-				<bool> False </bool>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
 				<vector2> -0.104676, -32.9723 </vector2>
