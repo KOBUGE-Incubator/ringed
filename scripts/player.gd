@@ -15,15 +15,19 @@ var camera_shake_distance = 0.0 # The range of the shake
 var current_gun = 0 # The ID of the current gun
 var current_gun_node # The node of that gun
 var switch_weapon = 0 # -1 if we need to switch to the previous weapon, +1 for the next, and 0 otherwise
+var gunSounds # The sounds of the guns
+var stepSounds # The sounds of the steps
 
 func _ready():
 	current_gun_node = get_node("Guns").get_child(current_gun)
+	gunSounds = get_node("GunSounds") # We use this node to get the gun sounds
+	stepSounds = get_node("StepsSounds") # We use this node to get the steps sounds
 	set_process(true) # We use _process to offset the mouse
 	set_process_input(true) # We use _input to get the mouse position
-	
 	Input.set_mouse_mode(1) # Hide the mouse
 
 func _process(delta):
+	
 	var offset = -get_viewport().get_canvas_transform().o # Get the offset
 	relative_mouse_pos = mouse_pos + offset # And add it to the mouse position
 	if(camera_shake_time_left > 0):
@@ -52,15 +56,28 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	# We add a vector to the force depending of the direction in which we move
 	if(Input.is_action_pressed("D")):
 		force += Vector2(1,0)
+		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
+			stepSounds.play("grass_steps") # The sound of the steps in grass
 	if(Input.is_action_pressed("A")):
 		force += Vector2(-1,0)
+		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
+			stepSounds.play("grass_steps") # The sound of the steps in grass
 	if(Input.is_action_pressed("S")):
 		force += Vector2(0,1)
+		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
+			stepSounds.play("grass_steps") # The sound of the steps in grass
 	if(Input.is_action_pressed("W")):
 		force += Vector2(0,-1)
-	# If we are pressing "shoot" and we have no cooldown left
+		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
+			stepSounds.play("grass_steps") # The sound of the steps in grass
+	if(Input.is_key_pressed(InputEvent.NONE)):
+		print("nothing")
+		stepSounds.stop_all()
+		# If we are pressing "shoot" and we have no cooldown left
 	if(Input.is_action_pressed("Shot")):
 		current_gun_node.shot()
+		if(current_gun == 0): # If is the gun 1 that is fired
+			gunSounds.play("gun1") # Reproduces the gun 1 sound
 	# If we are pressing "Next Weapon" and we have no cooldown left
 	if(Input.is_action_pressed("Next_weapon") && time_for_next_gun_change <= 0):
 		switch_weapon = 1
