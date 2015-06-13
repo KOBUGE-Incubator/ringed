@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="21" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
+<resource_file type="PackedScene" subresource_count="22" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://scripts/enemy_1.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/1.png" type="Texture"></ext_resource>
@@ -14,6 +14,7 @@
 	<ext_resource path="res://gfx/enemy_1/7.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/8.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/9.png" type="Texture"></ext_resource>
+	<ext_resource path="res://materials/unshaded.res" type="CanvasItemMaterial"></ext_resource>
 	<ext_resource path="res://gfx/healthbar_empty.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/healthbar_full.png" type="Texture"></ext_resource>
 	<ext_resource path="res://audio/samples/enemy.res" type="SampleLibrary"></ext_resource>
@@ -70,7 +71,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="83">
+			<string_array  len="84">
 				<string> "enemy_1" </string>
 				<string> "RigidBody2D" </string>
 				<string> "_import_path" </string>
@@ -136,6 +137,7 @@
 				<string> "Node2D" </string>
 				<string> "HealthEmpty" </string>
 				<string> "Sprite" </string>
+				<string> "material/material" </string>
 				<string> "texture" </string>
 				<string> "offset" </string>
 				<string> "vframes" </string>
@@ -158,9 +160,9 @@
 			<string> "node_count" </string>
 			<int> 8 </int>
 			<string> "nodes" </string>
-			<int_array  len="350"> 				-1, -1, 1, 0, -1, 41, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 11, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 3, 26, 12, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 13, 33, 14, 34, 15, 35, 16, 36, 17, 37, 18, 38, 2, 39, 13, 40, 1, 41, 19, 42, 2, 0, 0, 0, 43, 43, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 44, 20, 45, 1, 46, 8, 47, 8, 48, 21, 0, 1, 0, 49, 49, -1, 9, 2, 0, 50, 3, 51, 5, 52, 22, 53, 23, 54, 1, 55, 2, 56, 24, 57, 25, 0, 0, 0, 58, 58, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 26, 8, 5, 9, 6, 10, 7, 11, 1, 59, 9, 60, 8, 0, 0, 0, 62, 61, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 0, 4, 0, 64, 63, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 27, 8, 5, 9, 28, 10, 3, 11, 1, 65, 29, 45, 8, 66, 4, 46, 8, 47, 8, 67, 3, 68, 3, 69, 7, 48, 21, 70, 1, 71, 30, 0, 4, 0, 64, 72, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 27, 8, 5, 9, 28, 10, 3, 11, 1, 65, 31, 45, 8, 66, 4, 46, 8, 47, 8, 67, 3, 68, 3, 69, 7, 48, 21, 70, 1, 71, 30, 0, 0, 0, 74, 73, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 75, 5, 76, 2, 77, 2, 78, 32, 79, 2, 80, 3, 81, 33, 82, 34, 0 </int_array>
+			<int_array  len="354"> 				-1, -1, 1, 0, -1, 41, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 11, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 3, 26, 12, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 13, 33, 14, 34, 15, 35, 16, 36, 17, 37, 18, 38, 2, 39, 13, 40, 1, 41, 19, 42, 2, 0, 0, 0, 43, 43, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 44, 20, 45, 1, 46, 8, 47, 8, 48, 21, 0, 1, 0, 49, 49, -1, 9, 2, 0, 50, 3, 51, 5, 52, 22, 53, 23, 54, 1, 55, 2, 56, 24, 57, 25, 0, 0, 0, 58, 58, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 26, 8, 5, 9, 6, 10, 7, 11, 1, 59, 9, 60, 8, 0, 0, 0, 62, 61, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 0, 4, 0, 64, 63, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 65, 27, 7, 28, 8, 5, 9, 29, 10, 3, 11, 1, 66, 30, 45, 8, 67, 4, 46, 8, 47, 8, 68, 3, 69, 3, 70, 7, 48, 21, 71, 1, 72, 31, 0, 4, 0, 64, 73, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 65, 27, 7, 28, 8, 5, 9, 29, 10, 3, 11, 1, 66, 32, 45, 8, 67, 4, 46, 8, 47, 8, 68, 3, 69, 3, 70, 7, 48, 21, 71, 1, 72, 31, 0, 0, 0, 75, 74, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 76, 5, 77, 2, 78, 2, 79, 33, 80, 2, 81, 3, 82, 34, 83, 35, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="35" shared="false">
+			<array  len="36" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -179,7 +181,7 @@
 				<resource  resource_type="Script" path="res://scripts/enemy_1.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -333,6 +335,7 @@
 				</array>
 				<string> "walking" </string>
 				<vector2> 0.257027, 5.14049 </vector2>
+				<resource  resource_type="CanvasItemMaterial" path="res://materials/unshaded.res">  </resource>
 				<vector2> -30, -37 </vector2>
 				<vector2> 0.6, 0.6 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/healthbar_empty.png">  </resource>
