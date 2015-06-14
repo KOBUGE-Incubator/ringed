@@ -17,11 +17,13 @@ var current_gun_node # The node of that gun
 var switch_weapon = 0 # -1 if we need to switch to the previous weapon, +1 for the next, and 0 otherwise
 var gunSounds # The sounds of the guns
 var stepSounds # The sounds of the steps
+var playerSounds # The sounds that the player make
 
 func _ready():
 	current_gun_node = get_node("Guns").get_child(current_gun)
 	gunSounds = get_node("GunSounds") # We use this node to get the gun sounds
 	stepSounds = get_node("StepsSounds") # We use this node to get the steps sounds
+	playerSounds = get_node("PlayerSounds") #We use this node to get all the sounds that the player make
 	set_process(true) # We use _process to offset the mouse
 	set_process_input(true) # We use _input to get the mouse position
 	Input.set_mouse_mode(1) # Hide the mouse
@@ -104,6 +106,7 @@ func amount_of_damage(from): # We override the function defined in living_object
 func die(): # We override the function defined in living_object.gd
 	set_layer_mask(0) # Disable Collisions
 	set_collision_mask(0) # Disable Collisions
+	playerSounds.play("die_scream") # Play the scream sound 
 	get_node("AnimationPlayer").play("die")
 	Input.set_mouse_mode(0) # Show the mouse
 	#get_tree().set_pause(true)
