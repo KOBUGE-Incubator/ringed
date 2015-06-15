@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="5" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+	<ext_resource path="res://scripts/tree.gd" type="Script"></ext_resource>
+	<ext_resource path="res://gfx/tree_base.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gfx/leaves.png" type="Texture"></ext_resource>
+	<resource type="CircleShape2D" path="local://1">
+		<real name="custom_solver_bias"> 0 </real>
+		<real name="radius"> 10 </real>
+
+	</resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+			<string> "names" </string>
+			<string_array  len="56">
+				<string> "tree" </string>
+				<string> "StaticBody2D" </string>
+				<string> "_import_path" </string>
+				<string> "visibility/visible" </string>
+				<string> "visibility/opacity" </string>
+				<string> "visibility/self_opacity" </string>
+				<string> "visibility/light_mask" </string>
+				<string> "transform/pos" </string>
+				<string> "transform/rot" </string>
+				<string> "transform/scale" </string>
+				<string> "z/z" </string>
+				<string> "z/relative" </string>
+				<string> "input/pickable" </string>
+				<string> "shape_count" </string>
+				<string> "shapes/0/shape" </string>
+				<string> "shapes/0/transform" </string>
+				<string> "shapes/0/trigger" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "constant_linear_velocity" </string>
+				<string> "constant_angular_velocity" </string>
+				<string> "friction" </string>
+				<string> "bounce" </string>
+				<string> "script/script" </string>
+				<string> "__meta__" </string>
+				<string> "max_offset" </string>
+				<string> "fade_radius" </string>
+				<string> "min_opacity" </string>
+				<string> "CollisionShape2D" </string>
+				<string> "shape" </string>
+				<string> "trigger" </string>
+				<string> "Sprite" </string>
+				<string> "texture" </string>
+				<string> "centered" </string>
+				<string> "offset" </string>
+				<string> "flip_h" </string>
+				<string> "flip_v" </string>
+				<string> "vframes" </string>
+				<string> "hframes" </string>
+				<string> "frame" </string>
+				<string> "modulate" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
+				<string> "Leaves" </string>
+				<string> "Node2D" </string>
+				<string> "Sprite8" </string>
+				<string> "Sprite1" </string>
+				<string> "Sprite5" </string>
+				<string> "Sprite7" </string>
+				<string> "Sprite2" </string>
+				<string> "Sprite9" </string>
+				<string> "Sprite6" </string>
+				<string> "Sprite4" </string>
+				<string> "Sprite3" </string>
+				<string> "Sprite10" </string>
+				<string> "Sprite11" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 16 </int>
+			<string> "nodes" </string>
+			<int_array  len="754"> 				-1, -1, 1, 0, -1, 26, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 4, 20, 5, 21, 2, 22, 5, 23, 11, 24, 12, 25, 13, 26, 14, 27, 15, 0, 0, 0, 28, 28, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 29, 9, 30, 8, 0, 0, 0, 31, 31, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 32, 16, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 17, 41, 8, 42, 18, 0, 0, 0, 44, 43, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 19, 11, 1, 0, 3, 0, 31, 45, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 21, 8, 22, 9, 23, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 25, 41, 8, 42, 18, 0, 3, 0, 31, 31, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 26, 8, 27, 9, 28, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 29, 41, 8, 42, 18, 0, 3, 0, 31, 46, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 26, 8, 30, 9, 28, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 31, 41, 8, 42, 18, 0, 3, 0, 31, 47, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 32, 8, 33, 9, 34, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 35, 41, 8, 42, 18, 0, 3, 0, 31, 48, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 36, 8, 37, 9, 34, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 38, 41, 8, 42, 18, 0, 3, 0, 31, 49, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 39, 8, 40, 9, 28, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 41, 41, 8, 42, 18, 0, 3, 0, 31, 50, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 4, 8, 42, 9, 43, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 44, 41, 8, 42, 18, 0, 3, 0, 31, 51, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 45, 8, 46, 9, 47, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 48, 41, 8, 42, 18, 0, 3, 0, 31, 52, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 49, 8, 50, 9, 51, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 52, 41, 8, 42, 18, 0, 3, 0, 31, 53, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 53, 8, 54, 9, 55, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 56, 41, 8, 42, 18, 0, 3, 0, 31, 54, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 57, 8, 58, 9, 55, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 59, 41, 8, 42, 18, 0, 3, 0, 31, 55, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 20, 7, 60, 8, 61, 9, 55, 10, 7, 11, 1, 32, 24, 33, 1, 34, 4, 35, 8, 36, 8, 37, 3, 38, 3, 39, 7, 40, 62, 41, 8, 42, 18, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="63" shared="false">
+				<node_path> "" </node_path>
+				<bool> True </bool>
+				<real> 1 </real>
+				<int> 1 </int>
+				<vector2> 0, 0 </vector2>
+				<real> 0 </real>
+				<vector2> 1, 1 </vector2>
+				<int> 0 </int>
+				<bool> False </bool>
+				<resource  resource_type="Shape2D" path="local://1">  </resource>
+				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
+				<resource  resource_type="Script" path="res://scripts/tree.gd">  </resource>
+				<dictionary  shared="false">
+					<string> "__editor_plugin_screen__" </string>
+					<string> "2D" </string>
+					<string> "__editor_plugin_states__" </string>
+					<dictionary  shared="false">
+						<string> "2D" </string>
+						<dictionary  shared="false">
+							<string> "ofs" </string>
+							<vector2> -306.547, -139.27 </vector2>
+							<string> "snap_grid" </string>
+							<bool> False </bool>
+							<string> "snap_offset" </string>
+							<vector2> 0, 0 </vector2>
+							<string> "snap_pixel" </string>
+							<bool> False </bool>
+							<string> "snap_relative" </string>
+							<bool> False </bool>
+							<string> "snap_rotation" </string>
+							<bool> False </bool>
+							<string> "snap_rotation_offset" </string>
+							<real> 0 </real>
+							<string> "snap_rotation_step" </string>
+							<real> 0.261799 </real>
+							<string> "snap_show_grid" </string>
+							<bool> False </bool>
+							<string> "snap_step" </string>
+							<vector2> 10, 10 </vector2>
+							<string> "zoom" </string>
+							<real> 1.850617 </real>
+						</dictionary>
+						<string> "3D" </string>
+						<dictionary  shared="false">
+							<string> "ambient_light_color" </string>
+							<color> 0.15, 0.15, 0.15, 1 </color>
+							<string> "default_light" </string>
+							<bool> True </bool>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "show_grid" </string>
+							<bool> True </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
+							<string> "viewports" </string>
+							<array  len="4" shared="false">
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> True </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+							</array>
+							<string> "zfar" </string>
+							<real> 2000 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
+						</dictionary>
+						<string> "Script" </string>
+						<dictionary  shared="false">
+							<string> "current" </string>
+							<int> 0 </int>
+							<string> "sources" </string>
+							<array  len="1" shared="false">
+								<string> "res://scripts/tree.gd" </string>
+							</array>
+						</dictionary>
+					</dictionary>
+					<string> "__editor_run_settings__" </string>
+					<dictionary  shared="false">
+						<string> "custom_args" </string>
+						<string> "-l $scene" </string>
+						<string> "run_mode" </string>
+						<int> 0 </int>
+					</dictionary>
+				</dictionary>
+				<real> 5 </real>
+				<real> 400 </real>
+				<real> 0.4 </real>
+				<resource  resource_type="Texture" path="res://gfx/tree_base.png">  </resource>
+				<color> 1, 1, 1, 1 </color>
+				<rect2> 0, 0, 0, 0 </rect2>
+				<int> 6 </int>
+				<int> 8 </int>
+				<vector2> 80.4064, 69.6944 </vector2>
+				<real> 40.805576 </real>
+				<vector2> 0.466892, 0.434286 </vector2>
+				<resource  resource_type="Texture" path="res://gfx/leaves.png">  </resource>
+				<color> 0.819919, 0.819919, 0.819919, 1 </color>
+				<vector2> -15.9857, -13.4871 </vector2>
+				<real> 35.272495 </real>
+				<vector2> 0.582354, 0.552522 </vector2>
+				<color> 0.840459, 0.840459, 0.840459, 1 </color>
+				<real> -31.945221 </real>
+				<color> 0.798501, 0.798501, 0.798501, 1 </color>
+				<vector2> -74.9182, 20.9593 </vector2>
+				<real> 88.337814 </real>
+				<vector2> 0.580628, 0.549643 </vector2>
+				<color> 0.955653, 0.939919, 0.808462, 1 </color>
+				<vector2> 50.5293, -78.3157 </vector2>
+				<real> 64.542686 </real>
+				<color> 0.814903, 0.925996, 0.86773, 1 </color>
+				<vector2> 37.2618, -30.6346 </vector2>
+				<real> 43.885139 </real>
+				<color> 0.841146, 0.804542, 0.602709, 1 </color>
+				<real> -49.984814 </real>
+				<vector2> 0.595673, 0.568763 </vector2>
+				<color> 0.862317, 0.799436, 0.758106, 1 </color>
+				<vector2> -36.053, -61.5448 </vector2>
+				<real> -40.149654 </real>
+				<vector2> 0.613235, 0.582715 </vector2>
+				<color> 0.815105, 0.895543, 0.821159, 1 </color>
+				<vector2> 59.9944, 5.73256 </vector2>
+				<real> -41.709003 </real>
+				<vector2> 0.62804, 0.598014 </vector2>
+				<color> 0.878271, 0.826954, 0.811298, 1 </color>
+				<vector2> 17.1584, 71.1411 </vector2>
+				<real> 45.098495 </real>
+				<vector2> 0.703871, 0.676049 </vector2>
+				<color> 0.83597, 0.905841, 0.903538, 1 </color>
+				<vector2> 66.3312, -24.5027 </vector2>
+				<real> -43.920158 </real>
+				<color> 0.905841, 0.748686, 0.748686, 1 </color>
+				<vector2> -53.6289, -25.0431 </vector2>
+				<real> 35.331959 </real>
+				<color> 0.905841, 0.905841, 0.905841, 1 </color>
+			</array>
+			<string> "version" </string>
+			<int> 1 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>
