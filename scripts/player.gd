@@ -18,9 +18,11 @@ var switch_weapon = 0 # -1 if we need to switch to the previous weapon, +1 for t
 var gunSounds # The sounds of the guns
 var stepSounds # The sounds of the steps
 var playerSounds # The sounds that the player make
+var light # The main light of the player
 
 func _ready():
 	current_gun_node = get_node("Guns").get_child(current_gun)
+	light = get_node("Light2D")
 	gunSounds = get_node("GunSounds") # We use this node to get the gun sounds
 	stepSounds = get_node("StepsSounds") # We use this node to get the steps sounds
 	playerSounds = get_node("PlayerSounds") #We use this node to get all the sounds that the player make
@@ -29,6 +31,12 @@ func _ready():
 	Input.set_mouse_mode(1) # Hide the mouse
 
 func _process(delta):
+	
+
+	if(self.health == self.max_health): # If we have all the health, the light is active 
+		light.set_enabled(true)
+	else:
+		light.set_enabled(false)
 	
 	var offset = -get_viewport().get_canvas_transform().o # Get the offset
 	relative_mouse_pos = mouse_pos + offset # And add it to the mouse position
