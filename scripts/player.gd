@@ -19,10 +19,12 @@ var gunSounds # The sounds of the guns
 var stepSounds # The sounds of the steps
 var playerSounds # The sounds that the player make
 var light # The main light of the player
+var initial_light_energy # The max energy of the main light
 
 func _ready():
 	current_gun_node = get_node("Guns").get_child(current_gun)
 	light = get_node("Light2D")
+	initial_light_energy = light.get_energy()
 	gunSounds = get_node("GunSounds") # We use this node to get the gun sounds
 	stepSounds = get_node("StepsSounds") # We use this node to get the steps sounds
 	playerSounds = get_node("PlayerSounds") #We use this node to get all the sounds that the player make
@@ -34,9 +36,11 @@ func _process(delta):
 	if(!self.isMoving()): # If the player is not moving, the steps will stop
 		stepSounds.stop_voice(0);
 	if(self.health == self.max_health): # If we have all the health, the light is active 
-		light.set_enabled(true)
+		light.set_energy(initial_light_energy)
 	else:
-		light.set_enabled(false)
+		var div = self.max_health / self.health
+		var energy = initial_light_energy/div
+		light.set_energy(energy)
 	
 	var offset = -get_viewport().get_canvas_transform().o # Get the offset
 	relative_mouse_pos = mouse_pos + offset # And add it to the mouse position
