@@ -31,8 +31,8 @@ func _ready():
 	Input.set_mouse_mode(1) # Hide the mouse
 
 func _process(delta):
-	
-
+	if(!self.isMoving()): # If the player is not moving, the steps will stop
+		stepSounds.stop_voice(0);
 	if(self.health == self.max_health): # If we have all the health, the light is active 
 		light.set_enabled(true)
 	else:
