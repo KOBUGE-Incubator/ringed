@@ -22,6 +22,7 @@ var light # The main light of the player
 var initial_light_energy # The max energy of the main light
 
 func _ready():
+	get_node("AnimationPlayer").play("light")
 	current_gun_node = get_node("Guns").get_child(current_gun)
 	light = get_node("Light2D")
 	initial_light_energy = light.get_energy()
