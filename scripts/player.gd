@@ -20,6 +20,7 @@ var stepSounds # The sounds of the steps
 var playerSounds # The sounds that the player make
 var light # The main light of the player
 var initial_light_energy # The max energy of the main light
+var gun_sound_delay = 0
 
 func _ready():
 	get_node("AnimationPlayer").play("light")
@@ -92,7 +93,15 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	if(Input.is_action_pressed("Shot")):
 		current_gun_node.shot()
 		if(current_gun == 0): # If is the gun 1 that is fired
-			gunSounds.play("gun1") # Reproduces the gun 1 sound
+			if gun_sound_delay == 0:
+				gunSounds.play("gun1") # Reproduces the gun 1 sound
+			gun_sound_delay += 1
+			if gun_sound_delay > 10:
+				gun_sound_delay = 0
+	else:
+		gun_sound_delay = 0
+		
+	print(gun_sound_delay)
 	# If we are pressing "Next Weapon" and we have no cooldown left
 	if(Input.is_action_pressed("Next_weapon") && time_for_next_gun_change <= 0):
 		switch_weapon = 1
