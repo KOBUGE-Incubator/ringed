@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="8" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
+<resource_file type="PackedScene" subresource_count="10" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://scripts/bomb.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/bomb.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/smoke_particle.png" type="Texture"></ext_resource>
+	<ext_resource path="res://audio/samples/guns.res" type="SampleLibrary"></ext_resource>
+	<ext_resource path="res://gfx/light.png" type="Texture"></ext_resource>
 	<resource type="CircleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 30 </real>
@@ -88,6 +90,40 @@
 				<real> 0 </real>
 			</array>
 		</dictionary>
+		<string name="tracks/2/type"> "value" </string>
+		<node_path name="tracks/2/path"> "BombLight:scale" </node_path>
+		<int name="tracks/2/interp"> 1 </int>
+		<dictionary name="tracks/2/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="3"> 				0.1, 0.8, 1.4 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="3"> 				1, 1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="3" shared="false">
+				<real> 1 </real>
+				<real> 6.5 </real>
+				<real> 7.1 </real>
+			</array>
+		</dictionary>
+		<string name="tracks/3/type"> "value" </string>
+		<node_path name="tracks/3/path"> "BombLight:energy" </node_path>
+		<int name="tracks/3/interp"> 1 </int>
+		<dictionary name="tracks/3/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="3"> 				0.1, 0.8, 1.4 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="3"> 				1, 1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="3" shared="false">
+				<real> 0 </real>
+				<real> 2 </real>
+				<real> 0 </real>
+			</array>
+		</dictionary>
 
 	</resource>
 	<main_resource>
@@ -97,7 +133,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="131">
+			<string_array  len="157">
 				<string> "Bomb" </string>
 				<string> "RigidBody2D" </string>
 				<string> "_import_path" </string>
@@ -229,13 +265,39 @@
 				<string> "playback/speed" </string>
 				<string> "blend_times" </string>
 				<string> "autoplay" </string>
+				<string> "GunSounds" </string>
+				<string> "SamplePlayer2D" </string>
+				<string> "params/volume_db" </string>
+				<string> "params/pitch_scale" </string>
+				<string> "params/attenuation/min_distance" </string>
+				<string> "params/attenuation/max_distance" </string>
+				<string> "params/attenuation/distance_exp" </string>
+				<string> "config/polyphony" </string>
+				<string> "config/samples" </string>
+				<string> "config/pitch_random" </string>
+				<string> "BombLight" </string>
+				<string> "Light2D" </string>
+				<string> "enabled" </string>
+				<string> "scale" </string>
+				<string> "color" </string>
+				<string> "energy" </string>
+				<string> "range/height" </string>
+				<string> "range/z_min" </string>
+				<string> "range/z_max" </string>
+				<string> "range/layer_min" </string>
+				<string> "range/layer_max" </string>
+				<string> "range/item_mask" </string>
+				<string> "shadow/enabled" </string>
+				<string> "shadow/buffer_size" </string>
+				<string> "shadow/esm_multiplier" </string>
+				<string> "shadow/item_mask" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 7 </int>
+			<int> 9 </int>
 			<string> "nodes" </string>
-			<int_array  len="417"> 				-1, -1, 1, 0, -1, 37, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 7, 26, 7, 27, 8, 28, 8, 29, 1, 30, 4, 31, 5, 32, 11, 33, 11, 34, 12, 35, 13, 36, 14, 37, 15, 38, 16, 0, 0, 0, 39, 39, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 40, 9, 41, 8, 0, 0, 0, 42, 42, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 1, 13, 3, 14, 17, 15, 18, 16, 8, 43, 8, 44, 19, 45, 20, 46, 21, 47, 2, 48, 1, 49, 1, 17, 3, 18, 3, 0, 2, 0, 39, 39, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 40, 17, 41, 8, 0, 0, 0, 50, 50, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 22, 8, 5, 9, 6, 10, 7, 11, 1, 51, 23, 52, 1, 53, 4, 54, 8, 55, 8, 56, 3, 57, 3, 58, 7, 59, 24, 60, 8, 61, 25, 0, 0, 0, 62, 62, -1, 68, 2, 0, 3, 1, 4, 2, 5, 2, 63, 3, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 64, 26, 65, 27, 66, 27, 67, 2, 68, 5, 69, 8, 70, 4, 71, 28, 72, 1, 73, 29, 74, 8, 75, 8, 76, 30, 77, 3, 78, 3, 79, 5, 80, 31, 81, 32, 82, 2, 83, 5, 84, 5, 85, 16, 86, 5, 87, 5, 88, 5, 89, 5, 90, 33, 91, 34, 92, 5, 93, 2, 94, 5, 95, 5, 96, 5, 97, 5, 98, 2, 99, 5, 100, 2, 101, 5, 102, 5, 103, 5, 104, 5, 105, 5, 106, 5, 107, 5, 108, 5, 109, 5, 110, 5, 111, 35, 112, 5, 113, 36, 114, 37, 115, 38, 116, 2, 117, 39, 118, 2, 119, 39, 120, 40, 0, 0, 0, 121, 121, -1, 10, 2, 0, 122, 3, 123, 5, 124, 41, 125, 42, 126, 43, 127, 1, 128, 2, 129, 44, 130, 45, 0 </int_array>
+			<int_array  len="521"> 				-1, -1, 1, 0, -1, 37, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 7, 26, 7, 27, 8, 28, 8, 29, 1, 30, 4, 31, 5, 32, 11, 33, 11, 34, 12, 35, 13, 36, 14, 37, 15, 38, 16, 0, 0, 0, 39, 39, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 40, 9, 41, 8, 0, 0, 0, 42, 42, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 1, 13, 3, 14, 17, 15, 18, 16, 8, 43, 8, 44, 19, 45, 20, 46, 21, 47, 2, 48, 1, 49, 1, 17, 3, 18, 3, 0, 2, 0, 39, 39, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 40, 17, 41, 8, 0, 0, 0, 50, 50, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 22, 8, 5, 9, 6, 10, 7, 11, 1, 51, 23, 52, 1, 53, 4, 54, 8, 55, 8, 56, 3, 57, 3, 58, 7, 59, 24, 60, 8, 61, 25, 0, 0, 0, 62, 62, -1, 68, 2, 0, 3, 1, 4, 2, 5, 2, 63, 3, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 64, 26, 65, 27, 66, 27, 67, 2, 68, 5, 69, 8, 70, 4, 71, 28, 72, 1, 73, 29, 74, 8, 75, 8, 76, 30, 77, 3, 78, 3, 79, 5, 80, 31, 81, 32, 82, 2, 83, 5, 84, 5, 85, 16, 86, 5, 87, 5, 88, 5, 89, 5, 90, 33, 91, 34, 92, 5, 93, 2, 94, 5, 95, 5, 96, 5, 97, 5, 98, 2, 99, 5, 100, 2, 101, 5, 102, 5, 103, 5, 104, 5, 105, 5, 106, 5, 107, 5, 108, 5, 109, 5, 110, 5, 111, 35, 112, 5, 113, 36, 114, 37, 115, 38, 116, 2, 117, 39, 118, 2, 119, 39, 120, 40, 0, 0, 0, 121, 121, -1, 10, 2, 0, 122, 3, 123, 5, 124, 41, 125, 42, 126, 43, 127, 1, 128, 2, 129, 44, 130, 45, 0, 0, 0, 132, 131, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 133, 5, 134, 2, 135, 2, 136, 46, 137, 2, 138, 3, 139, 47, 140, 5, 0, 0, 0, 142, 141, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 48, 10, 7, 11, 1, 143, 1, 51, 49, 53, 4, 144, 2, 145, 24, 146, 5, 19, 7, 147, 5, 148, 50, 149, 51, 150, 52, 151, 7, 152, 3, 153, 8, 154, 53, 155, 54, 156, 3, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="46" shared="false">
+			<array  len="55" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -251,13 +313,13 @@
 				<resource  resource_type="Script" path="res://scripts/bomb.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -265.722, -106.931 </vector2>
+							<vector2> -700.622, -229.373 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -277,7 +339,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 2.78951 </real>
+							<real> 1.227738 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -429,6 +491,15 @@
 				<array  len="0" shared="false">
 				</array>
 				<string> "loop" </string>
+				<real> 2048 </real>
+				<resource  resource_type="SampleLibrary" path="res://audio/samples/guns.res">  </resource>
+				<vector2> 0.0738275, 0.0738275 </vector2>
+				<resource  resource_type="Texture" path="res://gfx/light.png">  </resource>
+				<int> -1024 </int>
+				<int> 1024 </int>
+				<int> -2 </int>
+				<int> 2048 </int>
+				<real> 80 </real>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>

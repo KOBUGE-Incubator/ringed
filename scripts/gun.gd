@@ -21,7 +21,7 @@ func _ready():
 	set_fixed_process(true)
 func _fixed_process(delta):
 	time_for_next_shot -= delta # We decrease the time till the next shot by the time elapsed
-	if(time_for_next_shot == 0 and hasShotLight == true): # We turn off the shot's light 
+	if(time_for_next_shot <= 0 and hasShotLight == true): # We turn off the shot's light 
 		shotLight.set_enabled(false)
 func shot():
 	if (hasShotLight == true):

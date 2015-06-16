@@ -25,4 +25,8 @@ func _fixed_process(delta):
 
 func logic(delta):
 	pass # Do absolutely nothing
+func isMoving():
+	if(force == Vector2(0,0)):
+		return 0
+	return 1
 

@@ -2,7 +2,7 @@
 <resource_file type="PackedScene" subresource_count="4" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://scripts/gun.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/gun.png" type="Texture"></ext_resource>
-	<ext_resource path="res://gfx/light.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gfx/shot_light.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -77,7 +77,7 @@
 				<resource  resource_type="Script" path="res://scripts/gun.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -228,7 +228,7 @@
 				<vector2> -0.104676, -32.9723 </vector2>
 				<vector2> -0.0531029, -32.8046 </vector2>
 				<vector2> 0.389929, 0.389929 </vector2>
-				<resource  resource_type="Texture" path="res://gfx/light.png">  </resource>
+				<resource  resource_type="Texture" path="res://gfx/shot_light.png">  </resource>
 				<color> 0.975591, 1, 0.808112, 1 </color>
 				<real> 2 </real>
 				<int> -1024 </int>
