@@ -96,7 +96,7 @@ func logic(delta): # We override the function defined in moveable_object.gd
 			if gun_sound_delay == 0:
 				gunSounds.play("gun1") # Reproduces the gun 1 sound
 			gun_sound_delay += 1
-			if gun_sound_delay > 10:
+			if gun_sound_delay > 5:
 				gun_sound_delay = 0
 	else:
 		gun_sound_delay = 0
