@@ -10,7 +10,7 @@ var player # The player node
 func _ready():
 	#Get nodes
 	leaves = get_node("Leaves")
-	player = get_node("../player")
+	player = get_node("../../player")
 	
 	# Randomize
 	for i in range(leaves.get_child_count()):

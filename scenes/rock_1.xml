@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="4" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
-	<ext_resource path="res://scripts/crate.gd" type="Script"></ext_resource>
+<resource_file type="PackedScene" subresource_count="6" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://gfx/rock_1.png" type="Texture"></ext_resource>
-	<resource type="RectangleShape2D" path="local://1">
+	<resource type="ConvexPolygonShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
-		<vector2 name="extents"> 51, 51 </vector2>
+		<vector2_array name="points" len="8"> 			9.19751, -6.97128, 9.50878, -2.40366, 8.33957, 5.15902, 6.25841, 6.33961, 1.83064, 7.50533, -3.6167, -6.72168, -2.78663, -7.14599, 4.32093, -9.61503 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://2">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="6"> 			-2.73475, 9.3773, -5.32872, 7.63013, -9.6347, 3.23722, -9.19373, -0.631522, -3.6167, -6.72168, 1.83064, 7.50533 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://3">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="3"> 			2.85711, 7.86393, 1.83064, 7.50533, 6.25841, 6.33961 </vector2_array>
+
+	</resource>
+	<resource type="OccluderPolygon2D" path="local://4">
+		<bool name="closed"> True </bool>
+		<int name="cull_mode"> 0 </int>
+		<vector2_array name="polygon" len="29"> 			-11.1661, -23.778, -18.6355, -16.2712, -31.5641, -1.94491, -32.3564, 1.70715, -32.7894, 6.30528, -32.9964, 11.0756, -30.5547, 14.3971, -26.4003, 19.0014, -19.7757, 24.9242, -14.6732, 28.9162, -9.97736, 31.9124, -3.35228, 29.5173, 5.55276, 25.5059, 8.84509, 26.6447, 17.8513, 22.5666, 26.8175, 17.8387, 28.6505, 10.2813, 30.1053, 0.549932, 30.7757, -8.3089, 30.7993, -13.7121, 30.3879, -19.2057, 29.8242, -22.4249, 29.3185, -23.0788, 21.9559, -27.367, 16.5676, -30.2521, 13.5033, -31.4575, 4.59828, -28.7107, -6.17827, -25.0747, -10.1064, -23.3753 </vector2_array>
 
 	</resource>
 	<main_resource>
@@ -14,8 +29,8 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="45">
-				<string> "crate" </string>
+			<string_array  len="50">
+				<string> "Rock" </string>
 				<string> "StaticBody2D" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
@@ -32,19 +47,19 @@
 				<string> "shapes/0/shape" </string>
 				<string> "shapes/0/transform" </string>
 				<string> "shapes/0/trigger" </string>
+				<string> "shapes/1/shape" </string>
+				<string> "shapes/1/transform" </string>
+				<string> "shapes/1/trigger" </string>
+				<string> "shapes/2/shape" </string>
+				<string> "shapes/2/transform" </string>
+				<string> "shapes/2/trigger" </string>
 				<string> "collision/layers" </string>
 				<string> "collision/mask" </string>
 				<string> "constant_linear_velocity" </string>
 				<string> "constant_angular_velocity" </string>
 				<string> "friction" </string>
 				<string> "bounce" </string>
-				<string> "script/script" </string>
 				<string> "__meta__" </string>
-				<string> "max_health" </string>
-				<string> "step" </string>
-				<string> "CollisionShape2D" </string>
-				<string> "shape" </string>
-				<string> "trigger" </string>
 				<string> "Sprite" </string>
 				<string> "texture" </string>
 				<string> "centered" </string>
@@ -58,15 +73,20 @@
 				<string> "region" </string>
 				<string> "region_rect" </string>
 				<string> "LightOccluder2D" </string>
+				<string> "visibility/behind_parent" </string>
 				<string> "occluder" </string>
 				<string> "light_mask" </string>
+				<string> "CollisionPolygon2D" </string>
+				<string> "build_mode" </string>
+				<string> "polygon" </string>
+				<string> "trigger" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 4 </int>
 			<string> "nodes" </string>
-			<int_array  len="168"> 				-1, -1, 1, 0, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 4, 20, 5, 21, 2, 22, 5, 23, 11, 24, 12, 25, 13, 26, 14, 0, 0, 0, 27, 27, -1, 12, 2, 0, 3, 8, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 28, 9, 29, 8, 0, 0, 0, 30, 30, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 15, 10, 7, 11, 1, 31, 16, 32, 1, 33, 4, 34, 8, 35, 8, 36, 3, 37, 3, 38, 7, 39, 17, 40, 8, 41, 18, 0, 2, 0, 42, 42, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 43, 19, 44, 3, 0 </int_array>
+			<int_array  len="180"> 				-1, -1, 1, 0, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 8, 17, 12, 18, 11, 19, 8, 20, 13, 21, 11, 22, 8, 23, 3, 24, 3, 25, 4, 26, 5, 27, 2, 28, 5, 29, 14, 0, 0, 0, 30, 30, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 15, 8, 5, 9, 16, 10, 7, 11, 1, 31, 17, 32, 1, 33, 4, 34, 8, 35, 8, 36, 3, 37, 3, 38, 7, 39, 18, 40, 8, 41, 19, 0, 1, 0, 42, 42, -1, 13, 2, 0, 3, 8, 4, 2, 5, 2, 43, 1, 6, 3, 7, 20, 8, 5, 9, 21, 10, 7, 11, 1, 44, 22, 45, 3, 0, 0, 0, 46, 46, -1, 14, 2, 0, 3, 8, 4, 2, 5, 2, 43, 1, 6, 3, 7, 23, 8, 5, 9, 24, 10, 7, 11, 1, 47, 7, 48, 25, 49, 8, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="20" shared="false">
+			<array  len="26" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -76,9 +96,11 @@
 				<vector2> 1, 1 </vector2>
 				<int> 0 </int>
 				<bool> False </bool>
+				<int> 3 </int>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
-				<matrix32> 1, -0, 0, 1, 0, 0 </matrix32>
-				<resource  resource_type="Script" path="res://scripts/crate.gd">  </resource>
+				<matrix32> 5.54546, -0, 0, 5.69607, 2.22297, -1.16686 </matrix32>
+				<resource  resource_type="Shape2D" path="local://2">  </resource>
+				<resource  resource_type="Shape2D" path="local://3">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -87,9 +109,9 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -135.556, -75.107 </vector2>
+							<vector2> -211.143, -67.3398 </vector2>
 							<string> "snap_grid" </string>
-							<bool> True </bool>
+							<bool> False </bool>
 							<string> "snap_offset" </string>
 							<vector2> 0, 0 </vector2>
 							<string> "snap_pixel" </string>
@@ -107,7 +129,7 @@
 							<string> "snap_step" </string>
 							<vector2> 51, 51 </vector2>
 							<string> "zoom" </string>
-							<real> 3.424786 </real>
+							<real> 4.20474 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -133,7 +155,7 @@
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
 									<string> "distance" </string>
-									<real> 4 </real>
+									<real> 75910.304688 </real>
 									<string> "listener" </string>
 									<bool> True </bool>
 									<string> "pos" </string>
@@ -206,13 +228,14 @@
 							<string> "current" </string>
 							<int> 0 </int>
 							<string> "sources" </string>
-							<array  len="6" shared="false">
+							<array  len="7" shared="false">
 								<string> "res://scripts/crate.gd" </string>
 								<string> "res://scripts/living_object.gd" </string>
 								<string> "res://scripts/player.gd" </string>
 								<string> "res://scripts/bomb.gd" </string>
 								<string> "res://scripts/enemy_1.gd" </string>
 								<string> "res://scripts/main.gd" </string>
+								<string> "res://scripts/tree.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>
@@ -224,13 +247,18 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<real> 30 </real>
-				<real> 10 </real>
+				<vector2> -0.0852539, 0 </vector2>
 				<vector2> 0.2, 0.2 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/rock_1.png">  </resource>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
-				<resource name=""></resource>			</array>
+				<vector2> 17.0736, -10.2567 </vector2>
+				<vector2> 8.23341, 8.56878 </vector2>
+				<resource  resource_type="OccluderPolygon2D" path="local://4">  </resource>
+				<vector2> 2.22297, -1.16686 </vector2>
+				<vector2> 5.54546, 5.69607 </vector2>
+				<vector2_array  len="13"> 					2.85711, 7.86393, 6.25841, 6.33961, 8.33957, 5.15902, 9.50878, -2.40366, 9.19751, -6.97128, 4.32093, -9.61503, -2.78663, -7.14599, -3.6167, -6.72168, -9.19373, -0.631522, -9.6347, 3.23722, -5.32872, 7.63013, -2.73475, 9.3773, 1.83064, 7.50533 </vector2_array>
+			</array>
 			<string> "version" </string>
 			<int> 1 </int>
 		</dictionary>

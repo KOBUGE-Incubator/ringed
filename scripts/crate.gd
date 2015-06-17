@@ -20,7 +20,7 @@ func damage(from, amount): # Damage the creature from a given source
 		set_layer_mask(0) # Disable Collisions
 		set_collision_mask(0) # Disable Collisions
 		anim_player.play("explode") # Explode
-		get_node("../player").camera_shake(6, get_pos(), camera_shake_distance, 3) # Shake the player's camera
+		get_node("../../player").camera_shake(6, get_pos(), camera_shake_distance, 3) # Shake the player's camera
 	else:
 		var c = step
 		for i in range(0,floor(max_health/step)):
