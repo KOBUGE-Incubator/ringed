@@ -8,7 +8,7 @@ var offset = Vector2(0,0)# The offset of the background
 func _ready():
 	randomize() # Randomize the seed for all random functions
 	background = get_node("CanvasLayer/background") # Take the background node
-	set_fixed_process(true) # We use _fixed_process to spawn spiders
+	set_fixed_process(false) # We use _fixed_process to spawn spiders
 	set_process(true) # We use _process to move the background
 	
 func _process(delta):
