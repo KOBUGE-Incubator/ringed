@@ -100,8 +100,7 @@ func logic(delta): # We override the function defined in moveable_object.gd
 				gun_sound_delay = 0
 	else:
 		gun_sound_delay = 0
-		
-	print(gun_sound_delay)
+	
 	# If we are pressing "Next Weapon" and we have no cooldown left
 	if(Input.is_action_pressed("Next_weapon") && time_for_next_gun_change <= 0):
 		switch_weapon = 1

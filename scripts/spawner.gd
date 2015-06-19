@@ -1,14 +1,13 @@
 
-extends StaticBody2D
+extends Node2D
 
 export(PackedScene) var object_scene
 export var cooldown = 5.0
 var time_left
-var raycast
+var area
 
 func _ready():
-	raycast = get_node("ray")
-	raycast.add_exception(self)
+	area = get_node("Area2D")
 	
 	time_left = cooldown
 	
@@ -16,14 +15,16 @@ func _ready():
 
 func _fixed_process(delta):
 	time_left -= delta
-	print(raycast.is_colliding(), raycast.get_collider(), raycast.get_cast_to())
-	if(time_left < 0 && !raycast.is_colliding()):
-		var node = object_scene.instance()
-		
-		node.set_pos(get_pos())
-		node.set_rot(get_rot())
-		get_node("../../").add_child(node)
-		
-		time_left = cooldown
+	
+	if(time_left < 0):
+		var bodies = area.get_overlapping_bodies()
+		if(bodies.size() == 0):
+			var node = object_scene.instance()
+			
+			node.set_pos(get_pos())
+			node.set_rot(get_rot())
+			get_node("../../").add_child(node)
+			
+			time_left = cooldown
 
 
