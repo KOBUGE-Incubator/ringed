@@ -18,7 +18,8 @@ var switch_weapon = 0 # -1 if we need to switch to the previous weapon, +1 for t
 var gunSounds # The sounds of the guns
 var stepSounds # The sounds of the steps
 var playerSounds # The sounds that the player make
-var light # The main light of the player
+var light # The main light of the player / for the shadows
+var light2 # This doesn't porhect shadows
 var initial_light_energy # The max energy of the main light
 var gun_sound_delay = 0
 
@@ -26,6 +27,7 @@ func _ready():
 	get_node("AnimationPlayer").play("light")
 	current_gun_node = get_node("Guns").get_child(current_gun)
 	light = get_node("Light2D")
+	light2 = get_node("Light2D2")
 	initial_light_energy = light.get_energy()
 	gunSounds = get_node("GunSounds") # We use this node to get the gun sounds
 	stepSounds = get_node("StepsSounds") # We use this node to get the steps sounds
@@ -39,10 +41,12 @@ func _process(delta):
 		stepSounds.stop_voice(0);
 	if(self.health == self.max_health): # If we have all the health, the light is active 
 		light.set_energy(initial_light_energy)
+		light2.set_energy(initial_light_energy)
 	else:
 		var div = self.max_health / self.health
 		var energy = initial_light_energy/div
 		light.set_energy(energy)
+		light2.set_energy(energy)
 	
 	var offset = -get_viewport().get_canvas_transform().o # Get the offset
 	relative_mouse_pos = mouse_pos + offset # And add it to the mouse position
