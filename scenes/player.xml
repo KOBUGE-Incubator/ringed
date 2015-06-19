@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="18" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="19" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/player.gd" type="Script"></ext_resource>
+	<ext_resource path="res://gfx/flashlight.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/light.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scenes/gun.xml" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scenes/gun_bomb.xml" type="PackedScene"></ext_resource>
@@ -11,18 +12,18 @@
 	<ext_resource path="res://audio/samples/guns.res" type="SampleLibrary"></ext_resource>
 	<ext_resource path="res://audio/samples/steps.res" type="SampleLibrary"></ext_resource>
 	<ext_resource path="res://audio/samples/player.res" type="SampleLibrary"></ext_resource>
-	<resource type="CircleShape2D" path="local://1">
+	<resource type="CircleShape2D" path="local://0">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 19 </real>
 
 	</resource>
-	<resource type="CapsuleShape2D" path="local://2">
+	<resource type="CapsuleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 4 </real>
 		<real name="height"> 35 </real>
 
 	</resource>
-	<resource type="CanvasItemShaderGraph" path="local://3">
+	<resource type="CanvasItemShaderGraph" path="local://2">
 		<dictionary name="_code" shared="false">
 			<string> "fragment" </string>
 			<string> "" </string>
@@ -88,12 +89,12 @@
 		</dictionary>
 
 	</resource>
-	<resource type="CanvasItemMaterial" path="local://4">
-		<resource name="shader/shader" resource_type="Shader" path="local://3">  </resource>
+	<resource type="CanvasItemMaterial" path="local://3">
+		<resource name="shader/shader" resource_type="Shader" path="local://2">  </resource>
 		<int name="shader/shading_mode"> 0 </int>
 
 	</resource>
-	<resource type="Animation" path="local://5">
+	<resource type="Animation" path="local://4">
 		<real name="length"> 0.3 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.1 </real>
@@ -131,7 +132,7 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://6">
+	<resource type="Animation" path="local://5">
 		<real name="length"> 0.2 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
@@ -192,7 +193,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="123">
+			<string_array  len="124">
 				<string> "player" </string>
 				<string> "RigidBody2D" </string>
 				<string> "_import_path" </string>
@@ -239,8 +240,8 @@
 				<string> "hide_when_full" </string>
 				<string> "shot_cooldown" </string>
 				<string> "gun_change_cooldown" </string>
+				<string> " Flashlight" </string>
 				<string> "Light2D" </string>
-				<string> "material/material" </string>
 				<string> "enabled" </string>
 				<string> "texture" </string>
 				<string> "offset" </string>
@@ -257,6 +258,7 @@
 				<string> "shadow/buffer_size" </string>
 				<string> "shadow/esm_multiplier" </string>
 				<string> "shadow/item_mask" </string>
+				<string> "material/material" </string>
 				<string> "CollisionShape2D" </string>
 				<string> "shape" </string>
 				<string> "trigger" </string>
@@ -318,11 +320,11 @@
 				<string> "PlayerSounds" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 16 </int>
+			<int> 17 </int>
 			<string> "nodes" </string>
-			<int_array  len="662"> 				-1, -1, 1, 0, -1, 44, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 8, 17, 12, 18, 13, 19, 8, 20, 3, 21, 3, 22, 9, 23, 2, 24, 2, 25, 5, 26, 2, 27, 8, 28, 7, 29, 7, 30, 8, 31, 8, 32, 1, 33, 4, 34, 5, 35, 14, 36, 15, 37, 16, 38, 17, 39, 18, 40, 19, 41, 2, 42, 20, 43, 8, 44, 21, 45, 22, 0, 0, 0, 46, 46, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 47, 23, 7, 24, 8, 5, 9, 25, 10, 7, 11, 1, 48, 1, 49, 26, 50, 4, 51, 27, 52, 28, 53, 29, 22, 7, 54, 2, 55, 30, 56, 31, 57, 32, 58, 7, 59, 3, 60, 1, 61, 33, 62, 34, 63, 3, 0, 0, 0, 64, 64, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 35, 8, 5, 9, 6, 10, 7, 11, 1, 65, 10, 66, 8, 0, 0, 0, 64, 67, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 36, 8, 5, 9, 6, 10, 7, 11, 1, 65, 12, 66, 8, 0, 0, 0, 69, 68, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 37, 8, 5, 9, 6, 10, 7, 11, 1, 0, 4, 0, 69, 70, 38, 2, 2, 0, 38, 39, 0, 4, 0, 69, 71, 40, 3, 2, 0, 3, 8, 38, 41, 0, 0, 0, 72, 72, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 42, 8, 5, 9, 6, 10, 7, 11, 1, 49, 43, 73, 1, 50, 4, 74, 8, 75, 8, 76, 3, 77, 3, 78, 7, 79, 44, 80, 8, 81, 45, 0, 0, 0, 82, 82, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 83, 3, 84, 8, 85, 1, 86, 46, 87, 6, 88, 47, 89, 47, 90, 48, 91, 48, 92, 1, 93, 1, 94, 49, 95, 49, 96, 49, 97, 49, 0, 0, 0, 69, 98, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 9, 11, 1, 0, 9, 0, 72, 99, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 47, 50, 7, 51, 8, 5, 9, 6, 10, 7, 11, 1, 49, 52, 73, 8, 50, 4, 74, 8, 75, 8, 76, 3, 77, 3, 78, 7, 79, 44, 80, 1, 81, 53, 0, 9, 0, 72, 100, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 47, 50, 7, 51, 8, 5, 9, 6, 10, 9, 11, 1, 49, 54, 73, 8, 50, 4, 74, 8, 75, 8, 76, 3, 77, 3, 78, 7, 79, 44, 80, 1, 81, 53, 0, 0, 0, 101, 101, -1, 10, 2, 0, 102, 3, 103, 5, 104, 55, 105, 56, 106, 57, 107, 1, 108, 2, 109, 58, 110, 59, 0, 0, 0, 112, 111, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 113, 5, 114, 2, 115, 2, 116, 60, 117, 2, 118, 3, 119, 61, 120, 5, 0, 0, 0, 112, 121, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 113, 5, 114, 2, 115, 2, 116, 60, 117, 2, 118, 3, 119, 62, 120, 5, 0, 0, 0, 112, 122, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 113, 5, 114, 2, 115, 2, 116, 60, 117, 2, 118, 3, 119, 63, 120, 5, 0 </int_array>
+			<int_array  len="723"> 				-1, -1, 1, 0, -1, 44, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 8, 17, 12, 18, 13, 19, 8, 20, 3, 21, 3, 22, 9, 23, 2, 24, 2, 25, 5, 26, 2, 27, 8, 28, 7, 29, 7, 30, 8, 31, 8, 32, 1, 33, 4, 34, 5, 35, 14, 36, 15, 37, 16, 38, 17, 39, 18, 40, 19, 41, 2, 42, 20, 43, 8, 44, 21, 45, 22, 0, 0, 0, 47, 46, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 23, 8, 5, 9, 24, 10, 7, 11, 1, 48, 1, 49, 25, 50, 4, 51, 2, 52, 26, 53, 27, 22, 7, 54, 5, 55, 28, 56, 29, 57, 30, 58, 7, 59, 3, 60, 8, 61, 31, 62, 32, 63, 3, 0, 0, 0, 47, 47, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 64, 33, 7, 34, 8, 5, 9, 35, 10, 7, 11, 1, 48, 1, 49, 36, 50, 4, 51, 37, 52, 38, 53, 2, 22, 7, 54, 2, 55, 28, 56, 29, 57, 30, 58, 7, 59, 3, 60, 1, 61, 31, 62, 32, 63, 3, 0, 0, 0, 65, 65, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 39, 8, 5, 9, 6, 10, 7, 11, 1, 66, 10, 67, 8, 0, 0, 0, 65, 68, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 40, 8, 5, 9, 6, 10, 7, 11, 1, 66, 12, 67, 8, 0, 0, 0, 70, 69, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 41, 8, 5, 9, 6, 10, 7, 11, 1, 0, 5, 0, 70, 71, 42, 2, 2, 0, 38, 43, 0, 5, 0, 70, 72, 44, 3, 2, 0, 3, 8, 38, 45, 0, 0, 0, 73, 73, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 46, 8, 5, 9, 6, 10, 7, 11, 1, 49, 47, 74, 1, 50, 4, 75, 8, 76, 8, 77, 3, 78, 3, 79, 7, 80, 26, 81, 8, 82, 48, 0, 0, 0, 83, 83, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 84, 3, 85, 8, 86, 1, 87, 49, 88, 6, 89, 50, 90, 50, 91, 51, 92, 51, 93, 1, 94, 1, 95, 52, 96, 52, 97, 52, 98, 52, 0, 0, 0, 70, 99, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 9, 11, 1, 0, 10, 0, 73, 100, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 64, 53, 7, 54, 8, 5, 9, 6, 10, 7, 11, 1, 49, 55, 74, 8, 50, 4, 75, 8, 76, 8, 77, 3, 78, 3, 79, 7, 80, 26, 81, 1, 82, 56, 0, 10, 0, 73, 101, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 64, 53, 7, 54, 8, 5, 9, 6, 10, 9, 11, 1, 49, 57, 74, 8, 50, 4, 75, 8, 76, 8, 77, 3, 78, 3, 79, 7, 80, 26, 81, 1, 82, 56, 0, 0, 0, 102, 102, -1, 10, 2, 0, 103, 3, 104, 5, 105, 58, 106, 59, 107, 60, 108, 1, 109, 2, 110, 61, 111, 62, 0, 0, 0, 113, 112, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 114, 5, 115, 2, 116, 2, 117, 63, 118, 2, 119, 3, 120, 64, 121, 5, 0, 0, 0, 113, 122, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 114, 5, 115, 2, 116, 2, 117, 63, 118, 2, 119, 3, 120, 65, 121, 5, 0, 0, 0, 113, 123, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 114, 5, 115, 2, 116, 2, 117, 63, 118, 2, 119, 3, 120, 66, 121, 5, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="64" shared="false">
+			<array  len="67" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -333,9 +335,9 @@
 				<int> 0 </int>
 				<bool> False </bool>
 				<int> 2 </int>
-				<resource  resource_type="Shape2D" path="local://1">  </resource>
+				<resource  resource_type="Shape2D" path="local://0">  </resource>
 				<matrix32> 1, -0, 0, 1, -0.460541, -0.338449 </matrix32>
-				<resource  resource_type="Shape2D" path="local://2">  </resource>
+				<resource  resource_type="Shape2D" path="local://1">  </resource>
 				<matrix32> 1, -0, 0, 1, -0.460541, -27.1862 </matrix32>
 				<real> 4 </real>
 				<real> -1 </real>
@@ -348,7 +350,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -685.156, -266.688 </vector2>
+							<vector2> -51.7397, -30.1204 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -368,7 +370,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.54036 </real>
+							<real> 10.585567 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -491,18 +493,22 @@
 				<real> 10 </real>
 				<real> 0.1 </real>
 				<real> 0.2 </real>
-				<resource  resource_type="CanvasItemMaterial" path="local://4">  </resource>
-				<vector2> 4.38928, -5.71774 </vector2>
-				<vector2> 1.09513, 1.09513 </vector2>
-				<resource  resource_type="Texture" path="res://gfx/light.png">  </resource>
-				<real> 0.9 </real>
-				<color> 0.681111, 0.681111, 0.681111, 1 </color>
-				<real> 1.9 </real>
+				<vector2> 4.42135, -167.677 </vector2>
+				<vector2> 0.387037, 0.387037 </vector2>
+				<resource  resource_type="Texture" path="res://gfx/flashlight.png">  </resource>
+				<color> 1, 1, 1, 1 </color>
+				<real> 0.5 </real>
 				<int> -1024 </int>
 				<int> 1024 </int>
 				<int> -2 </int>
 				<int> 2048 </int>
 				<real> 80 </real>
+				<resource  resource_type="CanvasItemMaterial" path="local://3">  </resource>
+				<vector2> -1.36086, 3.22905 </vector2>
+				<vector2> 0.679039, 0.679039 </vector2>
+				<resource  resource_type="Texture" path="res://gfx/light.png">  </resource>
+				<real> 0.9 </real>
+				<color> 0.681111, 0.681111, 0.681111, 1 </color>
 				<vector2> -0.460541, -0.338449 </vector2>
 				<vector2> -0.460541, -27.1862 </vector2>
 				<vector2> 1.35597, -14.9158 </vector2>
@@ -783,7 +789,6 @@
 				</dictionary>
 				<vector2> 0, -22 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/player.png">  </resource>
-				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
 				<real> 6 </real>
 				<int> -10000000 </int>
@@ -795,8 +800,8 @@
 				<rect2> 0, 0, 100, 17 </rect2>
 				<resource  resource_type="Texture" path="res://gfx/healthbar_full.png">  </resource>
 				<node_path> ".." </node_path>
+				<resource  resource_type="Animation" path="local://4">  </resource>
 				<resource  resource_type="Animation" path="local://5">  </resource>
-				<resource  resource_type="Animation" path="local://6">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "" </string>
