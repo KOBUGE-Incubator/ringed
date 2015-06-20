@@ -14,6 +14,7 @@ var speed = 0.0 # Fixed a crash
 var remove_after = 0 # Seconds untill the animation finishes
 var gun_sounds # All the sounds of the different guns are in the same sample library
 var light # The light node
+var take_player_speed = false
 
 func _ready():
 	anim_player = get_node("AnimationPlayer") # Save the animation player as a variable for easier use
@@ -24,13 +25,14 @@ func _ready():
 
 func _fixed_process(delta):
 	remove_after -= delta # Decrease by the time elapsed
+	time_left -= delta # Decrease by the time elapsed
 	if(time_left <= 0 && !exploded): # Enough time had passed
 		var bodies = get_node("Area2D").get_overlapping_bodies()
 		for body in bodies: # Loop through all the coliding bodies
 			var diminish = clamp(200/(get_pos() - body.get_pos()).length() - 1, 0, 200) # Diminish the amount of damage and push based on the distance
 			if(body.has_method("damage")): # And damage them, if possible
 				body.damage("bomb",damage * diminish)
-			if(body extends RigidBody2D && !body extends get_script()): # When it is a rigidbody, but not a bomb
+			if(body extends RigidBody2D && body != self): # When it is a rigidbody, but not a bomb
 				var direction = (body.get_pos() - get_pos()).normalized() # The direction in which we push
 				body.apply_impulse(get_pos(), direction * diminish * push) # Move it awaty from the bomb
 		set_layer_mask(0) # Make so the bomb collides with nothing
@@ -44,4 +46,7 @@ func _fixed_process(delta):
 		queue_free() # Delete the bomb after the animation is finished
 
 func damage(from, amount):
-	time_left = 0 # Explode when damaged
+	if(from == "bomb"):
+		time_left /= 3
+	else:
+		time_left = 0 # Explode when damaged
