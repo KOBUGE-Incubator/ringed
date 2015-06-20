@@ -1,11 +1,12 @@
 extends Node2D
-
+export var day = false
 var time = 3 # The time after we spawned the last spider
 var enemy_scn = load("res://scenes/enemy_1.xml") # The spider scene
 var background # The grass node
 var offset = Vector2(0,0)# The offset of the background
 var autoload # The autoload node
 var map
+var modulate_scene # The actual canvas modulate for the scene
 
 func _ready():
 	randomize() # Randomize the seed for all random functions
@@ -18,9 +19,12 @@ func _ready():
 	var map_node = map.instance()
 	map_node.set_name("Map")
 	add_child(map_node)
-	
+	modulate_scene = get_node("CanvasModulate")
 	get_node("player").set_pos(map_node.get_node("Spawn").get_pos())
-	
+	if (day == true): # If day is true the scene will be in day if not... you know
+		modulate_scene.set_color(Color(.7,.7,.7))
+	else:
+		modulate_scene.set_color(Color(.2,.2,.2))
 func _process(delta):
 	var background_rect = get_viewport_rect() # The viewport rect
 	var offset = get_viewport().get_canvas_transform().o
