@@ -3,7 +3,7 @@
 	<ext_resource path="res://scripts/menu.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/grass.png" type="Texture"></ext_resource>
 	<ext_resource path="res://fonts/text.fnt" type="Font"></ext_resource>
-	<resource type="Theme" path="local://0">
+	<resource type="Theme" path="local://1">
 		<resource name="default_font" resource_type="Font" path="res://fonts/text.fnt">  </resource>
 
 	</resource>
@@ -14,7 +14,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="61">
+			<string_array  len="87">
 				<string> "Holder" </string>
 				<string> "Node2D" </string>
 				<string> "_import_path" </string>
@@ -29,6 +29,7 @@
 				<string> "z/relative" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
+				<string> "smooth" </string>
 				<string> "Background" </string>
 				<string> "ParallaxLayer" </string>
 				<string> "motion/scale" </string>
@@ -59,12 +60,13 @@
 				<string> "size_flags/vertical" </string>
 				<string> "size_flags/stretch_ratio" </string>
 				<string> "theme/theme" </string>
-				<string> "Start" </string>
+				<string> "Main" </string>
+				<string> "anchor/right" </string>
+				<string> "anchor/bottom" </string>
+				<string> "Join" </string>
 				<string> "Button" </string>
 				<string> "anchor/left" </string>
 				<string> "anchor/top" </string>
-				<string> "anchor/right" </string>
-				<string> "anchor/bottom" </string>
 				<string> "margin/left" </string>
 				<string> "margin/top" </string>
 				<string> "disabled" </string>
@@ -76,13 +78,37 @@
 				<string> "flat" </string>
 				<string> "clip_text" </string>
 				<string> "align" </string>
+				<string> "Host" </string>
+				<string> "Address" </string>
+				<string> "Label" </string>
+				<string> "range/min" </string>
+				<string> "range/max" </string>
+				<string> "range/step" </string>
+				<string> "range/page" </string>
+				<string> "range/value" </string>
+				<string> "range/exp_edit" </string>
+				<string> "rounded_values" </string>
+				<string> "valign" </string>
+				<string> "autowrap" </string>
+				<string> "uppercase" </string>
+				<string> "percent_visible" </string>
+				<string> "LineEdit" </string>
+				<string> "max_length" </string>
+				<string> "editable" </string>
+				<string> "secret" </string>
+				<string> "Enter" </string>
+				<string> "Back" </string>
+				<string> "Map" </string>
+				<string> "OptionButton" </string>
+				<string> "selected" </string>
+				<string> "items" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 5 </int>
+			<int> 19 </int>
 			<string> "nodes" </string>
-			<int_array  len="221"> 				-1, -1, 1, 0, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 0, 0, 0, 15, 14, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 16, 6, 17, 4, 0, 1, 0, 18, 18, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 19, 10, 20, 11, 21, 4, 22, 11, 23, 11, 24, 3, 25, 3, 26, 7, 27, 12, 28, 1, 29, 13, 0, 0, 0, 31, 30, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 14, 33, 15, 34, 0, 35, 0, 36, 0, 37, 0, 38, 11, 39, 1, 40, 16, 41, 16, 42, 2, 43, 17, 0, 3, 0, 45, 44, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 18, 47, 18, 48, 18, 49, 18, 50, 19, 51, 20, 32, 21, 33, 22, 34, 0, 35, 0, 36, 0, 37, 0, 38, 11, 39, 1, 40, 16, 41, 16, 42, 2, 52, 11, 53, 11, 54, 11, 55, 11, 56, 23, 57, 24, 58, 11, 59, 11, 60, 3, 0 </int_array>
+			<int_array  len="1017"> 				-1, -1, 1, 0, -1, 13, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 0, 0, 0, 16, 15, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 17, 4, 18, 4, 0, 1, 0, 19, 19, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 20, 11, 21, 12, 22, 4, 23, 12, 24, 12, 25, 3, 26, 3, 27, 7, 28, 13, 29, 1, 30, 14, 0, 0, 0, 32, 31, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 33, 15, 34, 16, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 44, 18, 0, 3, 0, 32, 45, -1, 16, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 3, 47, 3, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 0, 4, 0, 49, 48, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 50, 19, 51, 19, 46, 19, 47, 19, 52, 20, 53, 21, 33, 22, 34, 23, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 54, 12, 55, 12, 56, 12, 57, 12, 58, 24, 59, 25, 60, 12, 61, 12, 62, 3, 0, 4, 0, 49, 63, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 50, 19, 51, 19, 46, 19, 47, 19, 52, 20, 53, 26, 33, 22, 34, 27, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 54, 12, 55, 12, 56, 12, 57, 12, 58, 28, 59, 25, 60, 12, 61, 12, 62, 3, 0, 3, 0, 32, 48, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 3, 47, 3, 52, 15, 33, 29, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 0, 7, 0, 32, 64, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 50, 19, 51, 19, 46, 19, 47, 19, 52, 30, 53, 21, 33, 31, 34, 23, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 0, 8, 0, 65, 65, -1, 30, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 3, 47, 3, 53, 32, 33, 33, 35, 0, 36, 0, 37, 0, 38, 0, 39, 1, 40, 1, 41, 17, 43, 2, 66, 5, 67, 2, 68, 2, 69, 2, 70, 5, 71, 12, 72, 12, 58, 34, 62, 17, 73, 3, 74, 12, 75, 12, 76, 2, 0, 8, 0, 77, 77, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 3, 47, 3, 52, 35, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 58, 36, 78, 7, 79, 1, 80, 12, 0, 7, 0, 49, 81, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 50, 19, 51, 19, 46, 19, 47, 19, 52, 20, 53, 37, 33, 22, 34, 38, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 54, 12, 55, 12, 56, 12, 57, 12, 58, 39, 59, 25, 60, 12, 61, 12, 62, 3, 0, 7, 0, 49, 82, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 33, 40, 34, 41, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 54, 12, 55, 12, 56, 12, 57, 12, 58, 42, 59, 25, 60, 12, 61, 12, 62, 3, 0, 3, 0, 32, 63, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 3, 47, 3, 53, 16, 34, 43, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 0, 13, 0, 32, 83, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 50, 19, 51, 19, 46, 19, 47, 19, 52, 30, 53, 21, 33, 31, 34, 23, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 0, 14, 0, 65, 65, -1, 30, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 3, 47, 3, 53, 32, 33, 33, 35, 0, 36, 0, 37, 0, 38, 0, 39, 1, 40, 1, 41, 17, 43, 2, 66, 5, 67, 2, 68, 2, 69, 2, 70, 5, 71, 12, 72, 12, 58, 44, 62, 17, 73, 3, 74, 12, 75, 12, 76, 2, 0, 14, 0, 84, 84, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 3, 47, 3, 52, 35, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 54, 12, 55, 12, 56, 12, 57, 12, 58, 36, 59, 25, 60, 12, 61, 12, 62, 7, 85, 45, 86, 46, 0, 13, 0, 49, 63, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 50, 19, 51, 19, 46, 19, 47, 19, 52, 20, 53, 26, 33, 22, 34, 27, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 54, 12, 55, 12, 56, 12, 57, 12, 58, 28, 59, 25, 60, 12, 61, 12, 62, 3, 0, 13, 0, 49, 82, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 33, 40, 34, 41, 35, 0, 36, 0, 37, 0, 38, 0, 39, 12, 40, 1, 41, 17, 42, 17, 43, 2, 54, 12, 55, 12, 56, 12, 57, 12, 58, 42, 59, 25, 60, 12, 61, 12, 62, 3, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="25" shared="false">
+			<array  len="47" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -100,7 +126,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -120.648, 197.189 </vector2>
+							<vector2> -1037.76, -800 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -120,7 +146,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.507339 </real>
+							<real> 0.157779 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -217,7 +243,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 0 </int>
+							<int> 7 </int>
 							<string> "sources" </string>
 							<array  len="8" shared="false">
 								<string> "res://scripts/player.gd" </string>
@@ -239,21 +265,44 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<real> 8 </real>
 				<resource  resource_type="Texture" path="res://gfx/grass.png">  </resource>
 				<bool> False </bool>
 				<color> 0.595436, 0.595436, 0.595436, 1 </color>
-				<rect2> 0, 0, 2048, 768 </rect2>
+				<rect2> 0, 0, 3072, 2304 </rect2>
 				<real> 1024 </real>
 				<real> 768 </real>
 				<int> 2 </int>
-				<resource  resource_type="Theme" path="local://0">  </resource>
+				<resource  resource_type="Theme" path="local://1">  </resource>
 				<int> 3 </int>
-				<real> 70 </real>
+				<real> 120 </real>
 				<real> 30 </real>
-				<real> -70 </real>
+				<real> -120 </real>
 				<real> -30 </real>
-				<string> "Play!" </string>
-				<resource name=""></resource>			</array>
+				<string> "Join server" </string>
+				<resource name=""></resource>				<real> -50 </real>
+				<real> -110 </real>
+				<string> "Host server" </string>
+				<real> -1024 </real>
+				<real> 342 </real>
+				<real> -342 </real>
+				<real> 9 </real>
+				<real> 507 </real>
+				<string> "Address:" </string>
+				<real> 189 </real>
+				<string> "" </string>
+				<real> -43 </real>
+				<real> -103 </real>
+				<string> "Join game" </string>
+				<real> 16 </real>
+				<real> 52 </real>
+				<string> "Back" </string>
+				<real> -768 </real>
+				<string> "Map:" </string>
+				<int> -1 </int>
+				<array  len="0" shared="false">
+				</array>
+			</array>
 			<string> "version" </string>
 			<int> 1 </int>
 		</dictionary>
