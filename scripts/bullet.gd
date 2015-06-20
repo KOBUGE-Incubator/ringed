@@ -7,21 +7,31 @@ var die_on_timeout = true # Should the bullet be removed when there is no time l
 export var speed = 60.0 # The speed of the bullet (around 700 makes for a normal spped)
 export var time_left = 10.0 # The time left for the bullet to live
 export var damage = 1.0 # The damage that the bullet will cause
+var animationPlayer # The animation player!
+var dangerous = true # Is it still dangerous to touch?
 
 func _ready():
 	set_fixed_process(true) # We use _fixed_process to move and die
 	
-	add_to_group("bullets") # Mark it as a bullet
+	animationPlayer = get_node("AnimationPlayer") # The animation player!
+	animationPlayer.connect("finished", self, "anim_player_finished") # To remove the bullet from the scene
 
 func _fixed_process(delta):
 	time_left -= delta # Decrease the time left for the bullet to live
 	
-	set_linear_velocity(force) # Set its velocity
-	
 	if(time_left < 0 && die_on_timeout):
-		queue_free() # Die when no time is left
+		dangerous = false # No more danger!
+		animationPlayer.play("die") # Die when no time is left
 	
-	for body in get_colliding_bodies(): # For each boddy we collide with
-		if(body.has_method("damage")):
-			body.damage(source,damage) # Damage it if possible
-		queue_free() # And remove the bullet
+	if(dangerous):
+		set_linear_velocity(get_linear_velocity() + force) # Set its velocity
+		force = force.linear_interpolate(Vector2(0, 0), delta*4)
+		for body in get_colliding_bodies(): # For each boddy we collide with
+			if(body.has_method("damage")):
+				body.damage(source,damage) # Damage it if possible
+			dangerous = false # No more danger!
+			animationPlayer.play("die") # And remove the bullet
+			
+func anim_player_finished():
+	if(!dangerous):
+		queue_free()

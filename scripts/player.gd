@@ -19,7 +19,7 @@ var gunSounds # The sounds of the guns
 var stepSounds # The sounds of the steps
 var playerSounds # The sounds that the player make
 var light # The main light of the player / for the shadows
-var light2 # This doesn't porhect shadows
+var light2 # This doesn't porject shadows
 var initial_light_energy # The max energy of the main light
 var gun_sound_delay = 0
 

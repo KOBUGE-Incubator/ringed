@@ -8,6 +8,7 @@ func _ready():
 	spider_animations = get_node("AnimatedSprite/AnimationPlayer")
 	health_empty = get_node("HealthHolder/HealthEmpty")
 	._ready()
+
 func logic(delta): # We override the function defined in moveable_object.gd
 	.logic(delta) # The enemy_1 method
 	if(is_attaking == true): # The spider are now atacking
@@ -15,6 +16,7 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	if(it_explotes == true): # The spider explotes 
 		if(!spider_sound.is_voice_active(spider_explote_ID)): # The explotion sound is over... time to die
 			health = -1 # This make the spider die
+			.die() # The parent method kill the spider
 	
 func do_kamikaze():
 	spider_sound.stop_voice(spider_sound_ID) # We stop the original spider sound
@@ -26,6 +28,7 @@ func do_kamikaze():
 			set_collision_mask(0) # Disable Collisions
 			disable_spider()
 			it_explotes = true
+
 func disable_spider():
 	healthbarHolder.hide()
 	healthbar.hide()
@@ -35,9 +38,5 @@ func disable_spider():
 	rotation_speed = 0
 
 func die():
-	if(it_explotes == true): # The sider explotes because already do the kamikaze
-		if(!spider_sound.is_voice_active(spider_explote_ID)): # If the explotion sound is over... time to die
-			.die() # The parent method kill the spider
-		die() # We call the child method because we need that the explotion souns end and then kill the spider
-	else:
+	if(!it_explotes): 
 		do_kamikaze()

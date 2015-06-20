@@ -25,6 +25,6 @@ func _fixed_process(delta):
 			node.set_rot(get_rot())
 			get_node("../../").add_child(node)
 			
-			time_left = cooldown
+			time_left = cooldown + rand_range(-0.2,0.5)
 
 
