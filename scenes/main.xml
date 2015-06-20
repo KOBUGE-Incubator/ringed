@@ -243,7 +243,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 7 </int>
+							<int> 6 </int>
 							<string> "sources" </string>
 							<array  len="9" shared="false">
 								<string> "res://scripts/player.gd" </string>
