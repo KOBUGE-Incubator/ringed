@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="10" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
+<resource_file type="PackedScene" subresource_count="11" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/bomb.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/bomb.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/smoke_particle.png" type="Texture"></ext_resource>
@@ -15,7 +15,12 @@
 		<real name="radius"> 200 </real>
 
 	</resource>
-	<resource type="Animation" path="local://3">
+	<resource type="ColorRamp" path="local://3">
+		<real_array name="offsets" len="3"> 			0, 0.5, 1 </real_array>
+		<color_array name="colors" len="3"> 			0.452454, 0.296513, 0, 1, 0.541588, 0.436077, 0.149447, 1, 0, 0, 0, 1 </color_array>
+
+	</resource>
+	<resource type="Animation" path="local://4">
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.1 </real>
@@ -53,7 +58,7 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://4">
+	<resource type="Animation" path="local://5">
 		<real name="length"> 1.5 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
@@ -124,6 +129,22 @@
 				<real> 0 </real>
 			</array>
 		</dictionary>
+		<string name="tracks/4/type"> "value" </string>
+		<node_path name="tracks/4/path"> "BombLight:enabled" </node_path>
+		<int name="tracks/4/interp"> 1 </int>
+		<dictionary name="tracks/4/keys" shared="false">
+			<string> "cont" </string>
+			<bool> False </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 0.1 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<bool> False </bool>
+				<bool> True </bool>
+			</array>
+		</dictionary>
 
 	</resource>
 	<main_resource>
@@ -133,7 +154,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="157">
+			<string_array  len="151">
 				<string> "Bomb" </string>
 				<string> "RigidBody2D" </string>
 				<string> "_import_path" </string>
@@ -178,6 +199,7 @@
 				<string> "trigger" </string>
 				<string> "Area2D" </string>
 				<string> "gravity_point" </string>
+				<string> "gravity_distance_scale" </string>
 				<string> "gravity_vec" </string>
 				<string> "gravity" </string>
 				<string> "linear_damp" </string>
@@ -245,15 +267,8 @@
 				<string> "randomness/hue_variation" </string>
 				<string> "randomness/anim_speed_scale" </string>
 				<string> "randomness/anim_initial_pos" </string>
-				<string> "color_phases/count" </string>
-				<string> "phase_0/pos" </string>
-				<string> "phase_0/color" </string>
-				<string> "phase_1/pos" </string>
-				<string> "phase_1/color" </string>
-				<string> "phase_2/pos" </string>
-				<string> "phase_2/color" </string>
-				<string> "phase_3/pos" </string>
-				<string> "phase_3/color" </string>
+				<string> "color/color" </string>
+				<string> "color/color_ramp" </string>
 				<string> "emission_points" </string>
 				<string> "AnimationPlayer" </string>
 				<string> "playback/process_mode" </string>
@@ -295,9 +310,9 @@
 			<string> "node_count" </string>
 			<int> 9 </int>
 			<string> "nodes" </string>
-			<int_array  len="521"> 				-1, -1, 1, 0, -1, 37, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 7, 26, 7, 27, 8, 28, 8, 29, 1, 30, 4, 31, 5, 32, 11, 33, 11, 34, 12, 35, 13, 36, 14, 37, 15, 38, 16, 0, 0, 0, 39, 39, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 40, 9, 41, 8, 0, 0, 0, 42, 42, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 1, 13, 3, 14, 17, 15, 18, 16, 8, 43, 8, 44, 19, 45, 20, 46, 21, 47, 2, 48, 1, 49, 1, 17, 3, 18, 3, 0, 2, 0, 39, 39, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 40, 17, 41, 8, 0, 0, 0, 50, 50, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 22, 8, 5, 9, 6, 10, 7, 11, 1, 51, 23, 52, 1, 53, 4, 54, 8, 55, 8, 56, 3, 57, 3, 58, 7, 59, 24, 60, 8, 61, 25, 0, 0, 0, 62, 62, -1, 68, 2, 0, 3, 1, 4, 2, 5, 2, 63, 3, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 64, 26, 65, 27, 66, 27, 67, 2, 68, 5, 69, 8, 70, 4, 71, 28, 72, 1, 73, 29, 74, 8, 75, 8, 76, 30, 77, 3, 78, 3, 79, 5, 80, 31, 81, 32, 82, 2, 83, 5, 84, 5, 85, 16, 86, 5, 87, 5, 88, 5, 89, 5, 90, 33, 91, 34, 92, 5, 93, 2, 94, 5, 95, 5, 96, 5, 97, 5, 98, 2, 99, 5, 100, 2, 101, 5, 102, 5, 103, 5, 104, 5, 105, 5, 106, 5, 107, 5, 108, 5, 109, 5, 110, 5, 111, 35, 112, 5, 113, 36, 114, 37, 115, 38, 116, 2, 117, 39, 118, 2, 119, 39, 120, 40, 0, 0, 0, 121, 121, -1, 10, 2, 0, 122, 3, 123, 5, 124, 41, 125, 42, 126, 43, 127, 1, 128, 2, 129, 44, 130, 45, 0, 0, 0, 132, 131, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 133, 5, 134, 2, 135, 2, 136, 46, 137, 2, 138, 3, 139, 47, 140, 5, 0, 0, 0, 142, 141, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 48, 10, 7, 11, 1, 143, 1, 51, 49, 53, 4, 144, 2, 145, 24, 146, 5, 19, 7, 147, 5, 148, 50, 149, 51, 150, 52, 151, 7, 152, 3, 153, 8, 154, 53, 155, 54, 156, 3, 0 </int_array>
+			<int_array  len="509"> 				-1, -1, 1, 0, -1, 37, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 7, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 7, 26, 7, 27, 8, 28, 8, 29, 1, 30, 4, 31, 5, 32, 11, 33, 11, 34, 12, 35, 13, 36, 14, 37, 15, 38, 16, 0, 0, 0, 39, 39, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 40, 9, 41, 8, 0, 0, 0, 42, 42, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 1, 13, 3, 14, 17, 15, 18, 16, 8, 43, 8, 44, 5, 45, 19, 46, 20, 47, 21, 48, 2, 49, 1, 50, 1, 17, 3, 18, 3, 0, 2, 0, 39, 39, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 40, 17, 41, 8, 0, 0, 0, 51, 51, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 22, 8, 5, 9, 6, 10, 7, 11, 1, 52, 23, 53, 1, 54, 4, 55, 8, 56, 8, 57, 3, 58, 3, 59, 7, 60, 24, 61, 8, 62, 25, 0, 0, 0, 63, 63, -1, 61, 2, 0, 3, 1, 4, 2, 5, 2, 64, 3, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 65, 26, 66, 27, 67, 27, 68, 2, 69, 5, 70, 8, 71, 4, 72, 28, 73, 1, 74, 29, 75, 8, 76, 8, 77, 30, 78, 3, 79, 3, 80, 5, 81, 31, 82, 32, 83, 2, 84, 5, 85, 5, 86, 16, 87, 5, 88, 5, 89, 5, 90, 5, 91, 33, 92, 34, 93, 5, 94, 2, 95, 5, 96, 5, 97, 5, 98, 5, 99, 2, 100, 5, 101, 2, 102, 5, 103, 5, 104, 5, 105, 5, 106, 5, 107, 5, 108, 5, 109, 5, 110, 5, 111, 5, 112, 24, 113, 35, 114, 36, 0, 0, 0, 115, 115, -1, 10, 2, 0, 116, 3, 117, 5, 118, 37, 119, 38, 120, 39, 121, 1, 122, 2, 123, 40, 124, 41, 0, 0, 0, 126, 125, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 127, 5, 128, 2, 129, 2, 130, 42, 131, 2, 132, 3, 133, 43, 134, 5, 0, 0, 0, 136, 135, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 44, 10, 7, 11, 1, 137, 8, 52, 45, 54, 4, 138, 2, 139, 24, 140, 5, 19, 7, 141, 5, 142, 46, 143, 47, 144, 48, 145, 7, 146, 3, 147, 8, 148, 49, 149, 50, 150, 3, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="55" shared="false">
+			<array  len="51" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -319,7 +334,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -700.622, -229.373 </vector2>
+							<vector2> -705.652, -230.595 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -339,7 +354,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.227738 </real>
+							<real> 0.735092 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -479,21 +494,17 @@
 				<real> 70 </real>
 				<real> 1.2 </real>
 				<real> 1.5 </real>
-				<int> 3 </int>
-				<color> 0.452454, 0.296513, 0, 1 </color>
-				<real> 0.5 </real>
-				<color> 0.541588, 0.436077, 0.149447, 1 </color>
-				<color> 0, 0, 0, 1 </color>
+				<resource  resource_type="ColorRamp" path="local://3">  </resource>
 				<vector2_array  len="0"> 					 </vector2_array>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://3">  </resource>
 				<resource  resource_type="Animation" path="local://4">  </resource>
+				<resource  resource_type="Animation" path="local://5">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "loop" </string>
 				<real> 2048 </real>
 				<resource  resource_type="SampleLibrary" path="res://audio/samples/guns.res">  </resource>
-				<vector2> 0.0738275, 0.0738275 </vector2>
+				<vector2> 0.14, 0.14 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/light.png">  </resource>
 				<int> -1024 </int>
 				<int> 1024 </int>

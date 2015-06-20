@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/spawner.gd" type="Script"></ext_resource>
-	<ext_resource path="res://icon.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gfx/spawner_b.png" type="Texture"></ext_resource>
 	<resource type="CircleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 30 </real>
@@ -66,9 +66,9 @@
 			<string> "node_count" </string>
 			<int> 4 </int>
 			<string> "nodes" </string>
-			<int_array  len="172"> 				-1, -1, 1, 0, -1, 14, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 0, 0, 0, 16, 16, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 12, 11, 1, 17, 13, 18, 1, 19, 4, 20, 14, 21, 14, 22, 3, 23, 3, 24, 7, 25, 15, 26, 14, 27, 16, 0, 0, 0, 28, 28, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 29, 1, 30, 3, 31, 17, 32, 18, 33, 14, 34, 14, 35, 5, 36, 19, 37, 20, 38, 21, 39, 2, 40, 1, 41, 1, 42, 3, 43, 3, 0, 2, 0, 44, 44, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 45, 17, 46, 14, 0 </int_array>
+			<int_array  len="172"> 				-1, -1, 1, 0, -1, 14, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 0, 0, 0, 16, 16, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 12, 11, 1, 17, 13, 18, 1, 19, 4, 20, 14, 21, 14, 22, 3, 23, 3, 24, 7, 25, 15, 26, 14, 27, 16, 0, 0, 0, 28, 28, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 17, 8, 5, 9, 6, 10, 7, 11, 1, 29, 1, 30, 3, 31, 18, 32, 19, 33, 14, 34, 14, 35, 5, 36, 20, 37, 21, 38, 22, 39, 2, 40, 1, 41, 1, 42, 3, 43, 3, 0, 2, 0, 44, 44, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 45, 18, 46, 14, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="22" shared="false">
+			<array  len="23" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -86,7 +86,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -86.4461, -55.288 </vector2>
+							<vector2> -126.048, -87.1567 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -106,7 +106,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 5.720018 </real>
+							<real> 3.424786 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -221,10 +221,11 @@
 				<nil>  </nil>
 				<real> 5 </real>
 				<int> -2 </int>
-				<resource  resource_type="Texture" path="res://icon.png">  </resource>
+				<resource  resource_type="Texture" path="res://gfx/spawner_b.png">  </resource>
 				<bool> False </bool>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
+				<vector2> -7.88371, 1.45995 </vector2>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
 				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
 				<vector2> 0, 1 </vector2>

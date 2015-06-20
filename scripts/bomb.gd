@@ -13,11 +13,13 @@ var source = "magic" # The shooter of the bomb
 var speed = 0.0 # Fixed a crash
 var remove_after = 0 # Seconds untill the animation finishes
 var gun_sounds # All the sounds of the different guns are in the same sample library
+var light # The light node
 
 func _ready():
 	anim_player = get_node("AnimationPlayer") # Save the animation player as a variable for easier use
 	player = get_node("../player") # Save the player node for easier use
 	gun_sounds = get_node("GunSounds") # We need the sounds of the guns to get the bomb sound
+	light = get_node("BombLight") # The light node
 	set_fixed_process(true) # We use _fixed_process to count the time left untill the explosion, and to actually explode
 
 func _fixed_process(delta):

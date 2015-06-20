@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="15" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+	<ext_resource path="res://scripts/spawner.gd" type="Script"></ext_resource>
+	<ext_resource path="res://gfx/spawner_a_under.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gfx/spawner_a_over.png" type="Texture"></ext_resource>
+	<resource type="ConvexPolygonShape2D" path="local://1">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="7"> 			-4.45705, -34.9034, -10.2523, -32.757, -22.4867, -30.8253, -31.9308, -35.9766, -21.4135, -38.123, -14.7597, -39.1962, -6.26318, -39.0835 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://2">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			-22.4867, -30.8253, -31.0723, -27.6057, -40.731, -31.0399, -31.9308, -35.9766 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://3">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			-31.0723, -27.6057, -36.3126, -21.2684, -46.3116, -24.8154, -40.731, -31.0399 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://4">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="5"> 			-36.3126, -21.2684, -40.82, -13.3268, -54.4679, -9.36138, -52.7508, -17.0884, -46.3116, -24.8154 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://5">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="5"> 			-14.8487, 25.5228, -18.6232, 28.6297, -22.4867, 29.059, -29.3552, 26.9126, -23.4343, 21.23 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://6">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="5"> 			-23.4343, 21.23, -29.3552, 26.9126, -38.5846, 22.6198, -45.0238, 18.5417, -33.004, 14.6782 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://7">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="5"> 			-33.004, 14.6782, -45.0238, 18.5417, -49.3166, 15.3221, -51.2483, 11.4586, -38.2444, 8.13707 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://8">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="4"> 			-40.82, -13.3268, -42.5371, -7.31692, -55.9704, -1.63438, -54.4679, -9.36138 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://9">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="5"> 			-42.5371, -7.31692, -41.8932, 1.48327, -51.2483, 11.4586, -55.3264, 5.01941, -55.9704, -1.63438 </vector2_array>
+
+	</resource>
+	<resource type="ConvexPolygonShape2D" path="local://10">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2_array name="points" len="3"> 			-41.8932, 1.48327, -38.2444, 8.13707, -51.2483, 11.4586 </vector2_array>
+
+	</resource>
+	<resource type="CircleShape2D" path="local://11">
+		<real name="custom_solver_bias"> 0 </real>
+		<real name="radius"> 22 </real>
+
+	</resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+			<string> "names" </string>
+			<string_array  len="82">
+				<string> "spawner" </string>
+				<string> "StaticBody2D" </string>
+				<string> "_import_path" </string>
+				<string> "visibility/visible" </string>
+				<string> "visibility/opacity" </string>
+				<string> "visibility/self_opacity" </string>
+				<string> "visibility/light_mask" </string>
+				<string> "transform/pos" </string>
+				<string> "transform/rot" </string>
+				<string> "transform/scale" </string>
+				<string> "z/z" </string>
+				<string> "z/relative" </string>
+				<string> "input/pickable" </string>
+				<string> "shape_count" </string>
+				<string> "shapes/0/shape" </string>
+				<string> "shapes/0/transform" </string>
+				<string> "shapes/0/trigger" </string>
+				<string> "shapes/1/shape" </string>
+				<string> "shapes/1/transform" </string>
+				<string> "shapes/1/trigger" </string>
+				<string> "shapes/2/shape" </string>
+				<string> "shapes/2/transform" </string>
+				<string> "shapes/2/trigger" </string>
+				<string> "shapes/3/shape" </string>
+				<string> "shapes/3/transform" </string>
+				<string> "shapes/3/trigger" </string>
+				<string> "shapes/4/shape" </string>
+				<string> "shapes/4/transform" </string>
+				<string> "shapes/4/trigger" </string>
+				<string> "shapes/5/shape" </string>
+				<string> "shapes/5/transform" </string>
+				<string> "shapes/5/trigger" </string>
+				<string> "shapes/6/shape" </string>
+				<string> "shapes/6/transform" </string>
+				<string> "shapes/6/trigger" </string>
+				<string> "shapes/7/shape" </string>
+				<string> "shapes/7/transform" </string>
+				<string> "shapes/7/trigger" </string>
+				<string> "shapes/8/shape" </string>
+				<string> "shapes/8/transform" </string>
+				<string> "shapes/8/trigger" </string>
+				<string> "shapes/9/shape" </string>
+				<string> "shapes/9/transform" </string>
+				<string> "shapes/9/trigger" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "constant_linear_velocity" </string>
+				<string> "constant_angular_velocity" </string>
+				<string> "friction" </string>
+				<string> "bounce" </string>
+				<string> "script/script" </string>
+				<string> "__meta__" </string>
+				<string> "object_scene" </string>
+				<string> "cooldown" </string>
+				<string> "Sprite" </string>
+				<string> "texture" </string>
+				<string> "centered" </string>
+				<string> "offset" </string>
+				<string> "flip_h" </string>
+				<string> "flip_v" </string>
+				<string> "vframes" </string>
+				<string> "hframes" </string>
+				<string> "frame" </string>
+				<string> "modulate" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
+				<string> "Sprite1" </string>
+				<string> "Area2D" </string>
+				<string> "gravity_point" </string>
+				<string> "gravity_distance_scale" </string>
+				<string> "gravity_vec" </string>
+				<string> "gravity" </string>
+				<string> "linear_damp" </string>
+				<string> "angular_damp" </string>
+				<string> "monitoring" </string>
+				<string> "monitorable" </string>
+				<string> "CollisionShape2D" </string>
+				<string> "shape" </string>
+				<string> "trigger" </string>
+				<string> "CollisionPolygon2D" </string>
+				<string> "build_mode" </string>
+				<string> "polygon" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 6 </int>
+			<string> "nodes" </string>
+			<int_array  len="330"> 				-1, -1, 1, 0, -1, 52, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 8, 17, 12, 18, 11, 19, 8, 20, 13, 21, 11, 22, 8, 23, 14, 24, 11, 25, 8, 26, 15, 27, 11, 28, 8, 29, 16, 30, 11, 31, 8, 32, 17, 33, 11, 34, 8, 35, 18, 36, 11, 37, 8, 38, 19, 39, 11, 40, 8, 41, 20, 42, 11, 43, 8, 44, 3, 45, 3, 46, 4, 47, 5, 48, 2, 49, 5, 50, 21, 51, 22, 52, 23, 53, 24, 0, 0, 0, 54, 54, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 25, 8, 5, 9, 6, 10, 26, 11, 1, 55, 27, 56, 1, 57, 4, 58, 8, 59, 8, 60, 3, 61, 3, 62, 7, 63, 28, 64, 8, 65, 29, 0, 1, 0, 54, 66, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 30, 11, 1, 55, 31, 56, 1, 57, 4, 58, 8, 59, 8, 60, 3, 61, 3, 62, 7, 63, 28, 64, 8, 65, 29, 0, 0, 0, 67, 67, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 1, 13, 3, 14, 32, 15, 33, 16, 8, 68, 8, 69, 5, 70, 34, 71, 35, 72, 36, 73, 2, 74, 1, 75, 1, 44, 3, 45, 3, 0, 3, 0, 76, 76, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 37, 8, 5, 9, 6, 10, 7, 11, 1, 77, 32, 78, 8, 0, 0, 0, 79, 79, -1, 13, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 38, 8, 5, 9, 6, 10, 7, 11, 1, 80, 7, 81, 39, 78, 8, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="40" shared="false">
+				<node_path> "" </node_path>
+				<bool> True </bool>
+				<real> 1 </real>
+				<int> 1 </int>
+				<vector2> 0, 0 </vector2>
+				<real> 0 </real>
+				<vector2> 1, 1 </vector2>
+				<int> 0 </int>
+				<bool> False </bool>
+				<int> 10 </int>
+				<resource  resource_type="Shape2D" path="local://1">  </resource>
+				<matrix32> 1, -0, 0, 1, 0, 2.57567 </matrix32>
+				<resource  resource_type="Shape2D" path="local://2">  </resource>
+				<resource  resource_type="Shape2D" path="local://3">  </resource>
+				<resource  resource_type="Shape2D" path="local://4">  </resource>
+				<resource  resource_type="Shape2D" path="local://5">  </resource>
+				<resource  resource_type="Shape2D" path="local://6">  </resource>
+				<resource  resource_type="Shape2D" path="local://7">  </resource>
+				<resource  resource_type="Shape2D" path="local://8">  </resource>
+				<resource  resource_type="Shape2D" path="local://9">  </resource>
+				<resource  resource_type="Shape2D" path="local://10">  </resource>
+				<resource  resource_type="Script" path="res://scripts/spawner.gd">  </resource>
+				<dictionary  shared="false">
+					<string> "__editor_plugin_screen__" </string>
+					<string> "2D" </string>
+					<string> "__editor_plugin_states__" </string>
+					<dictionary  shared="false">
+						<string> "2D" </string>
+						<dictionary  shared="false">
+							<string> "ofs" </string>
+							<vector2> -73.9418, -34.9513 </vector2>
+							<string> "snap_grid" </string>
+							<bool> False </bool>
+							<string> "snap_offset" </string>
+							<vector2> 0, 0 </vector2>
+							<string> "snap_pixel" </string>
+							<bool> False </bool>
+							<string> "snap_relative" </string>
+							<bool> False </bool>
+							<string> "snap_rotation" </string>
+							<bool> False </bool>
+							<string> "snap_rotation_offset" </string>
+							<real> 0 </real>
+							<string> "snap_rotation_step" </string>
+							<real> 0.261799 </real>
+							<string> "snap_show_grid" </string>
+							<bool> False </bool>
+							<string> "snap_step" </string>
+							<vector2> 10, 10 </vector2>
+							<string> "zoom" </string>
+							<real> 6.33797 </real>
+						</dictionary>
+						<string> "3D" </string>
+						<dictionary  shared="false">
+							<string> "ambient_light_color" </string>
+							<color> 0.15, 0.15, 0.15, 1 </color>
+							<string> "default_light" </string>
+							<bool> True </bool>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "show_grid" </string>
+							<bool> True </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
+							<string> "viewports" </string>
+							<array  len="4" shared="false">
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> True </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+							</array>
+							<string> "zfar" </string>
+							<real> 2000 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
+						</dictionary>
+						<string> "Script" </string>
+						<dictionary  shared="false">
+							<string> "current" </string>
+							<int> 0 </int>
+							<string> "sources" </string>
+							<array  len="1" shared="false">
+								<string> "res://scripts/spawner.gd" </string>
+							</array>
+						</dictionary>
+					</dictionary>
+					<string> "__editor_run_settings__" </string>
+					<dictionary  shared="false">
+						<string> "custom_args" </string>
+						<string> "-l $scene" </string>
+						<string> "run_mode" </string>
+						<int> 0 </int>
+					</dictionary>
+				</dictionary>
+				<nil>  </nil>
+				<real> 5 </real>
+				<vector2> 0.263535, -2.89872 </vector2>
+				<int> -2 </int>
+				<resource  resource_type="Texture" path="res://gfx/spawner_a_under.png">  </resource>
+				<color> 1, 1, 1, 1 </color>
+				<rect2> 0, 0, 0, 0 </rect2>
+				<int> 4 </int>
+				<resource  resource_type="Texture" path="res://gfx/spawner_a_over.png">  </resource>
+				<resource  resource_type="Shape2D" path="local://11">  </resource>
+				<matrix32> 1, -0, 0, 1, -5.36449, -0.631119 </matrix32>
+				<vector2> 0, 1 </vector2>
+				<real> 98 </real>
+				<real> 0.1 </real>
+				<vector2> -5.36449, -0.631119 </vector2>
+				<vector2> 0, 2.57567 </vector2>
+				<vector2_array  len="29"> 					-6.26318, -39.0835, -14.7597, -39.1962, -21.4135, -38.123, -31.9308, -35.9766, -40.731, -31.0399, -46.3116, -24.8154, -52.7508, -17.0884, -54.4679, -9.36138, -55.9704, -1.63438, -55.3264, 5.01941, -51.2483, 11.4586, -49.3166, 15.3221, -45.0238, 18.5417, -38.5846, 22.6198, -29.3552, 26.9126, -22.4867, 29.059, -18.6232, 28.6297, -14.8487, 25.5228, -23.4343, 21.23, -33.004, 14.6782, -38.2444, 8.13707, -41.8932, 1.48327, -42.5371, -7.31692, -40.82, -13.3268, -36.3126, -21.2684, -31.0723, -27.6057, -22.4867, -30.8253, -10.2523, -32.757, -4.45705, -34.9034 </vector2_array>
+			</array>
+			<string> "version" </string>
+			<int> 1 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>

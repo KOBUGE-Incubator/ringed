@@ -20,6 +20,8 @@ func _ready():
 	map_node.set_name("Map")
 	add_child(map_node)
 	
+	get_node("player").set_pos(map_node.get_node("Spawn").get_pos())
+	
 func _process(delta):
 	offset = -get_viewport().get_canvas_transform().o # The offset of the viewport
 	var o = offset/Vector2(1024,768) # We divide it by the original screen size, so it will match the UV coordinates of the background sprite

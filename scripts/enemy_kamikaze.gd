@@ -23,8 +23,8 @@ func do_kamikaze():
 		if(!spider_sound.is_voice_active(spider_sound_ID)): # Is the orginial spider sound stoped
 			spider_explote_ID = spider_sound.play("spider_explote") # Reproduces spider explotion sound
 			spider_animations.play("die") # Play de spider dead animation
-			#set_layer_mask(0) # Disable Collisions
-			#set_collision_mask(0) # Disable Collisions
+			set_layer_mask(0) # Disable Collisions
+			set_collision_mask(0) # Disable Collisions
 			disable_spider()
 			it_explotes = true
 func disable_spider():

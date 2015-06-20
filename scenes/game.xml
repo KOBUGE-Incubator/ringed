@@ -183,7 +183,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -1025.77, -800 </vector2>
+							<vector2> -243.35, -353.405 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -203,7 +203,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.26352 </real>
+							<real> 0.397214 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -300,7 +300,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 4 </int>
+							<int> 3 </int>
 							<string> "sources" </string>
 							<array  len="12" shared="false">
 								<string> "res://scripts/player.gd" </string>
