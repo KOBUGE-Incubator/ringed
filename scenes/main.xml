@@ -120,13 +120,13 @@
 				<resource  resource_type="Script" path="res://scripts/menu.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -1037.76, -800 </vector2>
+							<vector2> 193.709, 811.391 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -146,7 +146,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.157779 </real>
+							<real> 0.735091 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -245,7 +245,7 @@
 							<string> "current" </string>
 							<int> 7 </int>
 							<string> "sources" </string>
-							<array  len="8" shared="false">
+							<array  len="9" shared="false">
 								<string> "res://scripts/player.gd" </string>
 								<string> "res://scripts/bullet.gd" </string>
 								<string> "res://scripts/timer.gd" </string>
@@ -254,6 +254,7 @@
 								<string> "res://scripts/living_object.gd" </string>
 								<string> "res://scripts/bomb.gd" </string>
 								<string> "res://scripts/menu.gd" </string>
+								<string> "res://scripts/autoload.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>

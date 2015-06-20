@@ -4,12 +4,21 @@ var time = 3 # The time after we spawned the last spider
 var enemy_scn = load("res://scenes/enemy_1.xml") # The spider scene
 var background # The grass node
 var offset = Vector2(0,0)# The offset of the background
+var autoload # The autoload node
+var map
 
 func _ready():
 	randomize() # Randomize the seed for all random functions
+	autoload = get_node("/root/autoload")
 	background = get_node("CanvasLayer/background") # Take the background node
 	set_fixed_process(false) # We use _fixed_process to spawn spiders
 	set_process(true) # We use _process to move the background
+	
+	# Load the map
+	map = autoload.map_scene
+	var map_node = map.instance()
+	map_node.set_name("Map")
+	add_child(map_node)
 	
 func _process(delta):
 	offset = -get_viewport().get_canvas_transform().o # The offset of the viewport

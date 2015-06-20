@@ -3,6 +3,7 @@ extends Node2D
 
 export var smooth = 8.0
 var target
+var maps = []
 
 func _ready():
 	get_viewport().connect("size_changed", self, "size_changed") # Update the sizes of different objects
@@ -19,7 +20,24 @@ func _ready():
 	get_node("Menu/Host/Back").connect("pressed", self, "move_menu", ["Main"])
 	get_node("Menu/Join/Back").connect("pressed", self, "move_menu", ["Main"])
 	
-	get_node("Menu/Join/Enter").connect("pressed", self, "join") 
+	get_node("Menu/Join/Enter").connect("pressed", self, "join")
+	get_node("Menu/Host/Host").connect("pressed", self, "host")
+	
+	# Maps
+	var dir = Directory.new()
+	dir.open("res://maps/")
+	dir.list_dir_begin()
+	var name = dir.get_next()
+	while(name):
+		if(name.length() > 2):
+			if(!dir.current_is_dir()):
+				maps.append("res://maps/" + name)
+		name = dir.get_next()
+	dir.list_dir_end()
+	
+	var mapsList = get_node("Menu/Host/Map/OptionButton")
+	for map in maps:
+		mapsList.add_item(map)
 	
 
 func size_changed():
@@ -45,8 +63,13 @@ func move_menu(to):
 	target = get_node("Menu/" + to)
 
 func join():
-	get_tree().change_scene("res://scenes/game.xml")
+	play("res://maps/forest_1.xml")
+	
+func host():
+	play(maps[get_node("Menu/Host/Map/OptionButton").get_selected_ID()])
 
-func play():
+func play(map):
+	get_node("/root/autoload").map_scene = load(map)
+	print(map)
 	get_tree().change_scene("res://scenes/game.xml")
 
