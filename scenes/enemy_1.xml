@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="23" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
+<resource_file type="PackedScene" subresource_count="24" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/enemy_1.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/light.png" type="Texture"></ext_resource>
+	<ext_resource path="res://materials/light_visible.res" type="CanvasItemMaterial"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/enemy_1/10.png" type="Texture"></ext_resource>
@@ -19,13 +20,13 @@
 	<ext_resource path="res://gfx/healthbar_empty.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/healthbar_full.png" type="Texture"></ext_resource>
 	<ext_resource path="res://audio/samples/enemy.res" type="SampleLibrary"></ext_resource>
-	<resource type="CapsuleShape2D" path="local://1">
+	<resource type="CapsuleShape2D" path="local://0">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 20 </real>
 		<real name="height"> 25 </real>
 
 	</resource>
-	<resource type="SpriteFrames" path="local://2">
+	<resource type="SpriteFrames" path="local://1">
 		<array name="frames" len="13" shared="false">
 			<resource  resource_type="Texture" path="res://gfx/enemy_1/0.png">  </resource>
 			<resource  resource_type="Texture" path="res://gfx/enemy_1/1.png">  </resource>
@@ -43,7 +44,7 @@
 		</array>
 
 	</resource>
-	<resource type="Animation" path="local://3">
+	<resource type="Animation" path="local://2">
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.1 </real>
@@ -168,6 +169,7 @@
 				<string> "shadow/item_mask" </string>
 				<string> "eyeR" </string>
 				<string> "AnimatedSprite" </string>
+				<string> "material/material" </string>
 				<string> "frames" </string>
 				<string> "centered" </string>
 				<string> "flip_h" </string>
@@ -189,7 +191,6 @@
 				<string> "Node2D" </string>
 				<string> "HealthEmpty" </string>
 				<string> "Sprite" </string>
-				<string> "material/material" </string>
 				<string> "vframes" </string>
 				<string> "hframes" </string>
 				<string> "frame" </string>
@@ -210,7 +211,7 @@
 			<string> "node_count" </string>
 			<int> 10 </int>
 			<string> "nodes" </string>
-			<int_array  len="476"> 				-1, -1, 1, 0, -1, 41, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 11, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 3, 26, 12, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 13, 33, 14, 34, 15, 35, 16, 36, 17, 37, 18, 38, 2, 39, 13, 40, 1, 41, 19, 42, 2, 0, 0, 0, 44, 43, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 20, 8, 5, 9, 21, 10, 7, 11, 1, 45, 1, 46, 22, 47, 4, 48, 23, 49, 24, 50, 25, 19, 7, 51, 5, 52, 26, 53, 27, 54, 7, 55, 7, 56, 3, 57, 8, 58, 28, 59, 29, 60, 3, 0, 0, 0, 44, 61, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 30, 8, 5, 9, 31, 10, 7, 11, 1, 45, 1, 46, 22, 47, 4, 48, 23, 49, 24, 50, 25, 19, 7, 51, 5, 52, 26, 53, 27, 54, 7, 55, 7, 56, 3, 57, 8, 58, 28, 59, 29, 60, 3, 0, 0, 0, 62, 62, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 63, 32, 64, 1, 65, 8, 66, 8, 67, 33, 0, 3, 0, 68, 68, -1, 9, 2, 0, 69, 3, 70, 5, 71, 34, 72, 35, 73, 1, 74, 2, 75, 36, 76, 37, 0, 0, 0, 77, 77, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 38, 8, 5, 9, 6, 10, 7, 11, 1, 78, 9, 79, 8, 0, 0, 0, 81, 80, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 0, 6, 0, 83, 82, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 84, 39, 7, 40, 8, 5, 9, 41, 10, 3, 11, 1, 46, 42, 64, 8, 47, 4, 65, 8, 66, 8, 85, 3, 86, 3, 87, 7, 67, 33, 88, 1, 89, 43, 0, 6, 0, 83, 90, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 84, 39, 7, 40, 8, 5, 9, 41, 10, 3, 11, 1, 46, 44, 64, 8, 47, 4, 65, 8, 66, 8, 85, 3, 86, 3, 87, 7, 67, 33, 88, 1, 89, 43, 0, 0, 0, 92, 91, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 93, 5, 94, 2, 95, 2, 96, 45, 97, 2, 98, 3, 99, 46, 100, 47, 0 </int_array>
+			<int_array  len="478"> 				-1, -1, 1, 0, -1, 41, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 3, 18, 3, 19, 11, 20, 2, 21, 2, 22, 5, 23, 2, 24, 8, 25, 3, 26, 12, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 13, 33, 14, 34, 15, 35, 16, 36, 17, 37, 18, 38, 2, 39, 13, 40, 1, 41, 19, 42, 2, 0, 0, 0, 44, 43, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 20, 8, 5, 9, 21, 10, 7, 11, 1, 45, 1, 46, 22, 47, 4, 48, 23, 49, 24, 50, 25, 19, 7, 51, 5, 52, 26, 53, 27, 54, 7, 55, 7, 56, 3, 57, 8, 58, 28, 59, 29, 60, 3, 0, 0, 0, 44, 61, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 30, 8, 5, 9, 21, 10, 7, 11, 1, 45, 1, 46, 22, 47, 4, 48, 23, 49, 24, 50, 25, 19, 7, 51, 5, 52, 26, 53, 27, 54, 7, 55, 7, 56, 3, 57, 8, 58, 28, 59, 29, 60, 3, 0, 0, 0, 62, 62, -1, 16, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 63, 31, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 64, 32, 65, 1, 66, 8, 67, 8, 68, 33, 0, 3, 0, 69, 69, -1, 9, 2, 0, 70, 3, 71, 5, 72, 34, 73, 35, 74, 1, 75, 2, 76, 36, 77, 37, 0, 0, 0, 78, 78, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 38, 8, 5, 9, 6, 10, 7, 11, 1, 79, 9, 80, 8, 0, 0, 0, 82, 81, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 0, 6, 0, 84, 83, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 63, 39, 7, 40, 8, 5, 9, 41, 10, 3, 11, 1, 46, 42, 65, 8, 47, 4, 66, 8, 67, 8, 85, 3, 86, 3, 87, 7, 68, 33, 88, 1, 89, 43, 0, 6, 0, 84, 90, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 63, 39, 7, 40, 8, 5, 9, 41, 10, 3, 11, 1, 46, 44, 65, 8, 47, 4, 66, 8, 67, 8, 85, 3, 86, 3, 87, 7, 68, 33, 88, 1, 89, 43, 0, 0, 0, 92, 91, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 93, 5, 94, 2, 95, 2, 96, 45, 97, 2, 98, 3, 99, 46, 100, 47, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="48" shared="false">
 				<node_path> "" </node_path>
@@ -222,7 +223,7 @@
 				<vector2> 1, 1 </vector2>
 				<int> 0 </int>
 				<bool> False </bool>
-				<resource  resource_type="Shape2D" path="local://1">  </resource>
+				<resource  resource_type="Shape2D" path="local://0">  </resource>
 				<matrix32> 1, -0, 0, 1, 0.257027, 5.14049 </matrix32>
 				<int> 2 </int>
 				<int> 4 </int>
@@ -388,11 +389,11 @@
 				<int> 2048 </int>
 				<real> 80 </real>
 				<vector2> 3.00494, -16.0979 </vector2>
-				<vector2> 0.0101443, 0.0101443 </vector2>
-				<resource  resource_type="SpriteFrames" path="local://2">  </resource>
+				<resource  resource_type="CanvasItemMaterial" path="res://materials/light_visible.res">  </resource>
+				<resource  resource_type="SpriteFrames" path="local://1">  </resource>
 				<color> 1, 1, 1, 1 </color>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://3">  </resource>
+				<resource  resource_type="Animation" path="local://2">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "walking" </string>

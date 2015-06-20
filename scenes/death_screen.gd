@@ -14,10 +14,7 @@ func _input(event):
 	if(event.type == InputEvent.MOUSE_BUTTON): # When we click the mouse
 		if(!self.is_hidden()): # If the death screen is display
 			print("mouse click")
-			get_tree().change_scene("res://scenes/game.xml")
-			
-	# si esta visible
-	# si-si se hace click se obtiene la escena padre y se resetea
-	# no-no pasa nada
+			#get_tree().change_scene("res://scenes/game.xml")
+			get_tree().reload_current_scene()
 
 
