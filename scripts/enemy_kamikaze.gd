@@ -14,7 +14,6 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		do_kamikaze()
 	if(it_explotes == true): # The spider explotes 
 		if(!spider_sound.is_voice_active(spider_explote_ID)): # The explotion sound is over... time to die
-			print("audio finalizo")
 			health = -1 # This make the spider die
 	
 func do_kamikaze():
@@ -35,3 +34,10 @@ func disable_spider():
 	speed = 0
 	rotation_speed = 0
 
+func die():
+	if(it_explotes == true): # The sider explotes because already do the kamikaze
+		if(!spider_sound.is_voice_active(spider_explote_ID)): # If the explotion sound is over... time to die
+			.die() # The parent method kill the spider
+		die() # We call the child method because we need that the explotion souns end and then kill the spider
+	else:
+		do_kamikaze()
