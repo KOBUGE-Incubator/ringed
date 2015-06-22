@@ -102,7 +102,10 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
 	if(Input.is_action_pressed("shift")):
-		speed = speed_run # We modify the speed to run
+		var stamina_to_use = .085
+		if(is_tired == false and stamina >= stamina_to_use):
+			speed = speed_run # We modify the speed to run
+			use_stamina(stamina_to_use)
 	var dodge = Input.is_action_pressed("spacebar") 
 	if(dodge and not prev_dodge):
 		do_dodge()
@@ -141,9 +144,11 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	get_node("../cursor").set_pos(relative_mouse_pos) # Move the cursor
 
 func do_dodge(): # Function to make and watch dodge delay
-	if(time_for_next_dodge <= 0):
+	var stamina_to_use = 3
+	if(time_for_next_dodge <= 0 and is_tired == false and stamina >= stamina_to_use):
 		speed = speed_dodge # We modify the speed to dodge
 		time_for_next_dodge = dodge_cooldown # To prevent ulta move faster with dodge
+		use_stamina(stamina_to_use)
 	
 	
 func amount_of_damage(from): # We override the function defined in living_object.gd
