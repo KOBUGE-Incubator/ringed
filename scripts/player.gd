@@ -3,6 +3,7 @@ extends "living_object.gd" # The player is alive
 
 export var shot_cooldown = 0.2 # Time between two auto-shots
 export var gun_change_cooldown = 0.2 # Time between two auto-bombs
+export var dodge_cooldown = 0.5 # Time between two dodges
 var bullet_scn = preload("res://scenes/bullet.xml") # The bullet scene
 var bomb_scn = preload("res://scenes/bomb.xml") # The bomb scene
 var mouse_pos = Vector2(0, 0) # The position of the mouse on the screen
@@ -10,6 +11,7 @@ var relative_mouse_pos = Vector2(0, 0) # The position of the mouse in relation t
 var bullet_offset = Vector2(0, 0) # The offset of the bullet (taken from the "Bullet" node)
 var time_for_next_shot = 0.0 # How much time is left till the next shot?
 var time_for_next_gun_change = 0.0 # How much time is left till the next gun change?
+var time_for_next_dodge = 0.0
 var camera_shake_time_left = 0.0 # How much time is left before the shake stops?
 var camera_shake_distance = 0.0 # The range of the shake
 var current_gun = 0 # The ID of the current gun
@@ -22,8 +24,15 @@ var light # The main light of the player / for the shadows
 var light2 # This doesn't porject shadows
 var initial_light_energy # The max energy of the main light
 var gun_sound_delay = 0
+var speed_run # The speed of the player to run
+var speed_dodge # The speed of the player to dodge
+var speed_holder # We use it when override the original speed, to reset its value to the original one
+var prev_dodge = false # if the player did a previous dodge, so he just can pres and release
 
 func _ready():
+	speed_run = speed*2
+	speed_dodge = speed*26
+	speed_holder = speed
 	get_node("AnimationPlayer").play("light")
 	current_gun_node = get_node("Guns").get_child(current_gun)
 	light = get_node("Light2D")
@@ -72,7 +81,9 @@ func _input(event):
 func logic(delta): # We override the function defined in moveable_object.gd
 	time_for_next_shot -= delta # We decrease the time till the next shot by the time elapsed
 	time_for_next_gun_change -= delta # We decrease the time till the next gun change by the time elapsed
+	time_for_next_dodge -= delta # We decrease the time till the next dodge by the time elapsed
 	force = Vector2(0,0) # Then we reset the force
+	speed = speed_holder # Then we reset the speed 
 	# We add a vector to the force depending of the direction in which we move
 	if(Input.is_action_pressed("D")):
 		force += Vector2(1,0)
@@ -90,6 +101,12 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		force += Vector2(0,-1)
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
+	if(Input.is_action_pressed("shift")):
+		speed = speed_run # We modify the speed to run
+	var dodge = Input.is_action_pressed("spacebar") 
+	if(dodge and not prev_dodge):
+		do_dodge()
+	prev_dodge = dodge # With this we can ensure a dodge and need to release the key
 	if(Input.is_key_pressed(InputEvent.NONE)):
 		print("nothing")
 		stepSounds.stop_all()
@@ -123,6 +140,12 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	
 	get_node("../cursor").set_pos(relative_mouse_pos) # Move the cursor
 
+func do_dodge(): # Function to make and watch dodge delay
+	if(time_for_next_dodge <= 0):
+		speed = speed_dodge # We modify the speed to dodge
+		time_for_next_dodge = dodge_cooldown # To prevent ulta move faster with dodge
+	
+	
 func amount_of_damage(from): # We override the function defined in living_object.gd
 	if(from != "player"): # Don't receive self-damage
 		return 1.0
