@@ -6,6 +6,7 @@ var modulate_day # The CanvasModulate node that was passed to the class
 var day_atenuation # The atenuation value used in modulate_day node (R,G,B)
 var max_illumination = 1.0 # The max value that we can pass to the day_atenuation (RGB) 1.0 is actually the max
 var min_illumination = 0.0 # The min value that we can pass to the day_atenuation (RGB) 0.0 is actually the min
+var day = 0 # This will be +1 each time the clock pass from 23:59 to 00:00
 var day_time = { # The time of the day (like we talk)
 "morning":1,
 "afternoon":2,
@@ -14,10 +15,11 @@ var day_time = { # The time of the day (like we talk)
 }
 var current_day_time # It saves the range in where the ingresed time is
 
-func _init(modulate, hour , mins): # Constructor of the class
+func _init(modulate, hour , mins , day): # Constructor of the class
 	self.modulate_day = modulate # Get the CanvasModulate
 	set_hour(hour) # We set the hour to the class variable and get the current_day_time
 	set_mins(mins) # We set the minutes to the class variable
+	self.day = day
 
 func set_hour(hours): # We filter the ingresed hour, if is a valid one it return 1 and 0 if not
 	if(hours >=0 and hours < 24):
@@ -33,6 +35,7 @@ func set_hour(hours): # We filter the ingresed hour, if is a valid one it return
 		return 1
 	elif (hours == 24): 
 		self.hour = 0
+		self.day +=1
 		return 1
 	else:
 		return 0
@@ -70,4 +73,7 @@ func get_day_time(): # In case we need to know in what time of the day is the ac
 	return current_day_time
 	
 func what_time_is(): # Just to get the hour and minutes of the actual class object (in a string "hour:minutes")
-	return str(self.hour)+":"+str(self.minutes)
+		return str(self.hour)+":"+str(self.minutes)
+
+func what_day_is(): # Just to get the actual day of the class object
+	return self.day

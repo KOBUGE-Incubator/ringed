@@ -1,5 +1,5 @@
 extends Node2D
-export var day = false
+#export var day = false
 var time = 3 # The time after we spawned the last spider
 var enemy_scn = load("res://scenes/enemy_1.xml") # The spider scene
 var background # The grass node
@@ -9,8 +9,12 @@ var map
 var modulate_scene # The actual canvas modulate for the scene
 var day_night = preload("day_night.gd")
 var day_night_object
-var fake_server_hour
-var fake_server_minutes
+export var fake_server_hour = 0
+export var fake_server_minutes = 0
+export var fake_server_day = 0
+var day_time_label
+var day_label
+
 func _ready():
 	randomize() # Randomize the seed for all random functions
 	autoload = get_node("/root/autoload")
@@ -28,9 +32,11 @@ func _ready():
 	#	modulate_scene.set_color(Color(.7,.7,.7))
 	#else:
 	#	modulate_scene.set_color(Color(.2,.2,.2))
-	fake_server_hour = 6 
-	fake_server_minutes = 24
-	day_night_object = day_night.new(modulate_scene,fake_server_hour,fake_server_minutes)
+	day_time_label = get_node("HUD/day_time")
+	day_label = get_node("HUD/day")
+	day_night_object = day_night.new(modulate_scene,fake_server_hour,fake_server_minutes,fake_server_day)
+	day_time_label.set_text(day_night_object.what_time_is())
+	day_label.set_text("DAY "+str(day_night_object.what_day_is()))
 func _process(delta):
 
 	if(fake_server_minutes >60):
@@ -38,7 +44,8 @@ func _process(delta):
 	else:
 		fake_server_minutes += 1
 	day_night_object.set_mins(fake_server_minutes)
-	print(day_night_object.what_time_is())
+	day_time_label.set_text(day_night_object.what_time_is())
+	day_label.set_text("DAY "+str(day_night_object.what_day_is()))
 	var background_rect = get_viewport_rect() # The viewport rect
 	var offset = get_viewport().get_canvas_transform().o
 	background_rect.pos = -offset # The offset of the viewport
