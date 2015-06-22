@@ -7,7 +7,10 @@ var offset = Vector2(0,0)# The offset of the background
 var autoload # The autoload node
 var map
 var modulate_scene # The actual canvas modulate for the scene
-
+var day_night = preload("day_night.gd")
+var day_night_object
+var fake_server_hour
+var fake_server_minutes
 func _ready():
 	randomize() # Randomize the seed for all random functions
 	autoload = get_node("/root/autoload")
@@ -21,11 +24,21 @@ func _ready():
 	add_child(map_node)
 	modulate_scene = get_node("CanvasModulate")
 	get_node("player").set_pos(map_node.get_node("Spawn").get_pos())
-	if (day == true): # If day is true the scene will be in day if not... you know
-		modulate_scene.set_color(Color(.7,.7,.7))
-	else:
-		modulate_scene.set_color(Color(.2,.2,.2))
+	#if (day == true): # If day is true the scene will be in day if not... you know
+	#	modulate_scene.set_color(Color(.7,.7,.7))
+	#else:
+	#	modulate_scene.set_color(Color(.2,.2,.2))
+	fake_server_hour = 6 
+	fake_server_minutes = 24
+	day_night_object = day_night.new(modulate_scene,fake_server_hour,fake_server_minutes)
 func _process(delta):
+
+	if(fake_server_minutes >60):
+		fake_server_minutes = 0
+	else:
+		fake_server_minutes += 1
+	day_night_object.set_mins(fake_server_minutes)
+	print(day_night_object.what_time_is())
 	var background_rect = get_viewport_rect() # The viewport rect
 	var offset = get_viewport().get_canvas_transform().o
 	background_rect.pos = -offset # The offset of the viewport
