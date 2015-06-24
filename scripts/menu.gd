@@ -5,20 +5,31 @@ export var smooth = 8.0
 var target
 var maps = []
 
+# ACTIONS inputs
+const INPUT_ACTIONS = ["left","right","up","down","run","dodge","shot"] # This array will give us the order and action name in UI too
+
 func _ready():
+
 	get_viewport().connect("size_changed", self, "size_changed") # Update the sizes of different objects
 	size_changed() # Update
 	set_process(true)
 	#set_scale(Vector2(0.3, 0.3))
 	#set_pos(Vector2(1024/3, 768/3))
-	
+
 	# Connect the menu
 	target = get_node("Menu/Main")
 	get_node("Menu/Main/Join").connect("pressed", self, "move_menu", ["Join"])
 	get_node("Menu/Main/Host").connect("pressed", self, "move_menu", ["Host"])
+	get_node("Menu/Main/Options").connect("pressed", self, "move_menu", ["Options"])
+
+	# Menu "Options"
+	get_node("Menu/Options/Controls").connect("pressed", self, "move_menu", ["Controls"])
 	
+	# The back buttons in the menus
 	get_node("Menu/Host/Back").connect("pressed", self, "move_menu", ["Main"])
 	get_node("Menu/Join/Back").connect("pressed", self, "move_menu", ["Main"])
+	get_node("Menu/Options/Back").connect("pressed", self, "move_menu", ["Main"])
+	get_node("Menu/Controls/Back").connect("pressed", self, "move_menu", ["Options"])
 	
 	get_node("Menu/Join/Enter").connect("pressed", self, "join")
 	get_node("Menu/Host/Host").connect("pressed", self, "host")

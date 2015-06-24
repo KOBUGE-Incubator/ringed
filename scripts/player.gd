@@ -85,36 +85,33 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	force = Vector2(0,0) # Then we reset the force
 	speed = speed_holder # Then we reset the speed 
 	# We add a vector to the force depending of the direction in which we move
-	if(Input.is_action_pressed("D")):
+	if(Input.is_action_pressed("right")):
 		force += Vector2(1,0)
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
-	if(Input.is_action_pressed("A")):
+	if(Input.is_action_pressed("left")):
 		force += Vector2(-1,0)
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
-	if(Input.is_action_pressed("S")):
+	if(Input.is_action_pressed("down")):
 		force += Vector2(0,1)
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
-	if(Input.is_action_pressed("W")):
+	if(Input.is_action_pressed("up")):
 		force += Vector2(0,-1)
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
-	if(Input.is_action_pressed("shift")):
+	if(Input.is_action_pressed("run")):
 		var stamina_to_use = .085
 		if(is_tired == false and stamina >= stamina_to_use):
 			speed = speed_run # We modify the speed to run
 			use_stamina(stamina_to_use)
-	var dodge = Input.is_action_pressed("spacebar") 
+	var dodge = Input.is_action_pressed("dodge") 
 	if(dodge and not prev_dodge):
 		do_dodge()
 	prev_dodge = dodge # With this we can ensure a dodge and need to release the key
-	if(Input.is_key_pressed(InputEvent.NONE)):
-		print("nothing")
-		stepSounds.stop_all()
 		# If we are pressing "shoot" and we have no cooldown left
-	if(Input.is_action_pressed("Shot")):
+	if(Input.is_action_pressed("shot")):
 		current_gun_node.shot()
 		if(current_gun == 0): # If is the gun 1 that is fired
 			if gun_sound_delay == 0:
