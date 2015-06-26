@@ -139,7 +139,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -1611.71, 602.64 </vector2>
+							<vector2> -1198.47, 1390.84 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -159,7 +159,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.902499 </real>
+							<real> 1.507338 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -256,7 +256,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 9 </int>
+							<int> 8 </int>
 							<string> "sources" </string>
 							<array  len="11" shared="false">
 								<string> "res://scripts/player.gd" </string>
@@ -269,7 +269,7 @@
 								<string> "res://scripts/bomb.gd" </string>
 								<string> "res://scripts/menu.gd" </string>
 								<string> "res://scripts/setup_game_controls.gd" </string>
-								<string> "res://scripts/autoload.gd" </string>
+								<string> "res://scripts/global.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>

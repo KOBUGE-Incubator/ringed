@@ -9,7 +9,11 @@ var action_used
 var button
 var control_input_id
 
+# Global Settings
+var global 
+
 func _ready():
+	global = get_node("/root/global")
 	# Options/Controls actions
 	control_input_id = 1 # We use it to iterate all the controls nodes in Menu/Controls/InputXXX
 	for action in self.INPUT_ACTIONS:
@@ -49,12 +53,11 @@ func change_key(id, event):
 	InputMap.erase_action(action_used)
 	InputMap.add_action(action_used)
 	InputMap.action_add_event(action_used, event)
+	global.save_to_config("actions", action_used, event)
+	
 #	print(InputMap.get_action_list(action_used)[0])
 #	InputMap.action_add_event(action_used, event)
 #	InputMap.action_erase_event(action_used, InputMap.get_action_list(action_used)[0])
-
-#	print(InputMap.get_action_list(action_used)[1])
-	
 
 
 
