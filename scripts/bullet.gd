@@ -4,7 +4,7 @@ extends RigidBody2D
 var force = Vector2(0,0) # The force of movement
 var source = "magic" # The shooter of the bullet
 var die_on_timeout = true # Should the bullet be removed when there is no time left?
-var take_player_speed = true # Should the bullet inherit the player's speed
+export var take_player_speed = 0.5 # Should the bullet inherit the player's speed
 export var speed = 60.0 # The speed of the bullet (around 700 makes for a normal spped)
 export var time_left = 10.0 # The time left for the bullet to live
 export var damage = 1.0 # The damage that the bullet will cause

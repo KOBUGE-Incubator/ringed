@@ -41,7 +41,7 @@ func shot():
 			shot_occluder.set_enabled(true) # Whe enable the shot's occluder
 		bullet.force = Vector2(0,bullet.speed).rotated(rotation + deg2rad(180)) # We set its course
 		if(bullet.take_player_speed):
-			bullet.set_linear_velocity(player.get_linear_velocity())
+			bullet.set_linear_velocity(player.get_linear_velocity() * bullet.take_player_speed)
 		bullet.source = "player" # The player shoots the bullet
 		time_for_next_shot = shot_cooldown # To prevent ultra-fast fire
 
