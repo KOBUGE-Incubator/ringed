@@ -24,12 +24,14 @@ func _ready():
 
 	# Menu "Options"
 	get_node("Menu/Options/Controls").connect("pressed", self, "move_menu", ["Controls"])
+	get_node("Menu/Options/Graphics").connect("pressed", self, "move_menu", ["Graphics"])
 	
 	# The back buttons in the menus
 	get_node("Menu/Host/Back").connect("pressed", self, "move_menu", ["Main"])
 	get_node("Menu/Join/Back").connect("pressed", self, "move_menu", ["Main"])
 	get_node("Menu/Options/Back").connect("pressed", self, "move_menu", ["Main"])
 	get_node("Menu/Controls/Back").connect("pressed", self, "move_menu", ["Options"])
+	get_node("Menu/Graphics/Back").connect("pressed", self, "move_menu", ["Options"])
 	
 	get_node("Menu/Join/Enter").connect("pressed", self, "join")
 	get_node("Menu/Host/Host").connect("pressed", self, "host")

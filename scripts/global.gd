@@ -3,7 +3,7 @@ extends Node
 	# Window variables
 var width = 500
 var height = 500
-
+var fullscreen = false
 	# PATH variable
 const settings_filename = "user://settings.cfg"
 
@@ -11,6 +11,7 @@ func _ready():
 	load_config()
 	# Handle display
 	OS.set_window_size(Vector2(width, height))
+	OS.set_window_fullscreen(fullscreen)
 	get_tree().connect("screen_resized", self, "save_screen_size")
 
 func save_screen_size():
@@ -40,11 +41,13 @@ func load_config():
 		# Display parameters
 		config.set_value("display", "width", width)
 		config.set_value("display", "height", height)
+		config.set_value("display", "fullscreen", fullscreen)
 		config.save(settings_filename)
 	else:
 		# Display parameters
 		width = set_from_cfg(config, "display", "width", width)
 		height = set_from_cfg(config, "display", "height", height)
+		fullscreen = set_from_cfg(config, "display", "fullscreen", fullscreen)
 		
 		# User-defined input actions overrides
 		var event
