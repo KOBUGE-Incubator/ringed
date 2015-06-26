@@ -102,13 +102,15 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
 	if(Input.is_action_pressed("run")):
-		var stamina_to_use = .085
-		if(is_tired == false and stamina >= stamina_to_use):
-			speed = speed_run # We modify the speed to run
-			use_stamina(stamina_to_use)
+		if(self.isMoving()):
+			var stamina_to_use = .085
+			if(is_tired == false and stamina >= stamina_to_use):
+				speed = speed_run # We modify the speed to run
+				use_stamina(stamina_to_use)
 	var dodge = Input.is_action_pressed("dodge") 
 	if(dodge and not prev_dodge):
-		do_dodge()
+		if(self.isMoving()):
+			do_dodge()
 	prev_dodge = dodge # With this we can ensure a dodge and need to release the key
 		# If we are pressing "shoot" and we have no cooldown left
 	if(Input.is_action_pressed("shot")):
