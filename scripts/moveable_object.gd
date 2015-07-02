@@ -4,6 +4,7 @@ extends RigidBody2D
 export var infinite_stamina = true # If this option is false, the scene tree needs the nodes StaminaHolder/StaminaBar and StaminaHolder
 export var stamina_cooldown = 0.2 # Time between two succesive stamina-recover, or between a run and and stamina-recover
 export var max_stamina = 6.0 # The maximum amount of stamina the creature can have
+export var stamina_recover_amount = 1.0 # How much stamina the creature will recover over the time specified
 var stamina # The amount of stamina
 export var hide_staminabar_when_full = false # Should we hide the stamina bar when it is full?
 var staminabar # The staminabar node
@@ -37,7 +38,7 @@ func _fixed_process(delta):
 	if(infinite_stamina == false): # If the object has infinite stamina it wont access to the stamina-recover functions
 		time_for_next_stamina_recover -= delta # We decrease the time till the next stamina-recover by the time elapsed
 		if(time_for_next_stamina_recover <= 0):
-			recover(1)# Auto-recover the creature
+			recover(stamina_recover_amount)# Auto-recover the creature
 			time_for_next_stamina_recover = stamina_cooldown # We restart the auto-heal timer
 	
 	logic(delta) # Use the logic function to change the force and target angle

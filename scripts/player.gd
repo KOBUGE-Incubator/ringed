@@ -25,6 +25,9 @@ var gunSounds # The sounds of the guns
 var stepSounds # The sounds of the steps
 var playerSounds # The sounds that the player make
 # Miscellaneous
+var run_stamina_to_use = .045
+var dodge_stamina_to_use = 2.5
+export var run_speed = 1.4 # This will multiply the walk speed
 var current_gun = 0 # The ID of the current gun
 var current_gun_node # The node of that gun
 var switch_weapon = 0 # -1 if we need to switch to the previous weapon, +1 for the next, and 0 otherwise
@@ -42,7 +45,7 @@ var prev_move_action = "" # We use this to know what was the previous action (fo
 
 func _ready():
 	time_for_next_doble_key = dodge_doble_key_cooldown
-	speed_run = speed*2
+	speed_run = speed*run_speed
 	speed_dodge = speed*26
 	speed_holder = speed
 	get_node("AnimationPlayer").play("light")
@@ -116,10 +119,9 @@ func logic(delta): # We override the function defined in moveable_object.gd
 			stepSounds.play("grass_steps") # The sound of the steps in grass
 	if(Input.is_action_pressed("run")):
 		if(self.isMoving()):
-			var stamina_to_use = .085
-			if(is_tired == false and stamina >= stamina_to_use):
+			if(is_tired == false and stamina >= run_stamina_to_use):
 				speed = speed_run # We modify the speed to run
-				use_stamina(stamina_to_use)
+				use_stamina(run_stamina_to_use)
 	for action in move_actions:
 		do_dodge(action)
 	if(Input.is_action_pressed("shot")):
@@ -157,13 +159,12 @@ func do_dodge(action): # Function to make dodge with doble key
 		if(prev_dodge == false and time_for_next_doble_key > 0): # We ensure the key was relased and now is pressed
 			dodge_number_keys += 1 
 			if(dodge_number_keys == 2): # Now we do the actual dodge logic
-				var stamina_to_use = 3
 				dodge_number_keys = 1 # The number of Keys are now 0 so we can do it again
 				time_for_next_doble_key = dodge_doble_key_cooldown
-				if(time_for_next_dodge <= 0 and is_tired == false and stamina >= stamina_to_use):
+				if(time_for_next_dodge <= 0 and is_tired == false and stamina >= dodge_stamina_to_use):
 					speed = speed_dodge # We modify the speed to dodge
 					time_for_next_dodge = dodge_cooldown # To prevent ulta move faster with dodge
-					use_stamina(stamina_to_use)
+					use_stamina(dodge_stamina_to_use)
 		elif(prev_dodge == false and time_for_next_doble_key < 0):
 			prev_move_action = ""
 			time_for_next_doble_key = dodge_doble_key_cooldown
