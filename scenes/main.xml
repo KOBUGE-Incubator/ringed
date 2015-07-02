@@ -142,7 +142,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -1082.2, -793.536 </vector2>
+							<vector2> -1025.71, -759.521 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -162,7 +162,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.108032 </real>
+							<real> 1.227736 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -259,9 +259,9 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 9 </int>
+							<int> 12 </int>
 							<string> "sources" </string>
-							<array  len="12" shared="false">
+							<array  len="13" shared="false">
 								<string> "res://scripts/player.gd" </string>
 								<string> "res://scripts/bullet.gd" </string>
 								<string> "res://scripts/timer.gd" </string>
@@ -272,8 +272,9 @@
 								<string> "res://scripts/bomb.gd" </string>
 								<string> "res://scripts/menu.gd" </string>
 								<string> "res://scripts/setup_game_graphics.gd" </string>
-								<string> "res://scripts/setup_game_controls.gd" </string>
-								<string> "res://scripts/global.gd" </string>
+								<string> "res://scripts/moveable_object.gd" </string>
+								<string> "res://scripts/gun.gd" </string>
+								<string> "res://scripts/spawner.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>

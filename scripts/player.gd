@@ -1,25 +1,33 @@
 # player.gd -> living_object.gd -> moveable_object.gd -> RigidBody2D
 extends "living_object.gd" # The player is alive
 
+# Cooldowns
 export var shot_cooldown = 0.2 # Time between two auto-shots
 export var gun_change_cooldown = 0.2 # Time between two auto-bombs
 export var dodge_cooldown = 0.5 # Time between two dodges
+export var dodge_doble_key_cooldown = 0.235 # Time between two key pressed where we can dodge (if the time is > cooldown : we can't dodge)
+# Scenes
 var bullet_scn = preload("res://scenes/bullet.xml") # The bullet scene
 var bomb_scn = preload("res://scenes/bomb.xml") # The bomb scene
+# Vectors
 var mouse_pos = Vector2(0, 0) # The position of the mouse on the screen
 var relative_mouse_pos = Vector2(0, 0) # The position of the mouse in relation to 0,0
 var bullet_offset = Vector2(0, 0) # The offset of the bullet (taken from the "Bullet" node)
+# Counters
 var time_for_next_shot = 0.0 # How much time is left till the next shot?
 var time_for_next_gun_change = 0.0 # How much time is left till the next gun change?
 var time_for_next_dodge = 0.0
+var time_for_next_doble_key = 0.0
 var camera_shake_time_left = 0.0 # How much time is left before the shake stops?
 var camera_shake_distance = 0.0 # The range of the shake
-var current_gun = 0 # The ID of the current gun
-var current_gun_node # The node of that gun
-var switch_weapon = 0 # -1 if we need to switch to the previous weapon, +1 for the next, and 0 otherwise
+# Sounds
 var gunSounds # The sounds of the guns
 var stepSounds # The sounds of the steps
 var playerSounds # The sounds that the player make
+# Miscellaneous
+var current_gun = 0 # The ID of the current gun
+var current_gun_node # The node of that gun
+var switch_weapon = 0 # -1 if we need to switch to the previous weapon, +1 for the next, and 0 otherwise
 var light # The main light of the player / for the shadows
 var light2 # This doesn't porject shadows
 var initial_light_energy # The max energy of the main light
@@ -27,9 +35,13 @@ var gun_sound_delay = 0
 var speed_run # The speed of the player to run
 var speed_dodge # The speed of the player to dodge
 var speed_holder # We use it when override the original speed, to reset its value to the original one
-var prev_dodge = false # if the player did a previous dodge, so he just can pres and release
+var prev_dodge = true # if the player did a previous dodge, so he just can pres and release
+var dodge_number_keys = 0 # We need 2 to get a dodge
+var move_actions = ["right","left","down","up"] # We use this array to save the actions names and change them easy in the code
+var prev_move_action = "" # We use this to know what was the previous action (for moves), it is used in do_dodge() to know when we change of action 
 
 func _ready():
+	time_for_next_doble_key = dodge_doble_key_cooldown
 	speed_run = speed*2
 	speed_dodge = speed*26
 	speed_holder = speed
@@ -56,7 +68,6 @@ func _process(delta):
 		var energy = initial_light_energy/div
 		light.set_energy(energy)
 		light2.set_energy(energy)
-	
 	var offset = -get_viewport().get_canvas_transform().o # Get the offset
 	relative_mouse_pos = mouse_pos + offset # And add it to the mouse position
 	if(camera_shake_time_left > 0):
@@ -82,22 +93,24 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	time_for_next_shot -= delta # We decrease the time till the next shot by the time elapsed
 	time_for_next_gun_change -= delta # We decrease the time till the next gun change by the time elapsed
 	time_for_next_dodge -= delta # We decrease the time till the next dodge by the time elapsed
+	time_for_next_doble_key -= delta
 	force = Vector2(0,0) # Then we reset the force
 	speed = speed_holder # Then we reset the speed 
+	print(time_for_next_doble_key)
 	# We add a vector to the force depending of the direction in which we move
-	if(Input.is_action_pressed("right")):
+	if(Input.is_action_pressed(move_actions[0])):
 		force += Vector2(1,0)
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
-	if(Input.is_action_pressed("left")):
+	if(Input.is_action_pressed(move_actions[1])):
 		force += Vector2(-1,0)
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
-	if(Input.is_action_pressed("down")):
+	if(Input.is_action_pressed(move_actions[2])):
 		force += Vector2(0,1)
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
-	if(Input.is_action_pressed("up")):
+	if(Input.is_action_pressed(move_actions[3])):
 		force += Vector2(0,-1)
 		if(!stepSounds.is_voice_active(0)): # If the sound is now stoped
 			stepSounds.play("grass_steps") # The sound of the steps in grass
@@ -107,12 +120,8 @@ func logic(delta): # We override the function defined in moveable_object.gd
 			if(is_tired == false and stamina >= stamina_to_use):
 				speed = speed_run # We modify the speed to run
 				use_stamina(stamina_to_use)
-	var dodge = Input.is_action_pressed("dodge") 
-	if(dodge and not prev_dodge):
-		if(self.isMoving()):
-			do_dodge()
-	prev_dodge = dodge # With this we can ensure a dodge and need to release the key
-		# If we are pressing "shoot" and we have no cooldown left
+	for action in move_actions:
+		do_dodge(action)
 	if(Input.is_action_pressed("shot")):
 		current_gun_node.shot()
 		if(current_gun == 0): # If is the gun 1 that is fired
@@ -123,7 +132,6 @@ func logic(delta): # We override the function defined in moveable_object.gd
 				gun_sound_delay = 0
 	else:
 		gun_sound_delay = 0
-	
 	# If we are pressing "Next Weapon" and we have no cooldown left
 	if(Input.is_action_pressed("Next_weapon") && time_for_next_gun_change <= 0):
 		switch_weapon = 1
@@ -137,19 +145,32 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		current_gun_node.show() # Show it
 		time_for_next_gun_change = gun_change_cooldown # To prevent ultra-fast change
 		switch_weapon = 0 # To prevent locking
-	
 	target_angle = get_pos().angle_to_point( relative_mouse_pos ) + deg2rad(0) # Set the angle in which the player looks
-	
 	get_node("../cursor").set_pos(relative_mouse_pos) # Move the cursor
+	
+func do_dodge(action): # Function to make dodge with doble key 
+	if(Input.is_action_pressed(action)):
+		if(prev_move_action != action): # Is not the first iteration and the prev actions is not like the actual one
+			prev_dodge = true # Whit this we skip the rest of the code
+			dodge_number_keys = 1 # Reset the dodge number of keys counter
+			time_for_next_doble_key = dodge_doble_key_cooldown
+		if(prev_dodge == false and time_for_next_doble_key > 0): # We ensure the key was relased and now is pressed
+			dodge_number_keys += 1 
+			if(dodge_number_keys == 2): # Now we do the actual dodge logic
+				var stamina_to_use = 3
+				dodge_number_keys = 1 # The number of Keys are now 0 so we can do it again
+				time_for_next_doble_key = dodge_doble_key_cooldown
+				if(time_for_next_dodge <= 0 and is_tired == false and stamina >= stamina_to_use):
+					speed = speed_dodge # We modify the speed to dodge
+					time_for_next_dodge = dodge_cooldown # To prevent ulta move faster with dodge
+					use_stamina(stamina_to_use)
+		elif(prev_dodge == false and time_for_next_doble_key < 0):
+			prev_move_action = ""
+			time_for_next_doble_key = dodge_doble_key_cooldown
+		prev_move_action = action # Before leave this method we save the last action state that was pressed
+	if(prev_move_action == action): # We need to know if this iteration is the action pressed before
+		prev_dodge = Input.is_action_pressed(prev_move_action) # Before leave this method we save the last input_pressed state if is the same action that before
 
-func do_dodge(): # Function to make and watch dodge delay
-	var stamina_to_use = 3
-	if(time_for_next_dodge <= 0 and is_tired == false and stamina >= stamina_to_use):
-		speed = speed_dodge # We modify the speed to dodge
-		time_for_next_dodge = dodge_cooldown # To prevent ulta move faster with dodge
-		use_stamina(stamina_to_use)
-	
-	
 func amount_of_damage(from): # We override the function defined in living_object.gd
 	if(from != "player"): # Don't receive self-damage
 		return 1.0
@@ -169,4 +190,3 @@ func camera_shake(intensity, explosion_pos, explosion_range, time): # Will shake
 	camera_shake_distance = max((explosion_range - explosion_distance)/explosion_range, 0) # Clam it so it isn't less than 0
 	camera_shake_distance += camera_shake_distance * intensity # Increase the shake distance
 	camera_shake_time_left += time # Increase the shake time
-	
