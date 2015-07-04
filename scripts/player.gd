@@ -28,6 +28,7 @@ var playerSounds # The sounds that the player make
 var run_stamina_to_use = .045
 var dodge_stamina_to_use = 2.5
 export var run_speed = 1.4 # This will multiply the walk speed
+export var dodge_speed = 30 # This will multiply the walk speed
 var current_gun = 0 # The ID of the current gun
 var current_gun_node # The node of that gun
 var switch_weapon = 0 # -1 if we need to switch to the previous weapon, +1 for the next, and 0 otherwise

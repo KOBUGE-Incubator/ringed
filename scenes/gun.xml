@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="5" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="6" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/gun.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/gun.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/shot_light_occluder.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/shot_light.png" type="Texture"></ext_resource>
+	<resource type="Animation" path="local://0">
+		<string name="resource/name"> "recoil" </string>
+		<real name="length"> 0.2 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> ".:transform/pos" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="3"> 				0, 0.1, 0.25 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="3"> 				1, 1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="3" shared="false">
+				<vector2> 0, -15 </vector2>
+				<vector2> 0, -9 </vector2>
+				<vector2> 0, -13.3062 </vector2>
+			</array>
+		</dictionary>
+
+	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -11,7 +35,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="49">
+			<string_array  len="59">
 				<string> "Gun" </string>
 				<string> "Node2D" </string>
 				<string> "_import_path" </string>
@@ -61,13 +85,23 @@
 				<string> "shadow/esm_multiplier" </string>
 				<string> "shadow/item_mask" </string>
 				<string> "ShotLight" </string>
+				<string> "GunAnimations" </string>
+				<string> "AnimationPlayer" </string>
+				<string> "playback/process_mode" </string>
+				<string> "playback/default_blend_time" </string>
+				<string> "root/root" </string>
+				<string> "anims/recoil" </string>
+				<string> "playback/active" </string>
+				<string> "playback/speed" </string>
+				<string> "blend_times" </string>
+				<string> "autoplay" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 5 </int>
+			<int> 6 </int>
 			<string> "nodes" </string>
-			<int_array  len="235"> 				-1, -1, 1, 0, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 1, 0, 0, 0, 17, 17, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 12, 8, 5, 9, 6, 10, 7, 11, 1, 18, 13, 19, 1, 20, 14, 21, 15, 22, 15, 23, 3, 24, 3, 25, 7, 26, 16, 27, 15, 28, 17, 0, 0, 0, 30, 29, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 18, 8, 5, 9, 6, 10, 7, 11, 1, 0, 0, 0, 32, 31, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 19, 8, 20, 9, 21, 10, 7, 11, 1, 33, 15, 18, 22, 20, 14, 34, 2, 35, 16, 36, 23, 37, 3, 38, 5, 39, 24, 40, 25, 41, 26, 42, 7, 43, 3, 44, 1, 45, 27, 46, 28, 47, 3, 0, 0, 0, 32, 48, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 29, 8, 5, 9, 30, 10, 7, 11, 1, 33, 15, 18, 31, 20, 14, 34, 2, 35, 32, 36, 33, 37, 7, 38, 2, 39, 24, 40, 25, 41, 26, 42, 7, 43, 3, 44, 1, 45, 27, 46, 28, 47, 3, 0 </int_array>
+			<int_array  len="260"> 				-1, -1, 1, 0, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 1, 0, 0, 0, 17, 17, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 12, 8, 5, 9, 6, 10, 7, 11, 1, 18, 13, 19, 1, 20, 14, 21, 15, 22, 15, 23, 3, 24, 3, 25, 7, 26, 16, 27, 15, 28, 17, 0, 0, 0, 30, 29, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 18, 8, 5, 9, 6, 10, 7, 11, 1, 0, 0, 0, 32, 31, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 19, 8, 20, 9, 21, 10, 7, 11, 1, 33, 15, 18, 22, 20, 14, 34, 2, 35, 16, 36, 23, 37, 3, 38, 5, 39, 24, 40, 25, 41, 26, 42, 7, 43, 3, 44, 1, 45, 27, 46, 28, 47, 3, 0, 0, 0, 32, 48, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 29, 8, 5, 9, 30, 10, 7, 11, 1, 33, 15, 18, 31, 20, 14, 34, 2, 35, 32, 36, 33, 37, 7, 38, 2, 39, 24, 40, 25, 41, 26, 42, 7, 43, 3, 44, 1, 45, 27, 46, 28, 47, 3, 0, 0, 0, 50, 49, -1, 9, 2, 0, 51, 3, 52, 5, 53, 34, 54, 35, 55, 1, 56, 2, 57, 36, 58, 37, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="34" shared="false">
+			<array  len="38" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -85,7 +119,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -480.265, -272.929 </vector2>
+							<vector2> -83.1284, -75.9336 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -105,7 +139,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.108034 </real>
+							<real> 7.781372 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -204,10 +238,11 @@
 							<string> "current" </string>
 							<int> 0 </int>
 							<string> "sources" </string>
-							<array  len="3" shared="false">
+							<array  len="4" shared="false">
 								<string> "res://scripts/gun.gd" </string>
 								<string> "res://scripts/player.gd" </string>
 								<string> "res://scripts/bomb.gd" </string>
+								<string> "res://scripts/bullet.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>
@@ -243,6 +278,11 @@
 				<resource  resource_type="Texture" path="res://gfx/shot_light.png">  </resource>
 				<color> 0.975591, 1, 0.808112, 1 </color>
 				<real> 2 </real>
+				<node_path> ".." </node_path>
+				<resource  resource_type="Animation" path="local://0">  </resource>
+				<array  len="0" shared="false">
+				</array>
+				<string> "" </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
