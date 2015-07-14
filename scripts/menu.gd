@@ -42,9 +42,12 @@ func _ready():
 		name = dir.get_next()
 	dir.list_dir_end()
 	
+	maps.sort_custom(self, "sort_by_filename")
+	
 	var mapsList = get_node("Menu/Host/Map/OptionButton")
 	for map in maps:
-		mapsList.add_item(map)
+		var item_name = snake_case_to_readable_name(map.get_file().basename())
+		mapsList.add_item(item_name)
 		
 	var menu_node = get_node("Menu")
 	for i in range(0, menu_node.get_child_count()): # Loop through all the screens
@@ -118,4 +121,17 @@ func play(map):
 	get_node("/root/autoload").map_scene = load(map)
 	print(map)
 	get_tree().change_scene("res://scenes/game.xml")
+	
+	
+func snake_case_to_readable_name(snake):
+	var splitted = snake.split("_")
+	var readable = ""
+	
+	for part in splitted:
+		readable += part.capitalize() + " "
+	
+	return readable
+
+func sort_by_filename(a, b):
+	return a.get_file() < b.get_file()
 
