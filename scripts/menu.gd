@@ -97,7 +97,14 @@ func _process(delta):
 		set_pos(new_pos)
 
 func move_menu(to):
-	history.push_back(to)
+	var el = history.find(to)
+	if(el >= 0):
+		if(el != 0):
+			to = history[el - 1]
+			history.resize(el - 1) # Go back when "cyclical" link are present
+		else:
+			return
+	history.push_back(target.get_name())
 	target = get_node("Menu/" + to)
 
 func back():
