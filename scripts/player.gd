@@ -100,7 +100,6 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	time_for_next_doble_key -= delta
 	force = Vector2(0,0) # Then we reset the force
 	speed = speed_holder # Then we reset the speed 
-	print(time_for_next_doble_key)
 	# We add a vector to the force depending of the direction in which we move
 	if(Input.is_action_pressed(move_actions[0])):
 		force += Vector2(1,0)
