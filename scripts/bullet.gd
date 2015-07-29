@@ -8,9 +8,8 @@ export var take_player_speed = 0.5 # Should the bullet inherit the player's spee
 export var speed = 60.0 # The speed of the bullet (around 700 makes for a normal spped)
 export var time_left = 10.0 # The time left for the bullet to live
 export var damage = 1.0 # The damage that the bullet will cause
-export var recoil_bullet_variation = 4.2 # The amount variation in degrees for the bullet direction + and -, caused by the recoil
 var animationPlayer # The animation player!
-var dangerous = true # Is it still dangerous to touch?
+export var dangerous = true # Is it still dangerous to touch?
 
 func _ready():
 	set_fixed_process(true) # We use _fixed_process to move and die
@@ -20,8 +19,7 @@ func _ready():
 
 func _fixed_process(delta):
 	time_left -= delta # Decrease the time left for the bullet to live
-	
-	if(time_left < 0 && die_on_timeout):
+	if((time_left <= 0.0) and (die_on_timeout)):
 		dangerous = false # No more danger!
 		animationPlayer.play("die") # Die when no time is left
 	
@@ -33,10 +31,7 @@ func _fixed_process(delta):
 				body.damage(source,damage) # Damage it if possible
 			dangerous = false # No more danger!
 			animationPlayer.play("die") # And remove the bullet
-			
+	
 func anim_player_finished():
 	if(!dangerous):
 		queue_free()
-
-func get_recoil_bullet_variation():
-	return recoil_bullet_variation

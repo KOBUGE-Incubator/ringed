@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="6" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
-	<ext_resource path="res://scripts/gun.gd" type="Script"></ext_resource>
-	<ext_resource path="res://gfx/gun.png" type="Texture"></ext_resource>
-	<ext_resource path="res://gfx/shot_light_occluder.png" type="Texture"></ext_resource>
-	<ext_resource path="res://gfx/shot_light.png" type="Texture"></ext_resource>
-	<resource type="Animation" path="local://0">
-		<string name="resource/name"> "recoil" </string>
-		<real name="length"> 0.2 </real>
+<resource_file type="PackedScene" subresource_count="5" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+	<ext_resource path="res://scripts/casign.gd" type="Script"></ext_resource>
+	<ext_resource path="res://gfx/bullet_casing.png" type="Texture"></ext_resource>
+	<resource type="CircleShape2D" path="local://0">
+		<real name="custom_solver_bias"> 0 </real>
+		<real name="radius"> 6 </real>
+
+	</resource>
+	<resource type="Animation" path="local://1">
+		<string name="resource/name"> "die" </string>
+		<real name="length"> 0.7 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
 		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> ".:transform/pos" </node_path>
+		<node_path name="tracks/0/path"> "Sprite:transform/scale" </node_path>
 		<int name="tracks/0/interp"> 1 </int>
 		<dictionary name="tracks/0/keys" shared="false">
 			<string> "cont" </string>
 			<bool> True </bool>
 			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.1, 0.25 </real_array>
+			<real_array  len="2"> 				0, 0.7 </real_array>
 			<string> "transitions" </string>
-			<real_array  len="3"> 				1, 1, 1 </real_array>
+			<real_array  len="2"> 				1, 1 </real_array>
 			<string> "values" </string>
-			<array  len="3" shared="false">
-				<vector2> 0, -15 </vector2>
-				<vector2> 0, -9 </vector2>
-				<vector2> 0, -13.3062 </vector2>
+			<array  len="2" shared="false">
+				<vector2> 1, 1 </vector2>
+				<vector2> 1e-005, 1e-005 </vector2>
 			</array>
 		</dictionary>
 
@@ -35,9 +37,9 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="65">
-				<string> "Gun" </string>
-				<string> "Node2D" </string>
+			<string_array  len="64">
+				<string> "casign" </string>
+				<string> "RigidBody2D" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
 				<string> "visibility/opacity" </string>
@@ -48,17 +50,35 @@
 				<string> "transform/scale" </string>
 				<string> "z/z" </string>
 				<string> "z/relative" </string>
+				<string> "input/pickable" </string>
+				<string> "shape_count" </string>
+				<string> "shapes/0/shape" </string>
+				<string> "shapes/0/transform" </string>
+				<string> "shapes/0/trigger" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "mode" </string>
+				<string> "mass" </string>
+				<string> "friction" </string>
+				<string> "bounce" </string>
+				<string> "gravity_scale" </string>
+				<string> "custom_integrator" </string>
+				<string> "continuous_cd" </string>
+				<string> "contacts_reported" </string>
+				<string> "contact_monitor" </string>
+				<string> "sleeping" </string>
+				<string> "can_sleep" </string>
+				<string> "velocity/linear" </string>
+				<string> "velocity/angular" </string>
+				<string> "damp_override/linear" </string>
+				<string> "damp_override/angular" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
-				<string> "shot_cooldown" </string>
-				<string> "bullet_scn_path" </string>
-				<string> "bullet_casign_scn_path" </string>
-				<string> "hasShotLight" </string>
-				<string> "recoil_bullet_variation" </string>
-				<string> "casigns" </string>
-				<string> "casign_spin" </string>
-				<string> "casign_direction_variation" </string>
+				<string> "take_player_speed" </string>
+				<string> "speed" </string>
+				<string> "time_left" </string>
 				<string> "Sprite" </string>
+				<string> "visibility/blend_mode" </string>
 				<string> "texture" </string>
 				<string> "centered" </string>
 				<string> "offset" </string>
@@ -70,62 +90,51 @@
 				<string> "modulate" </string>
 				<string> "region" </string>
 				<string> "region_rect" </string>
-				<string> "Bullet" </string>
-				<string> "Position2D" </string>
-				<string> "ShotOccluder" </string>
-				<string> "Light2D" </string>
-				<string> "enabled" </string>
-				<string> "scale" </string>
-				<string> "color" </string>
-				<string> "energy" </string>
-				<string> "mode" </string>
-				<string> "range/height" </string>
-				<string> "range/z_min" </string>
-				<string> "range/z_max" </string>
-				<string> "range/layer_min" </string>
-				<string> "range/layer_max" </string>
-				<string> "range/item_mask" </string>
-				<string> "shadow/enabled" </string>
-				<string> "shadow/buffer_size" </string>
-				<string> "shadow/esm_multiplier" </string>
-				<string> "shadow/item_mask" </string>
-				<string> "ShotLight" </string>
-				<string> "GunAnimations" </string>
+				<string> "CollisionShape2D" </string>
+				<string> "shape" </string>
+				<string> "trigger" </string>
 				<string> "AnimationPlayer" </string>
 				<string> "playback/process_mode" </string>
 				<string> "playback/default_blend_time" </string>
 				<string> "root/root" </string>
-				<string> "anims/recoil" </string>
+				<string> "anims/die" </string>
 				<string> "playback/active" </string>
 				<string> "playback/speed" </string>
 				<string> "blend_times" </string>
 				<string> "autoplay" </string>
-				<string> "Casigns" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 7 </int>
+			<int> 4 </int>
 			<string> "nodes" </string>
-			<int_array  len="297"> 				-1, -1, 1, 0, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 17, 1, 18, 13, 19, 1, 20, 14, 21, 15, 0, 0, 0, 22, 22, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 16, 8, 5, 9, 6, 10, 7, 11, 1, 23, 17, 24, 1, 25, 18, 26, 19, 27, 19, 28, 3, 29, 3, 30, 7, 31, 20, 32, 19, 33, 21, 0, 0, 0, 35, 34, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 22, 8, 5, 9, 6, 10, 7, 11, 1, 0, 0, 0, 37, 36, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 23, 8, 24, 9, 25, 10, 7, 11, 1, 38, 19, 23, 26, 25, 18, 39, 2, 40, 20, 41, 27, 42, 3, 43, 5, 44, 28, 45, 29, 46, 30, 47, 7, 48, 3, 49, 1, 50, 31, 51, 32, 52, 3, 0, 0, 0, 37, 53, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 33, 8, 5, 9, 34, 10, 7, 11, 1, 38, 19, 23, 35, 25, 18, 39, 2, 40, 36, 41, 37, 42, 7, 43, 2, 44, 28, 45, 29, 46, 30, 47, 7, 48, 3, 49, 1, 50, 31, 51, 32, 52, 3, 0, 0, 0, 55, 54, -1, 9, 2, 0, 56, 3, 57, 5, 58, 38, 59, 39, 60, 1, 61, 2, 62, 40, 63, 41, 0, 0, 0, 35, 64, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 42, 8, 5, 9, 6, 10, 7, 11, 1, 0 </int_array>
+			<int_array  len="188"> 				-1, -1, 1, 0, -1, 37, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 3, 14, 9, 15, 10, 16, 8, 17, 11, 18, 3, 19, 12, 20, 13, 21, 2, 22, 5, 23, 2, 24, 8, 25, 3, 26, 14, 27, 1, 28, 8, 29, 1, 30, 4, 31, 5, 32, 15, 33, 15, 34, 16, 35, 17, 36, 18, 37, 19, 38, 20, 0, 0, 0, 39, 39, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 40, 3, 6, 3, 7, 21, 8, 5, 9, 6, 10, 3, 11, 1, 41, 22, 42, 1, 43, 4, 44, 8, 45, 8, 46, 3, 47, 3, 48, 12, 49, 23, 50, 8, 51, 24, 0, 0, 0, 52, 52, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 25, 8, 5, 9, 6, 10, 12, 11, 1, 53, 9, 54, 8, 0, 0, 0, 55, 55, -1, 9, 2, 0, 56, 3, 57, 5, 58, 26, 59, 27, 60, 1, 61, 2, 62, 28, 63, 29, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="43" shared="false">
+			<array  len="30" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
 				<int> 1 </int>
-				<vector2> 0, -15 </vector2>
+				<vector2> 0, 0 </vector2>
 				<real> 0 </real>
 				<vector2> 1, 1 </vector2>
+				<int> -1 </int>
+				<bool> False </bool>
+				<resource  resource_type="Shape2D" path="local://0">  </resource>
+				<matrix32> 1, -0, 0, 1, 0, -1.73607 </matrix32>
+				<int> 2 </int>
 				<int> 0 </int>
-				<resource  resource_type="Script" path="res://scripts/gun.gd">  </resource>
+				<real> 0.1 </real>
+				<int> 4 </int>
+				<real> -1 </real>
+				<resource  resource_type="Script" path="res://scripts/casign.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -61.006, -81.2088 </vector2>
+							<vector2> -46.2199, -16.0691 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -145,7 +154,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 6.337976 </real>
+							<real> 10.585567 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -235,20 +244,20 @@
 								</dictionary>
 							</array>
 							<string> "zfar" </string>
-							<real> 2000 </real>
+							<real> 500 </real>
 							<string> "znear" </string>
 							<real> 0.1 </real>
 						</dictionary>
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 0 </int>
+							<int> 2 </int>
 							<string> "sources" </string>
 							<array  len="4" shared="false">
-								<string> "res://scripts/gun.gd" </string>
-								<string> "res://scripts/player.gd" </string>
-								<string> "res://scripts/bomb.gd" </string>
 								<string> "res://scripts/bullet.gd" </string>
+								<string> "res://scripts/gun.gd" </string>
+								<string> "res://scripts/casign.gd" </string>
+								<string> "res://scripts/main.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>
@@ -260,40 +269,19 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<real> 0.08 </real>
-				<string> "res://scenes/bullet.xml" </string>
-				<string> "res://scenes/casign.xml" </string>
-				<real> 4.2 </real>
-				<real> 20 </real>
+				<real> 0.5 </real>
 				<real> 60 </real>
-				<vector2> -0.427193, -6.40781 </vector2>
-				<resource  resource_type="Texture" path="res://gfx/gun.png">  </resource>
-				<vector2> 0, 0 </vector2>
-				<bool> False </bool>
-				<color> 1, 1, 1, 1 </color>
+				<real> 0.2 </real>
+				<vector2> -0.486099, 8 </vector2>
+				<resource  resource_type="Texture" path="res://gfx/bullet_casing.png">  </resource>
+				<color> 0.964747, 0.969094, 0.322542, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
-				<vector2> -0.104676, -32.9723 </vector2>
-				<vector2> -4.57614e-006, 52.345 </vector2>
-				<real> -180 </real>
-				<vector2> 0.330775, 0.327172 </vector2>
-				<resource  resource_type="Texture" path="res://gfx/shot_light_occluder.png">  </resource>
-				<real> 2.7 </real>
-				<int> -1024 </int>
-				<int> 1024 </int>
-				<int> -2 </int>
-				<int> 2048 </int>
-				<real> 80 </real>
-				<vector2> -0.0531029, -32.8046 </vector2>
-				<vector2> 0.389929, 0.389929 </vector2>
-				<resource  resource_type="Texture" path="res://gfx/shot_light.png">  </resource>
-				<color> 0.975591, 1, 0.808112, 1 </color>
-				<real> 2 </real>
+				<vector2> 0, -1.73607 </vector2>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://0">  </resource>
+				<resource  resource_type="Animation" path="local://1">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "" </string>
-				<vector2> 16.7626, -1.38264 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
