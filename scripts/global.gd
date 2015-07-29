@@ -1,8 +1,8 @@
 extends Node
 
 	# Window variables
-var width = 500
-var height = 500
+var width = 1024
+var height = 768
 var fullscreen = false
 	# PATH variable
 const settings_filename = "user://settings.cfg"
