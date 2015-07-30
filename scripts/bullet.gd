@@ -22,6 +22,7 @@ func _fixed_process(delta):
 	if((time_left <= 0.0) and (die_on_timeout)):
 		dangerous = false # No more danger!
 		animationPlayer.play("die") # Die when no time is left
+		die_on_timeout = false
 	
 	if(dangerous):
 		set_linear_velocity(get_linear_velocity() + force) # Set its velocity
@@ -30,8 +31,9 @@ func _fixed_process(delta):
 			if(body.has_method("damage")):
 				body.damage(source,damage) # Damage it if possible
 			dangerous = false # No more danger!
-			animationPlayer.play("die") # And remove the bullet
-	
+			if(die_on_timeout):
+				animationPlayer.play("die") # And remove the bullet
+
 func anim_player_finished():
 	if(!dangerous):
 		queue_free()

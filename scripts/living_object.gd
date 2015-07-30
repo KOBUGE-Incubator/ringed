@@ -45,9 +45,10 @@ func _ready():
 	set_fixed_process(true) # We use _fixed_process for auto-heals
 
 func _process(delta):
-	healthbarHolder.set_rot(-get_rot()) # Just rotate in the opposite direction to get back to 0 degrees
+	var rotation = get_rot()
+	healthbarHolder.set_rot(-rotation) # Just rotate in the opposite direction to get back to 0 degrees
 	if(infinite_stamina == false):
-		staminabarHolder.set_rot(-get_rot()) # Just rotate in the opposite direction to get back to 0 degrees
+		staminabarHolder.set_rot(-rotation) # Just rotate in the opposite direction to get back to 0 degrees
 
 func _fixed_process(delta):
 	if(infinite_stamina == false): # If the object has infinite stamina it wont access to the stamina-recover functions
