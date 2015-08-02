@@ -65,21 +65,10 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="82">
+			<string_array  len="66">
 				<string> "spawner" </string>
 				<string> "StaticBody2D" </string>
-				<string> "_import_path" </string>
-				<string> "visibility/visible" </string>
-				<string> "visibility/opacity" </string>
-				<string> "visibility/self_opacity" </string>
-				<string> "visibility/light_mask" </string>
-				<string> "transform/pos" </string>
-				<string> "transform/rot" </string>
-				<string> "transform/scale" </string>
-				<string> "z/z" </string>
-				<string> "z/relative" </string>
 				<string> "input/pickable" </string>
-				<string> "shape_count" </string>
 				<string> "shapes/0/shape" </string>
 				<string> "shapes/0/transform" </string>
 				<string> "shapes/0/trigger" </string>
@@ -121,50 +110,36 @@
 				<string> "object_scene" </string>
 				<string> "cooldown" </string>
 				<string> "Sprite" </string>
+				<string> "transform/pos" </string>
+				<string> "z/z" </string>
 				<string> "texture" </string>
-				<string> "centered" </string>
-				<string> "offset" </string>
-				<string> "flip_h" </string>
-				<string> "flip_v" </string>
-				<string> "vframes" </string>
-				<string> "hframes" </string>
-				<string> "frame" </string>
-				<string> "modulate" </string>
-				<string> "region" </string>
-				<string> "region_rect" </string>
 				<string> "Sprite1" </string>
 				<string> "Area2D" </string>
-				<string> "gravity_point" </string>
-				<string> "gravity_distance_scale" </string>
 				<string> "gravity_vec" </string>
 				<string> "gravity" </string>
 				<string> "linear_damp" </string>
 				<string> "angular_damp" </string>
-				<string> "monitoring" </string>
-				<string> "monitorable" </string>
 				<string> "CollisionShape2D" </string>
 				<string> "shape" </string>
 				<string> "trigger" </string>
 				<string> "CollisionPolygon2D" </string>
 				<string> "build_mode" </string>
 				<string> "polygon" </string>
+				<string> "VisibilityEnabler2D" </string>
+				<string> "rect" </string>
+				<string> "enabler/pause_animations" </string>
+				<string> "enabler/freeze_bodies" </string>
+				<string> "enabler/pause_particles" </string>
+				<string> "enabler/process_parent" </string>
+				<string> "enabler/fixed_process_parent" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 6 </int>
+			<int> 7 </int>
 			<string> "nodes" </string>
-			<int_array  len="330"> 				-1, -1, 1, 0, -1, 52, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 9, 14, 10, 15, 11, 16, 8, 17, 12, 18, 11, 19, 8, 20, 13, 21, 11, 22, 8, 23, 14, 24, 11, 25, 8, 26, 15, 27, 11, 28, 8, 29, 16, 30, 11, 31, 8, 32, 17, 33, 11, 34, 8, 35, 18, 36, 11, 37, 8, 38, 19, 39, 11, 40, 8, 41, 20, 42, 11, 43, 8, 44, 3, 45, 3, 46, 4, 47, 5, 48, 2, 49, 5, 50, 21, 51, 22, 52, 23, 53, 24, 0, 0, 0, 54, 54, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 25, 8, 5, 9, 6, 10, 26, 11, 1, 55, 27, 56, 1, 57, 4, 58, 8, 59, 8, 60, 3, 61, 3, 62, 7, 63, 28, 64, 8, 65, 29, 0, 1, 0, 54, 66, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 30, 11, 1, 55, 31, 56, 1, 57, 4, 58, 8, 59, 8, 60, 3, 61, 3, 62, 7, 63, 28, 64, 8, 65, 29, 0, 0, 0, 67, 67, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 1, 13, 3, 14, 32, 15, 33, 16, 8, 68, 8, 69, 5, 70, 34, 71, 35, 72, 36, 73, 2, 74, 1, 75, 1, 44, 3, 45, 3, 0, 3, 0, 76, 76, -1, 12, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 37, 8, 5, 9, 6, 10, 7, 11, 1, 77, 32, 78, 8, 0, 0, 0, 79, 79, -1, 13, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 38, 8, 5, 9, 6, 10, 7, 11, 1, 80, 7, 81, 39, 78, 8, 0 </int_array>
+			<int_array  len="183"> 				-1, -1, 1, 0, -1, 41, 2, 0, 3, 1, 4, 2, 5, 0, 6, 3, 7, 2, 8, 0, 9, 4, 10, 2, 11, 0, 12, 5, 13, 2, 14, 0, 15, 6, 16, 2, 17, 0, 18, 7, 19, 2, 20, 0, 21, 8, 22, 2, 23, 0, 24, 9, 25, 2, 26, 0, 27, 10, 28, 2, 29, 0, 30, 11, 31, 2, 32, 0, 33, 12, 34, 12, 35, 13, 36, 14, 37, 15, 38, 14, 39, 16, 40, 17, 41, 18, 42, 19, 0, 0, 0, 43, 43, -1, 3, 44, 20, 45, 21, 46, 22, 0, 1, 0, 43, 47, -1, 2, 45, 23, 46, 24, 0, 0, 0, 48, 48, -1, 8, 2, 25, 3, 26, 4, 27, 5, 0, 49, 28, 50, 29, 51, 30, 52, 15, 0, 3, 0, 53, 53, -1, 3, 44, 31, 54, 26, 55, 0, 0, 0, 0, 56, 56, -1, 4, 44, 32, 57, 33, 58, 34, 55, 0, 0, 0, 0, 59, 59, -1, 6, 60, 35, 61, 25, 62, 25, 63, 25, 64, 25, 65, 25, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="40" shared="false">
-				<node_path> "" </node_path>
-				<bool> True </bool>
-				<real> 1 </real>
-				<int> 1 </int>
-				<vector2> 0, 0 </vector2>
-				<real> 0 </real>
-				<vector2> 1, 1 </vector2>
-				<int> 0 </int>
+			<array  len="36" shared="false">
 				<bool> False </bool>
-				<int> 10 </int>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
 				<matrix32> 1, -0, 0, 1, 0, 2.57567 </matrix32>
 				<resource  resource_type="Shape2D" path="local://2">  </resource>
@@ -176,6 +151,10 @@
 				<resource  resource_type="Shape2D" path="local://8">  </resource>
 				<resource  resource_type="Shape2D" path="local://9">  </resource>
 				<resource  resource_type="Shape2D" path="local://10">  </resource>
+				<int> 1 </int>
+				<vector2> 0, 0 </vector2>
+				<real> 0 </real>
+				<real> 1 </real>
 				<resource  resource_type="Script" path="res://scripts/spawner.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -185,7 +164,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -73.9418, -34.9513 </vector2>
+							<vector2> -522.608, -168.217 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -205,7 +184,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 6.33797 </real>
+							<real> 1.108033 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -299,15 +278,6 @@
 							<string> "znear" </string>
 							<real> 0.1 </real>
 						</dictionary>
-						<string> "Script" </string>
-						<dictionary  shared="false">
-							<string> "current" </string>
-							<int> 0 </int>
-							<string> "sources" </string>
-							<array  len="1" shared="false">
-								<string> "res://scripts/spawner.gd" </string>
-							</array>
-						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
@@ -322,10 +292,9 @@
 				<vector2> 0.263535, -2.89872 </vector2>
 				<int> -2 </int>
 				<resource  resource_type="Texture" path="res://gfx/spawner_a_under.png">  </resource>
-				<color> 1, 1, 1, 1 </color>
-				<rect2> 0, 0, 0, 0 </rect2>
 				<int> 4 </int>
 				<resource  resource_type="Texture" path="res://gfx/spawner_a_over.png">  </resource>
+				<bool> True </bool>
 				<resource  resource_type="Shape2D" path="local://11">  </resource>
 				<matrix32> 1, -0, 0, 1, -5.36449, -0.631119 </matrix32>
 				<vector2> 0, 1 </vector2>
@@ -333,7 +302,9 @@
 				<real> 0.1 </real>
 				<vector2> -5.36449, -0.631119 </vector2>
 				<vector2> 0, 2.57567 </vector2>
+				<int> 0 </int>
 				<vector2_array  len="29"> 					-6.26318, -39.0835, -14.7597, -39.1962, -21.4135, -38.123, -31.9308, -35.9766, -40.731, -31.0399, -46.3116, -24.8154, -52.7508, -17.0884, -54.4679, -9.36138, -55.9704, -1.63438, -55.3264, 5.01941, -51.2483, 11.4586, -49.3166, 15.3221, -45.0238, 18.5417, -38.5846, 22.6198, -29.3552, 26.9126, -22.4867, 29.059, -18.6232, 28.6297, -14.8487, 25.5228, -23.4343, 21.23, -33.004, 14.6782, -38.2444, 8.13707, -41.8932, 1.48327, -42.5371, -7.31692, -40.82, -13.3268, -36.3126, -21.2684, -31.0723, -27.6057, -22.4867, -30.8253, -10.2523, -32.757, -4.45705, -34.9034 </vector2_array>
+				<rect2> -150, -150, 300, 300 </rect2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
