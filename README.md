@@ -13,7 +13,7 @@ of free/libre software aficionados called [KOBUGE-Games](http://www.kobuge.org).
 
 * Movement: WASD
 * Sprint: Shift
-* Dodge: Space
+* Dodge: Double press WASD
 * Shoot: Left mouse button
 * Switch weapon: Right mouse button
 
