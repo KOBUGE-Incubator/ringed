@@ -1,4 +1,3 @@
-
 extends ParallaxLayer
 var world
 var controls
@@ -17,6 +16,13 @@ var btn_host
 var btn_options
 var prev_enter=false
 var particles
+var tween = Tween.new()
+var timer = Timer.new()
+
+func _init():
+	add_child(tween)
+	add_child(timer)
+
 func _ready():
 	world = get_node("../")
 	controls = world.get_node("Menu")
@@ -41,6 +47,7 @@ func _ready():
 
 func _input(event):
 	pass
+
 func _fixed_process(delta):
 	var screen_size = OS.get_window_size()
 	var width = int(screen_size.x)
@@ -72,6 +79,7 @@ func _fixed_process(delta):
 	polys_pos[2] = Vector2(width,height)
 	polys_pos[3] = Vector2(width,0)
 	bg_color.set_polygon(polys_pos)
+	bg_color.set_global_pos(Vector2(0,0))
 	var enter = Input.is_action_pressed("ui_accept")
 	if(enter and not prev_enter):
 		if(is_in_press_enter):
@@ -82,6 +90,7 @@ func _fixed_process(delta):
 			interrupted = true
 			intro7()
 	prev_enter = enter
+
 func intro1():#KOBUGE logo Fade in
 	animations.disconnect("finished",self, "intro1")
 	animations.connect("finished", self, "intro2")
@@ -113,6 +122,7 @@ func intro6():
 	bg_art.show()
 	press_enter_label.show()
 	animations.play("bg_fade_out")
+
 func intro7():
 	if(interrupted):
 		animations.stop(true)
@@ -126,7 +136,7 @@ func intro7():
 		animations.disconnect("finished",self, "intro7")
 		animations.play("press_enter_idle")
 		is_in_press_enter = true
-	
+
 func intro8():
 	press_enter_label.hide()
 	press_enter_label_done.hide()
@@ -142,10 +152,27 @@ func intro8():
 	
 
 func intro9():
-#	animations.stop(true)
+	animations.stop(true)
 	animations.disconnect("finished",self, "intro9")
 	animations.connect("finished", self, "intro10")
-	animations.play("menu_buttons_anim_in")
+#	animations.play("menu_buttons_anim_in")
+	animate_button(btn_join, 2)
+	timer.set_one_shot(true)
+	timer.set_wait_time(.2)
+	timer.start()
+	yield(timer,'timeout')
+	animate_button(btn_host, 2)
+	timer.start()
+	yield(timer,'timeout')
+	animate_button(btn_options, 2)
 
 func intro10():
 	pass
+
+func animate_button(button, time):
+	var button_pos_final = button.get_global_pos()
+	var button_pos_initial = button_pos_final
+	button_pos_initial.y = button_pos_initial.y+20 
+	tween.interpolate_method(button, "set_global_pos", button_pos_initial, button_pos_final, time, tween.TRANS_QUART, tween.EASE_OUT)
+	tween.interpolate_method(button, "set_opacity", 0 , 1, time , tween.TRANS_QUART, tween.EASE_OUT)
+	tween.start()
