@@ -8,6 +8,7 @@ var default_screen_size = Vector2(1024, 768)
 var min_screen_size = default_screen_size/2
 var quick_adapt = false
 var history = []
+var thread = Thread.new()
 
 # ACTIONS inputs
 const INPUT_ACTIONS = ["left","right","up","down","run","dodge","shot"] # This array will give us the order and action name in UI too
@@ -45,6 +46,7 @@ func _ready():
 	maps.sort_custom(self, "sort_by_filename")
 	
 	var mapsList = get_node("Menu/Host/Map/OptionButton")
+	mapsList.connect("item_selected",self,"chose_map_list")
 	for map in maps:
 		var item_name = snake_case_to_readable_name(map.get_file().basename())
 		mapsList.add_item(item_name)
@@ -135,10 +137,33 @@ func snake_case_to_readable_name(snake):
 	var readable = ""
 	
 	for part in splitted:
-		readable += part.capitalize() + " "
+		readable += part.capitalize() + ""
 	
 	return readable
 
 func sort_by_filename(a, b):
 	return a.get_file() < b.get_file()
 
+func chose_map_list(id):
+	var mapsList = get_node("Menu/Host/Map/OptionButton")
+	print(get_node("Menu/Host/Map/Image").get_texture().get_path())
+	var path = "res://maps/images/"+mapsList.get_item_text(id)+".png"
+	if (thread.is_active()):
+		#already working
+		return
+	thread.start(self,"preview_load",path)
+
+func preview_load(path):
+	print("THREAD FUNC!")
+	print(path)
+	#load the resource
+	var tex = ResourceLoader.load(path)
+	#call preview_load_done on main thread	
+	call_deferred("preview_load_done")
+	return tex #return it
+
+func preview_load_done():
+	#wait for the thread to complete, get the returned value
+	var tex = thread.wait_to_finish()
+	#set to the sprite
+	get_node("Menu/Host/Map/Image").set_texture(tex)

@@ -147,8 +147,11 @@ func intro8():
 	animations.connect("finished", self, "intro9")
 	controls.show()
 	btn_join.set_opacity(0)
+	btn_join.set_ignore_mouse(true)
 	btn_host.set_opacity(0)
+	btn_host.set_ignore_mouse(true)
 	btn_options.set_opacity(0)
+	btn_options.set_ignore_mouse(true)
 	
 
 func intro9():
@@ -175,4 +178,11 @@ func animate_button(button, time):
 	button_pos_initial.y = button_pos_initial.y+20 
 	tween.interpolate_method(button, "set_global_pos", button_pos_initial, button_pos_final, time, tween.TRANS_QUART, tween.EASE_OUT)
 	tween.interpolate_method(button, "set_opacity", 0 , 1, time , tween.TRANS_QUART, tween.EASE_OUT)
+	tween.connect("tween_complete",self,'tween_end')
 	tween.start()
+
+func tween_end( object, key ):
+	if((object == btn_options) and (key == "set_opacity")):
+		btn_join.set_ignore_mouse(false)
+		btn_host.set_ignore_mouse(false)
+		btn_options.set_ignore_mouse(false)
