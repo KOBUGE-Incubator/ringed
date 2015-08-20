@@ -13,6 +13,8 @@ func _ready():
 	add_to_group("enemies") # Mark it as an enemy
 	spider_sound = get_node("SpiderSound")
 	spider_sound_ID = spider_sound.play("spider_sound")
+	var anim_player = get_node("AnimatedSprite/AnimationPlayer") 
+	anim_player.seek(randf() * anim_player.get_current_animation_length())
 	
 
 func logic(delta): # We override the function defined in moveable_object.gd
