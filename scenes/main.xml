@@ -668,7 +668,7 @@
 				<int> 2 </int>
 				<resource  resource_type="Font" path="res://fonts/middle_text.fnt">  </resource>
 				<real> 1 </real>
-				<string> "Press ENTTER to continue" </string>
+				<string> "Press ENTER to continue" </string>
 				<int> 1 </int>
 				<real> -1 </real>
 				<color> 0.863814, 0.751073, 0.562993, 1 </color>
