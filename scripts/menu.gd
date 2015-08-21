@@ -72,8 +72,8 @@ func size_changed():
 	var subscreen_size = Vector2(max(min_screen_size.x, new_size.x), max(min_screen_size.y, new_size.y))
 	
 	var background_region = Rect2(0, 0, subscreen_size.x * 5, subscreen_size.y * 5) # Resize the grass background
-	get_node("Background/Sprite").set_region_rect(background_region)
-	get_node("Background/Sprite").set_offset(-2*new_size)
+#	get_node("Background/Sprite").set_region_rect(background_region)
+#	get_node("Background/Sprite").set_offset(-2*new_size)
 	
 	var menu_node = get_node("Menu")
 	menu_node.set_margin( MARGIN_RIGHT, new_size.x) # Resize the menu on X
