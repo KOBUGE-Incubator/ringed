@@ -29,7 +29,6 @@ func _ready():
 	btn_join = controls.get_node("Main/Join")
 	btn_host = controls.get_node("Main/Host")
 	btn_options = controls.get_node("Main/Options")
-	bg = get_node("Sprite")
 	bg_art = world.get_node("ParallaxBackground/ParallaxLayer1")
 	particles = world.get_node("ParallaxBackground/Particles")
 	kobuge_logo = get_node("KobugeLogo")
@@ -41,7 +40,6 @@ func _ready():
 	animations.connect("finished", self, "intro1")
 	animations.play("logo_fade_in")
 	controls.hide()
-	bg.hide()
 	set_process_input(true)
 	set_fixed_process(true)
 
