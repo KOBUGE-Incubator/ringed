@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="16" version="1.1" version_name="Godot Engine v1.1.r1580.(August,2nd-2015)">
+<resource_file type="PackedScene" subresource_count="17" version="1.1" version_name="Godot Engine v1.1.r1580.(August,2nd-2015)">
 	<ext_resource path="res://scripts/main.gd" type="Script"></ext_resource>
 	<ext_resource path="res://audio/streams/crickets.ogg" type="AudioStream"></ext_resource>
 	<ext_resource path="res://gfx/grass.png" type="Texture"></ext_resource>
@@ -13,6 +13,7 @@
 	<ext_resource path="res://scripts/weapons_hud.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/HUD/weapon_spot.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/ammo_hud.gd" type="Script"></ext_resource>
+	<ext_resource path="res://scripts/pause.gd" type="Script"></ext_resource>
 	<resource type="CanvasItemShaderGraph" path="local://2">
 		<dictionary name="_code" shared="false">
 			<string> "fragment" </string>
@@ -115,7 +116,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="82">
+			<string_array  len="89">
 				<string> "world" </string>
 				<string> "Node2D" </string>
 				<string> "script/script" </string>
@@ -197,24 +198,31 @@
 				<string> "Number" </string>
 				<string> "ammo" </string>
 				<string> "anchor/left" </string>
+				<string> "preview_rotation" </string>
 				<string> "valign" </string>
+				<string> "Pause" </string>
+				<string> "PopupPanel" </string>
+				<string> "popup/exclusive" </string>
+				<string> "Button" </string>
+				<string> "toggle_mode" </string>
+				<string> "flat" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 19 </int>
+			<int> 23 </int>
 			<string> "nodes" </string>
-			<int_array  len="539"> 				-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 0, 0, 0, 7, 7, -1, 2, 8, 5, 9, 6, 0, 1, 0, 10, 10, -1, 6, 11, 7, 12, 8, 13, 8, 14, 9, 15, 8, 16, 10, 0, 0, 0, 18, 17, -1, 8, 8, 11, 19, 12, 20, 13, 21, 10, 22, 14, 23, 10, 24, 8, 25, 15, 0, 0, 0, 27, 26, -1, 5, 28, 16, 29, 17, 30, 9, 31, 18, 3, 19, 0, 4, 0, 33, 32, 20, 4, 34, 21, 35, 22, 36, 10, 3, 23, 0, 0, 0, 18, 37, -1, 4, 19, 24, 38, 25, 20, 26, 22, 27, 0, 0, 0, 40, 39, 28, 4, 34, 21, 41, 29, 3, 30, 42, 31, 0, 0, 0, 27, 43, -1, 4, 28, 32, 29, 17, 30, 9, 31, 18, 0, 8, 0, 45, 44, -1, 18, 46, 16, 47, 33, 48, 34, 49, 8, 50, 8, 51, 22, 52, 35, 53, 9, 54, 36, 55, 36, 56, 37, 57, 9, 58, 8, 59, 8, 60, 38, 61, 16, 62, 8, 63, 39, 0, 8, 0, 45, 64, -1, 21, 36, 10, 65, 40, 47, 41, 66, 42, 48, 43, 49, 8, 50, 8, 51, 22, 52, 44, 67, 45, 53, 9, 54, 36, 55, 36, 56, 46, 57, 9, 58, 8, 59, 8, 60, 47, 62, 8, 63, 39, 2, 48, 0, 8, 0, 45, 68, -1, 20, 36, 10, 65, 49, 47, 50, 66, 51, 48, 52, 49, 8, 50, 8, 51, 22, 52, 44, 67, 45, 53, 9, 54, 36, 55, 36, 56, 46, 57, 9, 58, 8, 59, 8, 60, 53, 62, 8, 63, 39, 0, 8, 0, 45, 69, -1, 19, 46, 16, 47, 33, 66, 33, 48, 54, 49, 8, 50, 8, 51, 22, 52, 35, 53, 9, 54, 36, 55, 36, 56, 36, 57, 9, 58, 8, 59, 8, 60, 55, 61, 22, 70, 8, 63, 39, 0, 8, 0, 45, 71, -1, 18, 65, 33, 47, 33, 66, 56, 48, 56, 49, 8, 50, 8, 51, 22, 52, 35, 53, 9, 54, 36, 55, 36, 56, 36, 57, 9, 58, 8, 59, 8, 60, 53, 70, 8, 63, 39, 0, 8, 0, 33, 72, -1, 13, 73, 16, 74, 16, 65, 33, 47, 57, 66, 57, 48, 33, 49, 10, 50, 8, 51, 22, 75, 22, 2, 58, 3, 59, 76, 60, 0, 14, 0, 18, 77, -1, 3, 22, 61, 23, 10, 3, 62, 0, 15, 0, 45, 78, -1, 16, 65, 33, 47, 54, 66, 63, 48, 64, 49, 8, 50, 8, 51, 22, 53, 9, 54, 36, 55, 36, 56, 36, 57, 9, 58, 10, 59, 10, 60, 65, 63, 39, 0, 8, 0, 33, 79, -1, 13, 80, 16, 73, 16, 46, 16, 74, 16, 65, 66, 47, 67, 66, 33, 48, 33, 49, 10, 50, 8, 51, 22, 75, 22, 2, 68, 0, 17, 0, 45, 45, -1, 20, 73, 16, 46, 16, 74, 16, 47, 34, 48, 33, 49, 8, 50, 8, 51, 22, 52, 35, 53, 9, 54, 36, 55, 36, 56, 36, 57, 9, 58, 10, 59, 10, 60, 69, 61, 16, 81, 16, 63, 39, 0 </int_array>
+			<int_array  len="683"> 				-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 0, 0, 0, 7, 7, -1, 3, 8, 5, 9, 6, 3, 7, 0, 1, 0, 10, 10, -1, 6, 11, 8, 12, 9, 13, 9, 14, 10, 15, 9, 16, 11, 0, 0, 0, 18, 17, -1, 8, 8, 12, 19, 13, 20, 14, 21, 11, 22, 15, 23, 11, 24, 9, 25, 16, 0, 0, 0, 27, 26, -1, 5, 28, 17, 29, 18, 30, 10, 31, 19, 3, 20, 0, 4, 0, 33, 32, 21, 4, 34, 22, 35, 23, 36, 11, 3, 24, 0, 0, 0, 18, 37, -1, 4, 19, 25, 38, 26, 20, 27, 22, 28, 0, 0, 0, 40, 39, 29, 4, 34, 22, 41, 30, 3, 31, 42, 32, 0, 0, 0, 27, 43, -1, 4, 28, 33, 29, 18, 30, 10, 31, 19, 0, 8, 0, 45, 44, -1, 18, 46, 17, 47, 34, 48, 35, 49, 9, 50, 9, 51, 23, 52, 36, 53, 10, 54, 37, 55, 37, 56, 38, 57, 10, 58, 9, 59, 9, 60, 39, 61, 17, 62, 9, 63, 40, 0, 8, 0, 45, 64, -1, 21, 36, 11, 65, 41, 47, 42, 66, 43, 48, 44, 49, 9, 50, 9, 51, 23, 52, 45, 67, 46, 53, 10, 54, 37, 55, 37, 56, 47, 57, 10, 58, 9, 59, 9, 60, 48, 62, 9, 63, 40, 2, 49, 0, 8, 0, 45, 68, -1, 20, 36, 11, 65, 50, 47, 51, 66, 52, 48, 53, 49, 9, 50, 9, 51, 23, 52, 45, 67, 46, 53, 10, 54, 37, 55, 37, 56, 47, 57, 10, 58, 9, 59, 9, 60, 54, 62, 9, 63, 40, 0, 8, 0, 45, 69, -1, 19, 46, 17, 47, 34, 66, 34, 48, 55, 49, 9, 50, 9, 51, 23, 52, 36, 53, 10, 54, 37, 55, 37, 56, 37, 57, 10, 58, 9, 59, 9, 60, 56, 61, 23, 70, 9, 63, 40, 0, 8, 0, 45, 71, -1, 18, 65, 34, 47, 34, 66, 57, 48, 57, 49, 9, 50, 9, 51, 23, 52, 36, 53, 10, 54, 37, 55, 37, 56, 37, 57, 10, 58, 9, 59, 9, 60, 54, 70, 9, 63, 40, 0, 8, 0, 33, 72, -1, 13, 73, 17, 74, 17, 65, 34, 47, 58, 66, 58, 48, 34, 49, 11, 50, 9, 51, 23, 75, 23, 2, 59, 3, 60, 76, 61, 0, 14, 0, 18, 77, -1, 3, 22, 62, 23, 11, 3, 63, 0, 15, 0, 45, 78, -1, 16, 65, 34, 47, 55, 66, 64, 48, 65, 49, 9, 50, 9, 51, 23, 53, 10, 54, 37, 55, 37, 56, 37, 57, 10, 58, 11, 59, 11, 60, 66, 63, 40, 0, 8, 0, 33, 79, -1, 15, 80, 17, 73, 17, 46, 17, 74, 17, 65, 67, 47, 68, 66, 34, 48, 34, 49, 11, 50, 9, 51, 23, 75, 23, 2, 69, 76, 61, 81, 37, 0, 17, 0, 45, 45, -1, 20, 73, 17, 46, 17, 74, 17, 47, 35, 48, 34, 49, 9, 50, 9, 51, 23, 52, 36, 53, 10, 54, 37, 55, 37, 56, 37, 57, 10, 58, 11, 59, 11, 60, 70, 61, 17, 82, 17, 63, 40, 0, 8, 0, 84, 83, -1, 9, 35, 23, 46, 17, 74, 17, 49, 11, 50, 9, 51, 23, 75, 23, 85, 11, 2, 71, 0, 19, 0, 86, 86, -1, 14, 80, 72, 46, 72, 65, 68, 47, 73, 66, 74, 48, 75, 49, 11, 50, 9, 51, 23, 75, 23, 52, 45, 87, 11, 60, 76, 88, 11, 0, 19, 0, 45, 45, -1, 20, 80, 72, 46, 72, 65, 77, 47, 78, 66, 79, 48, 80, 49, 9, 50, 9, 51, 23, 52, 36, 53, 10, 54, 81, 55, 37, 56, 82, 57, 10, 58, 11, 59, 11, 60, 83, 62, 9, 63, 40, 0, 21, 0, 86, 86, -1, 12, 65, 84, 47, 85, 66, 86, 48, 87, 49, 11, 50, 9, 51, 23, 75, 23, 52, 36, 87, 11, 60, 88, 88, 11, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="70" shared="false">
+			<array  len="89" shared="false">
 				<resource  resource_type="Script" path="res://scripts/main.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -294.975, -96.171 </vector2>
+							<vector2> -307.422, -140.267 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -234,7 +242,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.814506 </real>
+							<real> 1.108033 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -342,6 +350,10 @@
 				<int> 0 </int>
 				<int> 1048575 </int>
 				<color> 0.146992, 0.146992, 0.146992, 1 </color>
+				<dictionary  shared="false">
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+				</dictionary>
 				<resource  resource_type="AudioStream" path="res://audio/streams/crickets.ogg">  </resource>
 				<bool> True </bool>
 				<real> 0 </real>
@@ -639,6 +651,8 @@
 					</dictionary>
 					<string> "__editor_show_subtree" </string>
 					<bool> True </bool>
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
 				</dictionary>
 				<real> 0.6 </real>
 				<int> 4 </int>
@@ -685,6 +699,24 @@
 				<real> 80 </real>
 				<resource  resource_type="Script" path="res://scripts/ammo_hud.gd">  </resource>
 				<string> "600/600" </string>
+				<resource  resource_type="Script" path="res://scripts/pause.gd">  </resource>
+				<int> 3 </int>
+				<real> 284 </real>
+				<real> -80 </real>
+				<real> 346 </real>
+				<string> "Unpause" </string>
+				<real> 166 </real>
+				<real> 112 </real>
+				<real> -166 </real>
+				<real> 272 </real>
+				<real> 4 </real>
+				<real> 5.714286 </real>
+				<string> "Dear player, remember that this is an Alpha, please give us your feedback to improve it :)" </string>
+				<real> 48 </real>
+				<real> 87 </real>
+				<real> 205 </real>
+				<real> 123 </real>
+				<string> "View Project" </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
