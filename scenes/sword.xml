@@ -39,7 +39,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="43">
+			<string_array  len="44">
 				<string> "Sword" </string>
 				<string> "Node2D" </string>
 				<string> "script/script" </string>
@@ -83,13 +83,14 @@
 				<string> "playback/speed" </string>
 				<string> "blend_times" </string>
 				<string> "autoplay" </string>
+				<string> "visibility/visible" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 7 </int>
+			<int> 8 </int>
 			<string> "nodes" </string>
-			<int_array  len="139"> 				-1, -1, 1, 0, -1, 10, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 0, 0, 0, 12, 0, -1, 10, 13, 10, 14, 11, 15, 12, 16, 13, 17, 14, 18, 15, 19, 16, 20, 17, 21, 18, 3, 19, 0, 1, 0, 22, 22, -1, 4, 13, 20, 23, 21, 24, 22, 25, 23, 0, 1, 0, 26, 26, -1, 5, 13, 24, 23, 25, 24, 26, 27, 12, 28, 14, 0, 0, 0, 1, 29, -1, 1, 13, 10, 0, 4, 0, 22, 22, -1, 7, 30, 11, 31, 27, 13, 28, 23, 25, 24, 22, 25, 29, 32, 30, 0, 4, 0, 34, 33, -1, 8, 35, 27, 36, 31, 37, 32, 38, 33, 39, 11, 40, 18, 41, 34, 42, 35, 0 </int_array>
+			<int_array  len="152"> 				-1, -1, 1, 0, -1, 10, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 0, 0, 0, 12, 0, -1, 9, 13, 10, 14, 11, 15, 12, 16, 13, 17, 14, 18, 15, 19, 16, 20, 17, 21, 18, 0, 1, 0, 22, 22, -1, 4, 13, 19, 23, 20, 24, 21, 25, 22, 0, 1, 0, 26, 26, -1, 4, 13, 23, 23, 24, 27, 12, 28, 14, 0, 0, 0, 1, 29, -1, 1, 13, 10, 0, 4, 0, 22, 22, -1, 7, 30, 11, 31, 25, 13, 26, 23, 24, 24, 21, 25, 27, 32, 28, 0, 4, 0, 34, 33, -1, 8, 35, 25, 36, 29, 37, 30, 38, 31, 39, 11, 40, 18, 41, 32, 42, 33, 0, 0, 0, 22, 22, -1, 5, 43, 14, 13, 19, 23, 20, 24, 21, 25, 22, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="36" shared="false">
+			<array  len="34" shared="false">
 				<resource  resource_type="Script" path="res://scripts/sword.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -239,17 +240,12 @@
 				<real> 98 </real>
 				<real> 0.1 </real>
 				<real> 1 </real>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
 				<vector2> 63.7557, -54.8299 </vector2>
 				<real> -55.900002 </real>
 				<vector2> 0.65, 0.65 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/sword.png">  </resource>
 				<vector2> 69.4169, -59.1867 </vector2>
 				<real> -55.600002 </real>
-				<vector2> 1, 1 </vector2>
 				<int> 1 </int>
 				<vector2> 62.9298, -54.9058 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/sword_highlight.png">  </resource>
