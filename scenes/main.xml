@@ -15,6 +15,75 @@
 	<ext_resource path="res://scenes/menu_options.xml" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scenes/menu_controls.xml" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scenes/menu_graphics.xml" type="PackedScene"></ext_resource>
+	<resource type="Animation" path="local://8">
+		<string name="resource/name"> "bg_fade_out" </string>
+		<real name="length"> 1 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "BgColor:visibility/opacity" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 1 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<real> 1 </real>
+				<real> 0 </real>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://5">
+		<string name="resource/name"> "godotEngine_fade_in" </string>
+		<real name="length"> 1 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "GodotEngineGroup/GodotEngine:visibility/opacity" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 1 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<real> 0 </real>
+				<real> 1 </real>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://4">
+		<string name="resource/name"> "bg_white_to_black" </string>
+		<real name="length"> 1 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "BgColor:color" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 1 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<color> 1, 1, 1, 1 </color>
+				<color> 0, 0, 0, 1 </color>
+			</array>
+		</dictionary>
+
+	</resource>
 	<resource type="Animation" path="local://2">
 		<string name="resource/name"> "logo_fade_in" </string>
 		<real name="length"> 1 </real>
@@ -38,6 +107,36 @@
 		</dictionary>
 
 	</resource>
+	<resource type="Animation" path="local://7">
+		<string name="resource/name"> "godotEngineGroup_fade_out" </string>
+		<real name="length"> 1 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "GodotEngineGroup:visibility/opacity" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 1 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<real> 1 </real>
+				<real> 0 </real>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://12">
+		<string name="resource/name"> "menu_buttons_anim_in" </string>
+		<real name="length"> 1.4 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+
+	</resource>
 	<resource type="Animation" path="local://6">
 		<string name="resource/name"> "powered_fade_in" </string>
 		<real name="length"> 1 </real>
@@ -57,6 +156,52 @@
 			<array  len="2" shared="false">
 				<real> 0 </real>
 				<real> 1 </real>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://9">
+		<string name="resource/name"> "press_enter_idle" </string>
+		<real name="length"> 1 </real>
+		<bool name="loop"> True </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "../ParallaxBackground/ParallaxLayer1/pressENTER:visibility/opacity" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 0.5 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<real> 0 </real>
+				<real> 1 </real>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://3">
+		<string name="resource/name"> "logo_fade_out" </string>
+		<real name="length"> 1 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "KobugeLogo:visibility/opacity" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 1 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<real> 1 </real>
+				<real> 0 </real>
 			</array>
 		</dictionary>
 
@@ -102,128 +247,6 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://4">
-		<string name="resource/name"> "bg_white_to_black" </string>
-		<real name="length"> 1 </real>
-		<bool name="loop"> False </bool>
-		<real name="step"> 0.1 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> "BgColor:color" </node_path>
-		<int name="tracks/0/interp"> 1 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> True </bool>
-			<string> "times" </string>
-			<real_array  len="2"> 				0, 1 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="2"> 				1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="2" shared="false">
-				<color> 1, 1, 1, 1 </color>
-				<color> 0, 0, 0, 1 </color>
-			</array>
-		</dictionary>
-
-	</resource>
-	<resource type="Animation" path="local://5">
-		<string name="resource/name"> "godotEngine_fade_in" </string>
-		<real name="length"> 1 </real>
-		<bool name="loop"> False </bool>
-		<real name="step"> 0.1 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> "GodotEngineGroup/GodotEngine:visibility/opacity" </node_path>
-		<int name="tracks/0/interp"> 1 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> True </bool>
-			<string> "times" </string>
-			<real_array  len="2"> 				0, 1 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="2"> 				1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="2" shared="false">
-				<real> 0 </real>
-				<real> 1 </real>
-			</array>
-		</dictionary>
-
-	</resource>
-	<resource type="Animation" path="local://8">
-		<string name="resource/name"> "bg_fade_out" </string>
-		<real name="length"> 1 </real>
-		<bool name="loop"> False </bool>
-		<real name="step"> 0.1 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> "BgColor:visibility/opacity" </node_path>
-		<int name="tracks/0/interp"> 1 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> True </bool>
-			<string> "times" </string>
-			<real_array  len="2"> 				0, 1 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="2"> 				1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="2" shared="false">
-				<real> 1 </real>
-				<real> 0 </real>
-			</array>
-		</dictionary>
-
-	</resource>
-	<resource type="Animation" path="local://12">
-		<string name="resource/name"> "menu_buttons_anim_in" </string>
-		<real name="length"> 1.4 </real>
-		<bool name="loop"> False </bool>
-		<real name="step"> 0.1 </real>
-
-	</resource>
-	<resource type="Animation" path="local://3">
-		<string name="resource/name"> "logo_fade_out" </string>
-		<real name="length"> 1 </real>
-		<bool name="loop"> False </bool>
-		<real name="step"> 0.1 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> "KobugeLogo:visibility/opacity" </node_path>
-		<int name="tracks/0/interp"> 1 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> True </bool>
-			<string> "times" </string>
-			<real_array  len="2"> 				0, 1 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="2"> 				1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="2" shared="false">
-				<real> 1 </real>
-				<real> 0 </real>
-			</array>
-		</dictionary>
-
-	</resource>
-	<resource type="Animation" path="local://9">
-		<string name="resource/name"> "press_enter_idle" </string>
-		<real name="length"> 1 </real>
-		<bool name="loop"> True </bool>
-		<real name="step"> 0.1 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> "../ParallaxBackground/ParallaxLayer1/pressENTER:visibility/opacity" </node_path>
-		<int name="tracks/0/interp"> 1 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> True </bool>
-			<string> "times" </string>
-			<real_array  len="2"> 				0, 0.5 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="2"> 				1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="2" shared="false">
-				<real> 0 </real>
-				<real> 1 </real>
-			</array>
-		</dictionary>
-
-	</resource>
 	<resource type="Animation" path="local://11">
 		<string name="resource/name"> "bg_blur" </string>
 		<real name="length"> 1 </real>
@@ -243,29 +266,6 @@
 			<array  len="2" shared="false">
 				<real> 0 </real>
 				<real> 10 </real>
-			</array>
-		</dictionary>
-
-	</resource>
-	<resource type="Animation" path="local://7">
-		<string name="resource/name"> "godotEngineGroup_fade_out" </string>
-		<real name="length"> 1 </real>
-		<bool name="loop"> False </bool>
-		<real name="step"> 0.1 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> "GodotEngineGroup:visibility/opacity" </node_path>
-		<int name="tracks/0/interp"> 1 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> True </bool>
-			<string> "times" </string>
-			<real_array  len="2"> 				0, 1 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="2"> 				1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="2" shared="false">
-				<real> 1 </real>
-				<real> 0 </real>
 			</array>
 		</dictionary>
 
@@ -382,17 +382,17 @@
 				<string> "playback/process_mode" </string>
 				<string> "playback/default_blend_time" </string>
 				<string> "root/root" </string>
-				<string> "anims/logo_fade_in" </string>
-				<string> "anims/powered_fade_in" </string>
-				<string> "anims/press_enter_done" </string>
-				<string> "anims/bg_white_to_black" </string>
-				<string> "anims/godotEngine_fade_in" </string>
 				<string> "anims/bg_fade_out" </string>
-				<string> "anims/menu_buttons_anim_in" </string>
-				<string> "anims/logo_fade_out" </string>
-				<string> "anims/press_enter_idle" </string>
-				<string> "anims/bg_blur" </string>
+				<string> "anims/godotEngine_fade_in" </string>
+				<string> "anims/bg_white_to_black" </string>
+				<string> "anims/logo_fade_in" </string>
 				<string> "anims/godotEngineGroup_fade_out" </string>
+				<string> "anims/menu_buttons_anim_in" </string>
+				<string> "anims/powered_fade_in" </string>
+				<string> "anims/press_enter_idle" </string>
+				<string> "anims/logo_fade_out" </string>
+				<string> "anims/press_enter_done" </string>
+				<string> "anims/bg_blur" </string>
 				<string> "playback/active" </string>
 				<string> "playback/speed" </string>
 				<string> "blend_times" </string>
@@ -418,9 +418,9 @@
 			<string> "node_count" </string>
 			<int> 24 </int>
 			<string> "nodes" </string>
-			<int_array  len="636"> 				-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 0, 0, 5, 5, -1, 10, 6, 3, 7, 4, 8, 5, 9, 6, 10, 4, 11, 4, 12, 6, 13, 4, 14, 4, 3, 7, 0, 1, 0, 16, 15, -1, 3, 17, 8, 18, 6, 19, 4, 0, 2, 0, 21, 20, -1, 3, 22, 9, 23, 10, 24, 11, 0, 2, 0, 26, 25, -1, 20, 27, 11, 28, 12, 29, 13, 30, 14, 31, 15, 32, 9, 33, 9, 34, 16, 35, 17, 36, 5, 37, 18, 38, 18, 39, 18, 40, 5, 41, 11, 42, 11, 43, 19, 44, 20, 45, 20, 46, 21, 0, 2, 0, 26, 47, -1, 25, 27, 11, 48, 5, 28, 12, 29, 13, 30, 14, 31, 15, 32, 9, 33, 9, 34, 16, 35, 17, 49, 22, 50, 20, 51, 20, 52, 20, 36, 5, 37, 18, 38, 18, 39, 18, 40, 5, 41, 11, 42, 11, 43, 19, 44, 20, 45, 20, 46, 21, 0, 1, 0, 1, 53, -1, 1, 3, 23, 0, 6, 0, 55, 54, -1, 24, 56, 24, 57, 25, 58, 26, 59, 27, 60, 28, 61, 28, 62, 29, 63, 30, 64, 5, 65, 28, 66, 29, 67, 5, 68, 26, 69, 18, 70, 5, 71, 31, 72, 31, 73, 5, 74, 18, 75, 5, 76, 18, 77, 32, 78, 18, 79, 33, 0, 6, 0, 55, 80, -1, 24, 56, 34, 57, 25, 58, 26, 59, 27, 60, 28, 61, 28, 62, 29, 63, 30, 64, 5, 65, 28, 66, 29, 67, 5, 68, 26, 69, 18, 70, 5, 71, 31, 72, 31, 73, 5, 74, 18, 75, 5, 76, 18, 77, 32, 78, 18, 79, 33, 0, 6, 0, 55, 81, -1, 24, 56, 35, 57, 25, 58, 26, 59, 27, 60, 28, 61, 28, 62, 29, 63, 30, 64, 5, 65, 28, 66, 29, 67, 5, 68, 26, 69, 18, 70, 5, 71, 31, 72, 31, 73, 5, 74, 18, 75, 5, 76, 18, 77, 32, 78, 18, 79, 33, 0, 0, 0, 16, 82, -1, 4, 18, 4, 19, 4, 2, 36, 3, 37, 0, 10, 0, 84, 83, -1, 11, 56, 38, 85, 39, 86, 40, 87, 41, 7, 4, 88, 42, 89, 4, 90, 6, 91, 5, 92, 11, 93, 43, 0, 10, 0, 21, 94, -1, 3, 56, 44, 95, 45, 23, 46, 0, 10, 0, 96, 96, -1, 18, 97, 20, 98, 5, 99, 47, 100, 48, 101, 49, 102, 50, 103, 51, 104, 52, 105, 53, 106, 54, 107, 55, 108, 56, 109, 57, 110, 58, 111, 9, 112, 18, 113, 59, 114, 60, 0, 10, 0, 1, 115, -1, 2, 56, 61, 3, 62, 0, 14, 0, 21, 116, -1, 3, 48, 5, 95, 63, 23, 64, 0, 14, 0, 26, 26, -1, 24, 48, 5, 117, 20, 118, 20, 119, 20, 120, 20, 28, 65, 29, 66, 30, 67, 31, 68, 32, 9, 33, 9, 34, 16, 35, 17, 36, 5, 37, 18, 38, 18, 39, 18, 40, 5, 41, 11, 42, 11, 43, 69, 44, 20, 45, 20, 46, 21, 0, 0, 0, 122, 121, -1, 7, 30, 70, 31, 71, 32, 11, 33, 9, 34, 16, 123, 16, 124, 72, 0, 17, 0, 122, 125, 73, 2, 126, 74, 3, 75, 0, 17, 0, 122, 127, 76, 4, 126, 74, 28, 70, 30, 77, 3, 78, 0, 17, 0, 122, 128, 79, 4, 126, 74, 29, 71, 31, 80, 3, 81, 0, 17, 0, 122, 129, 82, 4, 126, 74, 28, 77, 30, 70, 3, 83, 0, 17, 0, 122, 130, 84, 5, 126, 74, 28, 77, 29, 71, 30, 70, 3, 85, 0, 17, 0, 122, 131, 86, 6, 126, 74, 28, 77, 29, 80, 30, 87, 31, 88, 3, 89, 0 </int_array>
+			<int_array  len="638"> 				-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 0, 0, 5, 5, -1, 10, 6, 3, 7, 4, 8, 5, 9, 6, 10, 4, 11, 4, 12, 6, 13, 4, 14, 4, 3, 7, 0, 1, 0, 16, 15, -1, 3, 17, 8, 18, 6, 19, 4, 0, 2, 0, 21, 20, -1, 3, 22, 9, 23, 10, 24, 11, 0, 2, 0, 26, 25, -1, 20, 27, 11, 28, 12, 29, 13, 30, 14, 31, 15, 32, 9, 33, 9, 34, 16, 35, 17, 36, 5, 37, 18, 38, 18, 39, 18, 40, 5, 41, 11, 42, 11, 43, 19, 44, 20, 45, 20, 46, 21, 0, 2, 0, 26, 47, -1, 25, 27, 11, 48, 5, 28, 12, 29, 13, 30, 14, 31, 15, 32, 9, 33, 9, 34, 16, 35, 17, 49, 22, 50, 20, 51, 20, 52, 20, 36, 5, 37, 18, 38, 18, 39, 18, 40, 5, 41, 11, 42, 11, 43, 19, 44, 20, 45, 20, 46, 21, 0, 1, 0, 1, 53, -1, 1, 3, 23, 0, 6, 0, 55, 54, -1, 24, 56, 24, 57, 25, 58, 26, 59, 27, 60, 28, 61, 28, 62, 29, 63, 30, 64, 5, 65, 28, 66, 29, 67, 5, 68, 26, 69, 18, 70, 5, 71, 31, 72, 31, 73, 5, 74, 18, 75, 5, 76, 18, 77, 32, 78, 18, 79, 33, 0, 6, 0, 55, 80, -1, 24, 56, 34, 57, 25, 58, 26, 59, 27, 60, 28, 61, 28, 62, 29, 63, 30, 64, 5, 65, 28, 66, 29, 67, 5, 68, 26, 69, 18, 70, 5, 71, 31, 72, 31, 73, 5, 74, 18, 75, 5, 76, 18, 77, 32, 78, 18, 79, 33, 0, 6, 0, 55, 81, -1, 24, 56, 35, 57, 25, 58, 26, 59, 27, 60, 28, 61, 28, 62, 29, 63, 30, 64, 5, 65, 28, 66, 29, 67, 5, 68, 26, 69, 18, 70, 5, 71, 31, 72, 31, 73, 5, 74, 18, 75, 5, 76, 18, 77, 32, 78, 18, 79, 33, 0, 0, 0, 16, 82, -1, 4, 18, 4, 19, 4, 2, 36, 3, 37, 0, 10, 0, 84, 83, -1, 11, 56, 38, 85, 39, 86, 40, 87, 41, 7, 4, 88, 42, 89, 4, 90, 6, 91, 5, 92, 11, 93, 43, 0, 10, 0, 21, 94, -1, 3, 56, 44, 95, 45, 23, 46, 0, 10, 0, 96, 96, -1, 18, 97, 20, 98, 5, 99, 47, 100, 48, 101, 49, 102, 50, 103, 51, 104, 52, 105, 53, 106, 54, 107, 55, 108, 56, 109, 57, 110, 58, 111, 9, 112, 18, 113, 59, 114, 60, 0, 10, 0, 1, 115, -1, 2, 56, 61, 3, 62, 0, 14, 0, 21, 116, -1, 3, 48, 5, 95, 63, 23, 64, 0, 14, 0, 26, 26, -1, 24, 48, 5, 117, 20, 118, 20, 119, 20, 120, 20, 28, 65, 29, 66, 30, 67, 31, 68, 32, 9, 33, 9, 34, 16, 35, 17, 36, 5, 37, 18, 38, 18, 39, 18, 40, 5, 41, 11, 42, 11, 43, 69, 44, 20, 45, 20, 46, 21, 0, 0, 0, 122, 121, -1, 7, 30, 70, 31, 71, 32, 11, 33, 9, 34, 16, 123, 16, 124, 72, 0, 17, 0, 122, 125, 73, 2, 126, 74, 3, 75, 0, 17, 0, 122, 127, 76, 4, 126, 74, 28, 70, 30, 77, 3, 78, 0, 17, 0, 122, 128, 79, 4, 126, 74, 29, 71, 31, 80, 3, 81, 0, 17, 0, 122, 129, 82, 4, 126, 74, 28, 77, 30, 70, 3, 83, 0, 17, 0, 122, 130, 84, 6, 126, 74, 28, 77, 29, 71, 30, 70, 31, 80, 3, 85, 0, 17, 0, 122, 131, 86, 6, 126, 74, 28, 77, 29, 80, 30, 70, 31, 71, 3, 87, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="90" shared="false">
+			<array  len="88" shared="false">
 				<resource  resource_type="Script" path="res://scripts/menu.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -430,7 +430,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -2032.73, -1576.92 </vector2>
+							<vector2> -1678.27, -1466.38 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -450,7 +450,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.21464 </real>
+							<real> 0.237828 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -607,17 +607,17 @@
 				<vector2> 0.5, 0.5 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/menu/kobuge_logo.png">  </resource>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://2">  </resource>
-				<resource  resource_type="Animation" path="local://6">  </resource>
-				<resource  resource_type="Animation" path="local://10">  </resource>
-				<resource  resource_type="Animation" path="local://4">  </resource>
-				<resource  resource_type="Animation" path="local://5">  </resource>
 				<resource  resource_type="Animation" path="local://8">  </resource>
-				<resource  resource_type="Animation" path="local://12">  </resource>
-				<resource  resource_type="Animation" path="local://3">  </resource>
-				<resource  resource_type="Animation" path="local://9">  </resource>
-				<resource  resource_type="Animation" path="local://11">  </resource>
+				<resource  resource_type="Animation" path="local://5">  </resource>
+				<resource  resource_type="Animation" path="local://4">  </resource>
+				<resource  resource_type="Animation" path="local://2">  </resource>
 				<resource  resource_type="Animation" path="local://7">  </resource>
+				<resource  resource_type="Animation" path="local://12">  </resource>
+				<resource  resource_type="Animation" path="local://6">  </resource>
+				<resource  resource_type="Animation" path="local://9">  </resource>
+				<resource  resource_type="Animation" path="local://3">  </resource>
+				<resource  resource_type="Animation" path="local://10">  </resource>
+				<resource  resource_type="Animation" path="local://11">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "" </string>
@@ -1300,8 +1300,6 @@
 					</dictionary>
 				</dictionary>
 				<resource  resource_type="PackedScene" path="res://scenes/menu_graphics.xml">  </resource>
-				<real> 2048 </real>
-				<real> 1536 </real>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>

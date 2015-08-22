@@ -19,6 +19,7 @@ func save_screen_size():
 	height = int(screen_size.y)
 	save_to_config("display", "width", width)
 	save_to_config("display", "height", height)
+	update_values(get_config_file())
 
 func update_values(config):
 	width = set_from_cfg(config, "display", "width", width)
@@ -28,15 +29,19 @@ func update_values(config):
 	
 	OS.set_window_size(Vector2(width, height))
 	OS.set_window_fullscreen(fullscreen)
-	
 
-func save_to_config(section, key, value):
+func get_config_file():
 	var config = ConfigFile.new()
 	var err = config.load(settings_filename)
 	if (err):
 		print("Error code when loading config file: ", err)
+		return false
+	else:
+		return config
+		
+func save_to_config(section, key, value):
+	var config = get_config_file()
 	config.set_value(section, key, value)
-	update_values(config)
 	config.save(settings_filename)
 
 func load_config():
