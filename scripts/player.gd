@@ -97,11 +97,7 @@ func _input(event):
 		var number = int(key_string)
 		if(number != 0): #it is a number
 			if(time_for_next_gun_change <= 0): # We are able to change the weapon
-			#tomar el number
-			#si esta dentro del rango de armas
-			#seleccionar arma 
-			#si no, no hacer nada
-			change_weapon(number)
+				change_weapon(number)
 
 func logic(delta): # We override the function defined in moveable_object.gd
 	time_for_next_shot -= delta # We decrease the time till the next shot by the time elapsed

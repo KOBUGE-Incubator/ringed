@@ -21,6 +21,8 @@ var shotLight # The node of the shot's light
 var shot_occluder # The occluder that the shot light projects
 var player # The player
 var gun_animations # The AnimationPlayer node of the gun
+export var ammo = 600 
+export var c_ammo = 600 # -1 for infinite ammo
 
 
 func _ready():
@@ -46,32 +48,34 @@ func _fixed_process(delta):
 		shotLight.set_enabled(false)
 		shot_occluder.set_enabled(false)
 func shot():
-	if (hasShotLight == true):
-		shotLight.set_enabled(false) # We disable the shot's light
-		shot_occluder.set_enabled(false) # Whe disable the shot's occluder
-	if(time_for_next_shot <= 0):
-		var rotation = player.get_rot() + rand_range(-0.01,0.01) # The rotation of the player
-		var bullet = bullet_scn.instance() # We instance the bullet scene
-		if(not bullet extends RigidBody2D):
-			var holder = bullet
-			for child in holder.get_children():
-				if(child extends RigidBody2D):
-					holder.remove_child(child)
-					bullet = child
-			holder.queue_free()
-		bullet_holder.add_child(bullet) # Then we add it to the scene
-		bullet.set_pos(player.get_pos() + bullet_offset.rotated(rotation)) # We move the bullet to the right position
-		bullet.set_rot(rotation) # Also we rotate it
+	if((c_ammo != 0) or (c_ammo == -1)): # We don't have more ammo
 		if (hasShotLight == true):
-			shotLight.set_enabled(true) # We enable the shot's light
-			shot_occluder.set_enabled(true) # Whe enable the shot's occluder
-		var variation = rand_range(-recoil_bullet_variation, recoil_bullet_variation)
-		bullet.force = Vector2(0,bullet.speed).rotated(rotation + deg2rad(180+variation)) # We set its course
-		do_recoil()
-		if(bullet.take_player_speed):
-			bullet.set_linear_velocity(player.get_linear_velocity() * bullet.take_player_speed)
-		bullet.source = "player" # The player shoots the bullet
-		time_for_next_shot = shot_cooldown # To prevent ultra-fast fire
+			shotLight.set_enabled(false) # We disable the shot's light
+			shot_occluder.set_enabled(false) # Whe disable the shot's occluder
+		if(time_for_next_shot <= 0):
+			var rotation = player.get_rot() + rand_range(-0.01,0.01) # The rotation of the player
+			var bullet = bullet_scn.instance() # We instance the bullet scene
+			if(not bullet extends RigidBody2D):
+				var holder = bullet
+				for child in holder.get_children():
+					if(child extends RigidBody2D):
+						holder.remove_child(child)
+						bullet = child
+				holder.queue_free()
+			bullet_holder.add_child(bullet) # Then we add it to the scene
+			bullet.set_pos(player.get_pos() + bullet_offset.rotated(rotation)) # We move the bullet to the right position
+			bullet.set_rot(rotation) # Also we rotate it
+			if (hasShotLight == true):
+				shotLight.set_enabled(true) # We enable the shot's light
+				shot_occluder.set_enabled(true) # Whe enable the shot's occluder
+			var variation = rand_range(-recoil_bullet_variation, recoil_bullet_variation)
+			bullet.force = Vector2(0,bullet.speed).rotated(rotation + deg2rad(180+variation)) # We set its course
+			do_recoil()
+			if(bullet.take_player_speed):
+				bullet.set_linear_velocity(player.get_linear_velocity() * bullet.take_player_speed)
+			bullet.source = "player" # The player shoots the bullet
+			time_for_next_shot = shot_cooldown # To prevent ultra-fast fire
+			c_ammo -= 1
 
 func do_recoil():
 	if(gun_animations):

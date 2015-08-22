@@ -17,6 +17,9 @@ var target_dir = 1
 var swing_time_left = 0.0
 var animation
 var tween = Tween.new()
+export var ammo = 0 
+export var c_ammo = -1 # -1 for infinite ammo
+
 
 func _init():
 	add_child(tween)
