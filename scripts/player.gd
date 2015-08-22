@@ -92,6 +92,16 @@ func _input(event):
 			switch_weapon = 1
 		elif(event.button_mask & 8): # Scroll down
 			switch_weapon = -1
+	if(event.type == InputEvent.KEY): # Know if a key is pressed
+		var key_string = OS.get_scancode_string(event.scancode)
+		var number = int(key_string)
+		if(number != 0): #it is a number
+			if(time_for_next_gun_change <= 0): # We are able to change the weapon
+			#tomar el number
+			#si esta dentro del rango de armas
+			#seleccionar arma 
+			#si no, no hacer nada
+			change_weapon(number)
 
 func logic(delta): # We override the function defined in moveable_object.gd
 	time_for_next_shot -= delta # We decrease the time till the next shot by the time elapsed
@@ -140,16 +150,24 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	if(Input.is_action_pressed("Prev_weapon") && time_for_next_gun_change <= 0):
 		switch_weapon = -1
 	if(switch_weapon != 0):
+		change_weapon(0)
+	target_angle = get_pos().angle_to_point( relative_mouse_pos ) + deg2rad(0) # Set the angle in which the player looks
+	get_node("../cursor").set_pos(relative_mouse_pos) # Move the cursor
+
+func change_weapon(gun_switch):
 		var guns = get_node("Guns").get_child_count() # The amount of guns we have
+		if(gun_switch == 0):
+			current_gun = (current_gun + switch_weapon + guns) % guns # Switch
+		elif((gun_switch > 0) and (gun_switch <= guns)):
+			current_gun = gun_switch-1
+		else:
+			return
 		current_gun_node.hide() # Hide the current gun
-		current_gun = (current_gun + switch_weapon + guns) % guns # Switch
 		current_gun_node = get_node("Guns").get_child(current_gun) # Take the gun
 		current_gun_node.show() # Show it
 		time_for_next_gun_change = gun_change_cooldown # To prevent ultra-fast change
 		switch_weapon = 0 # To prevent locking
-	target_angle = get_pos().angle_to_point( relative_mouse_pos ) + deg2rad(0) # Set the angle in which the player looks
-	get_node("../cursor").set_pos(relative_mouse_pos) # Move the cursor
-	
+		
 func do_dodge(action): # Function to make dodge with doble key 
 	if(Input.is_action_pressed(action)):
 		if(prev_move_action != action): # Is not the first iteration and the prev actions is not like the actual one
