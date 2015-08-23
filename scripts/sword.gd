@@ -62,7 +62,7 @@ func _fixed_process(delta):
 func hit(other):
 	if(is_visible()):
 		if(other.has_method("damage")):
-			other.damage("player", damage * damage_multiplier)
+			other.damage(get_parent().get_parent(), damage * damage_multiplier)
 
 func make_swing():
 	var start_angle_sword = sword_area.get_rot()

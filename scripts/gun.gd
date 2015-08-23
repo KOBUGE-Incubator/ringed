@@ -73,7 +73,7 @@ func shot():
 			do_recoil()
 			if(bullet.take_player_speed):
 				bullet.set_linear_velocity(player.get_linear_velocity() * bullet.take_player_speed)
-			bullet.source = "player" # The player shoots the bullet
+			bullet.source = get_parent().get_parent() # The player shoots the bullet
 			time_for_next_shot = shot_cooldown # To prevent ultra-fast fire
 			c_ammo -= 1
 

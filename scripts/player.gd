@@ -43,6 +43,7 @@ var prev_dodge = true # if the player did a previous dodge, so he just can pres 
 var dodge_number_keys = 0 # We need 2 to get a dodge
 var move_actions = ["right","left","down","up"] # We use this array to save the actions names and change them easy in the code
 var prev_move_action = "" # We use this to know what was the previous action (for moves), it is used in do_dodge() to know when we change of action 
+var points = 0 # The amount of points that the player has
 
 func _ready():
 	time_for_next_doble_key = dodge_doble_key_cooldown
@@ -187,7 +188,7 @@ func do_dodge(action): # Function to make dodge with doble key
 		prev_dodge = Input.is_action_pressed(prev_move_action) # Before leave this method we save the last input_pressed state if is the same action that before
 
 func amount_of_damage(from): # We override the function defined in living_object.gd
-	if(from != "player"): # Don't receive self-damage
+	if(from != self): # Don't receive self-damage
 		return 1.0
 	return 0
 
@@ -205,3 +206,6 @@ func camera_shake(intensity, explosion_pos, explosion_range, time): # Will shake
 	camera_shake_distance = max((explosion_range - explosion_distance)/explosion_range, 0) # Clam it so it isn't less than 0
 	camera_shake_distance += camera_shake_distance * intensity # Increase the shake distance
 	camera_shake_time_left += time # Increase the shake time
+
+func add_points(points_external):
+	points += points_external

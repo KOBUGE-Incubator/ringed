@@ -5,6 +5,7 @@ var spider_animations # The animations of the kamikaze spider
 var health_empty # The health node when its empty
 
 func _ready():
+	set_points(250) # Set the points that this enemy give us
 	spider_animations = get_node("AnimatedSprite/AnimationPlayer")
 	health_empty = get_node("HealthHolder/HealthEmpty")
 	._ready()

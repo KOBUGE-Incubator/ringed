@@ -2,7 +2,7 @@
 extends RigidBody2D
 
 var force = Vector2(0,0) # The force of movement
-var source = "magic" # The shooter of the bullet
+var source # The shooter of the bullet
 var die_on_timeout = true # Should the bullet be removed when there is no time left?
 export var take_player_speed = 0.5 # Should the bullet inherit the player's speed
 export var speed = 60.0 # The speed of the bullet (around 700 makes for a normal spped)
@@ -13,7 +13,6 @@ export var dangerous = true # Is it still dangerous to touch?
 
 func _ready():
 	set_fixed_process(true) # We use _fixed_process to move and die
-	
 	animationPlayer = get_node("AnimationPlayer") # The animation player!
 	animationPlayer.connect("finished", self, "anim_player_finished") # To remove the bullet from the scene
 

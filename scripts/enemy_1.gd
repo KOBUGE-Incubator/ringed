@@ -8,6 +8,7 @@ var is_attaking = false # To know when the spider is attaking
 var spider_sound # The sounds of the spiders
 var spider_sound_ID # The ID of the spider
 var player # The player node
+export var points = 100 # The amount of points that the enemy give us
 
 func _ready():
 	add_to_group("enemies") # Mark it as an enemy
@@ -28,13 +29,21 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	
 	for body in get_colliding_bodies(): # Get all colliding bodies
 		if(body.has_method("damage") && cooldown_left <= 0):
-			if(body.damage("spider",damage)): # If we can damage them
+			if(body.damage(self,damage)): # If we can damage them
 				is_attaking = true # The spider is attaking!
 				cooldown_left = cooldown # Increase the timeout
 		else:
 			is_attaking = false
 
 func amount_of_damage(from): # We override the function defined in living_object.gd
-	if(from != "spider"):
+#	if(from.get_name() != "spider"):
+	if(from.has_method("add_points")):
 		return 1.0 # We can't get damaged by other spiders...
 	return 0
+
+func get_points():
+	return points
+
+func set_points(points_new):
+	points = points_new
+	

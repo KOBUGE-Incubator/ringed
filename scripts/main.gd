@@ -11,7 +11,7 @@ var day_night = preload("day_night.gd")
 var day_night_object
 export var fake_server_hour = 0
 export var fake_server_minutes = 0
-export var fake_server_day = 0
+export var fake_server_day = 99
 var day_time_label
 var day_label
 

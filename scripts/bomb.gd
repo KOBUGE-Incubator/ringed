@@ -31,7 +31,7 @@ func _fixed_process(delta):
 		for body in bodies: # Loop through all the coliding bodies
 			var diminish = clamp(200/(get_pos() - body.get_pos()).length() - 1, 0, 200) # Diminish the amount of damage and push based on the distance
 			if(body.has_method("damage")): # And damage them, if possible
-				body.damage("bomb",damage * diminish)
+				body.damage(source,damage * diminish)
 			if(body extends RigidBody2D && body != self): # When it is a rigidbody, but not a bomb
 				var direction = (body.get_pos() - get_pos()).normalized() # The direction in which we push
 				body.apply_impulse(get_pos(), direction * diminish * push) # Move it awaty from the bomb
@@ -45,8 +45,11 @@ func _fixed_process(delta):
 	if(exploded && remove_after <= 0.0):
 		queue_free() # Delete the bomb after the animation is finished
 
+func is_a_bomb():
+	return true
+
 func damage(from, amount):
-	if(from == "bomb"):
+	if(from.has_method("is_a_bomb")):
 		time_left /= 3
 	else:
 		time_left = 0 # Explode when damaged

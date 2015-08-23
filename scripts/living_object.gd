@@ -21,6 +21,7 @@ var healthbarHolder # The node that holder the healthbar (used for rotation)
 var time_for_next_heal = 0.0 # Time left till the next auto-heal
 var tween = Tween.new() # The Tween use to scale the life bar
 export var time_bars_smooth = 1.0 # The time that the bars use in the tween  
+var who_kill_me # It saves the node of the thing that give us damange, if we die it will get the points
 
 func _init():
 	add_child(tween) # We add the Tween node to the scene, this way we can use it to make the tween animations for the bars
@@ -95,6 +96,7 @@ func amount_of_damage(from): # Returns a value from 0 to 1 (float) if damaged (h
 func damage(from, amount): # Damage the creature from a given source
 	var percent = amount_of_damage(from) # Percent of damage we will get
 	if(percent != 0):
+		who_kill_me = from
 		time_for_next_heal = heal_cooldown # Reset the auto-heal timer
 		update_health(-amount) # Update the healthbar
 		return true # Say that the creature was damaged
@@ -108,6 +110,8 @@ func use_stamina (amount):
 	return false # Say that the use of stamina attempt was unsuccessful 
 
 func die():
+	if(who_kill_me != null):
+		who_kill_me.add_points(self.points)
 	queue_free() # Just delete the object when dead
 
 func tired(state):
