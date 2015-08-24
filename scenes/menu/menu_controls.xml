@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="3" version="1.1" version_name="Godot Engine v1.1.r1580.(August,2nd-2015)">
-	<ext_resource path="res://scripts/setup_game_graphics.gd" type="Script"></ext_resource>
+	<ext_resource path="res://scripts/menu/menu_controls.gd" type="Script"></ext_resource>
 	<ext_resource path="res://fonts/text.fnt" type="Font"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
@@ -9,8 +9,8 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="41">
-				<string> "Graphics" </string>
+			<string_array  len="42">
+				<string> "Controls" </string>
 				<string> "Control" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
@@ -28,11 +28,13 @@
 				<string> "toggle_mode" </string>
 				<string> "text" </string>
 				<string> "flat" </string>
-				<string> "Options" </string>
+				<string> "Input1" </string>
 				<string> "margin/left" </string>
 				<string> "margin/top" </string>
-				<string> "Option1" </string>
-				<string> "rect/min_size" </string>
+				<string> "button" </string>
+				<string> "anchor/left" </string>
+				<string> "anchor/top" </string>
+				<string> "label" </string>
 				<string> "Label" </string>
 				<string> "range/min" </string>
 				<string> "range/max" </string>
@@ -41,37 +43,36 @@
 				<string> "range/value" </string>
 				<string> "range/exp_edit" </string>
 				<string> "rounded_values" </string>
-				<string> "percent_visible" </string>
-				<string> "On" </string>
-				<string> "CheckBox" </string>
-				<string> "anchor/left" </string>
 				<string> "align" </string>
-				<string> "Bullets" </string>
-				<string> "Type" </string>
-				<string> "OptionButton" </string>
-				<string> "selected" </string>
-				<string> "items" </string>
+				<string> "valign" </string>
+				<string> "percent_visible" </string>
+				<string> "Input2" </string>
+				<string> "Input3" </string>
+				<string> "Input4" </string>
+				<string> "Input5" </string>
+				<string> "Input6" </string>
+				<string> "Input7" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 9 </int>
+			<int> 23 </int>
 			<string> "nodes" </string>
-			<int_array  len="263"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 11, 10, -1, 10, 12, 6, 13, 7, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 1, 16, 9, 17, 1, 0, 0, 0, 1, 18, -1, 10, 2, 0, 3, 0, 19, 10, 20, 11, 12, 11, 13, 11, 4, 1, 5, 2, 6, 3, 7, 3, 0, 2, 0, 1, 21, -1, 7, 2, 0, 13, 7, 22, 12, 4, 1, 5, 2, 6, 3, 7, 3, 0, 3, 0, 23, 23, -1, 15, 2, 13, 3, 0, 4, 2, 5, 2, 6, 3, 14, 8, 24, 14, 25, 15, 26, 15, 27, 15, 28, 14, 29, 1, 30, 1, 16, 16, 31, 17, 0, 3, 0, 33, 32, -1, 13, 34, 13, 2, 0, 3, 0, 13, 17, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 2, 16, 18, 17, 1, 35, 19, 0, 2, 0, 1, 36, -1, 8, 2, 0, 20, 7, 13, 20, 22, 12, 4, 1, 5, 2, 6, 3, 7, 3, 0, 6, 0, 23, 23, -1, 15, 2, 13, 3, 0, 4, 2, 5, 2, 6, 3, 14, 8, 24, 14, 25, 15, 26, 15, 27, 15, 28, 14, 29, 1, 30, 1, 16, 21, 31, 17, 0, 6, 0, 38, 37, -1, 14, 34, 13, 2, 13, 3, 0, 12, 22, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 2, 17, 1, 35, 19, 39, 23, 40, 24, 0 </int_array>
+			<int_array  len="825"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 11, 10, -1, 10, 12, 6, 13, 7, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 1, 16, 9, 17, 1, 0, 0, 0, 1, 18, -1, 9, 19, 10, 20, 11, 12, 12, 13, 13, 4, 1, 5, 2, 6, 3, 7, 3, 9, 14, 0, 2, 0, 11, 21, -1, 16, 22, 15, 23, 15, 2, 15, 3, 15, 19, 16, 20, 17, 12, 18, 13, 19, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 1, 16, 20, 17, 1, 0, 2, 0, 25, 24, -1, 20, 2, 0, 3, 0, 19, 21, 20, 22, 12, 23, 4, 2, 5, 2, 6, 3, 14, 8, 26, 24, 27, 25, 28, 25, 29, 25, 30, 24, 31, 1, 32, 1, 16, 26, 33, 3, 34, 0, 35, 25, 0, 0, 0, 1, 36, -1, 9, 19, 10, 20, 27, 12, 12, 13, 28, 4, 1, 5, 2, 6, 3, 7, 3, 9, 29, 0, 5, 0, 11, 21, -1, 16, 22, 15, 23, 15, 2, 15, 3, 15, 19, 16, 20, 17, 12, 18, 13, 19, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 1, 16, 20, 17, 1, 0, 5, 0, 25, 24, -1, 20, 2, 0, 3, 0, 19, 21, 20, 22, 12, 23, 4, 2, 5, 2, 6, 3, 14, 8, 26, 24, 27, 25, 28, 25, 29, 25, 30, 24, 31, 1, 32, 1, 16, 26, 33, 3, 34, 0, 35, 25, 0, 0, 0, 1, 37, -1, 9, 19, 30, 20, 31, 12, 32, 13, 33, 4, 1, 5, 2, 6, 3, 7, 3, 9, 34, 0, 8, 0, 11, 21, -1, 16, 22, 15, 23, 15, 2, 15, 3, 15, 19, 16, 20, 17, 12, 18, 13, 19, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 1, 16, 20, 17, 1, 0, 8, 0, 25, 24, -1, 21, 2, 0, 3, 0, 19, 21, 20, 35, 12, 23, 13, 25, 4, 2, 5, 2, 6, 3, 14, 8, 26, 24, 27, 25, 28, 25, 29, 25, 30, 24, 31, 1, 32, 1, 16, 26, 33, 3, 34, 0, 35, 25, 0, 0, 0, 1, 38, -1, 8, 19, 30, 20, 36, 12, 32, 13, 37, 4, 1, 5, 2, 6, 3, 7, 3, 0, 11, 0, 11, 21, -1, 16, 22, 15, 23, 15, 2, 15, 3, 15, 19, 16, 20, 17, 12, 18, 13, 19, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 1, 16, 20, 17, 1, 0, 11, 0, 25, 24, -1, 20, 2, 0, 3, 0, 19, 21, 20, 22, 12, 23, 4, 2, 5, 2, 6, 3, 14, 8, 26, 24, 27, 25, 28, 25, 29, 25, 30, 24, 31, 1, 32, 1, 16, 26, 33, 3, 34, 0, 35, 25, 0, 0, 0, 1, 39, -1, 8, 19, 30, 20, 38, 12, 32, 13, 39, 4, 1, 5, 2, 6, 3, 7, 3, 0, 14, 0, 11, 21, -1, 16, 22, 15, 23, 15, 2, 15, 3, 15, 19, 16, 20, 17, 12, 18, 13, 19, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 1, 16, 20, 17, 1, 0, 14, 0, 25, 24, -1, 21, 2, 0, 3, 0, 19, 21, 20, 40, 12, 23, 13, 41, 4, 2, 5, 2, 6, 3, 14, 8, 26, 24, 27, 25, 28, 25, 29, 25, 30, 24, 31, 1, 32, 1, 16, 26, 33, 3, 34, 0, 35, 25, 0, 0, 0, 1, 40, -1, 8, 19, 30, 20, 42, 12, 32, 13, 43, 4, 1, 5, 2, 6, 3, 7, 3, 0, 17, 0, 11, 21, -1, 16, 22, 15, 23, 15, 2, 15, 3, 15, 19, 16, 20, 17, 12, 18, 13, 19, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 1, 16, 20, 17, 1, 0, 17, 0, 25, 24, -1, 20, 2, 0, 3, 0, 19, 21, 20, 22, 12, 23, 4, 2, 5, 2, 6, 3, 14, 8, 26, 24, 27, 25, 28, 25, 29, 25, 30, 24, 31, 1, 32, 1, 16, 26, 33, 3, 34, 0, 35, 25, 0, 0, 0, 1, 41, -1, 8, 19, 30, 20, 44, 12, 32, 13, 45, 4, 1, 5, 2, 6, 3, 7, 3, 0, 20, 0, 11, 21, -1, 16, 22, 15, 23, 15, 2, 15, 3, 15, 19, 16, 20, 17, 12, 18, 13, 19, 4, 1, 5, 2, 6, 3, 7, 3, 14, 8, 15, 1, 16, 20, 17, 1, 0, 20, 0, 25, 24, -1, 21, 2, 0, 3, 0, 19, 21, 20, 46, 12, 23, 13, 47, 4, 2, 5, 2, 6, 3, 14, 8, 26, 24, 27, 25, 28, 25, 29, 25, 30, 24, 31, 1, 32, 1, 16, 26, 33, 3, 34, 0, 35, 25, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="25" shared="false">
+			<array  len="48" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
 				<bool> True </bool>
 				<int> 2 </int>
-				<resource  resource_type="Script" path="res://scripts/setup_game_graphics.gd">  </resource>
+				<resource  resource_type="Script" path="res://scripts/menu/menu_controls.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> 386.649, -66.3091 </vector2>
+							<vector2> -800, -441.646 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -91,7 +92,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.000003 </real>
+							<real> 0.487676 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -193,27 +194,60 @@
 						<string> "run_mode" </string>
 						<int> 0 </int>
 					</dictionary>
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
 				</dictionary>
 				<real> 16 </real>
 				<real> 52 </real>
 				<resource  resource_type="Font" path="res://fonts/text.fnt">  </resource>
 				<string> "Back" </string>
-				<real> 120 </real>
-				<real> 44 </real>
-				<vector2> 0, 52 </vector2>
+				<real> 88 </real>
+				<real> 79 </real>
+				<real> 568 </real>
+				<real> 164 </real>
+				<dictionary  shared="false">
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+				</dictionary>
 				<int> 3 </int>
+				<real> 66 </real>
+				<real> 34.5 </real>
+				<real> -174 </real>
+				<real> -25.5 </real>
+				<string> "Controls" </string>
+				<real> -28 </real>
+				<real> 9 </real>
+				<real> 341 </real>
 				<real> 0 </real>
 				<real> 1 </real>
-				<string> "Fullscreen" </string>
+				<string> "text" </string>
+				<real> 159 </real>
+				<real> 244 </real>
+				<dictionary  shared="false">
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+				</dictionary>
+				<real> 90 </real>
+				<real> 246 </real>
+				<real> 570 </real>
+				<real> 331 </real>
+				<dictionary  shared="false">
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+				</dictionary>
+				<real> 8 </real>
+				<real> 329 </real>
+				<real> 414 </real>
+				<real> 407 </real>
+				<real> 492 </real>
+				<real> 10 </real>
 				<real> -1 </real>
-				<string> "On" </string>
-				<int> 0 </int>
-				<real> 104 </real>
-				<string> "Bullets" </string>
-				<real> -251 </real>
-				<int> -1 </int>
-				<array  len="0" shared="false">
-				</array>
+				<real> 481 </real>
+				<real> 566 </real>
+				<real> 561 </real>
+				<real> 646 </real>
+				<real> 11 </real>
+				<real> -2 </real>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
