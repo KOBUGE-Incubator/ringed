@@ -33,7 +33,7 @@ var global
 func _ready():
 	global = get_node("/root/global")
 	
-	for child in get_node("Options").get_children():
+	for child in get_node("Options").get_children(): # Clean all the child nodes in Options
 		child.queue_free()
 	
 	var values = {
@@ -102,12 +102,8 @@ func make_setting_node(options, offset, height, value):
 
 func checkbox_change(state, setting_name):
 	global.save_to_config("display", setting_name, state)
-	
+	global.update_values(global.get_config_file())
+
 func option_button_change(state, setting_name, setting_values):
 	global.save_to_config("display", setting_name, setting_values[state])
-
-#func set_fullscreen(flag):
-#	global.fullscreen = flag
-#	OS.set_window_fullscreen(global.fullscreen)
-#	global.save_to_config("display", "fullscreen", flag)
-#
+	global.update_values(global.get_config_file())

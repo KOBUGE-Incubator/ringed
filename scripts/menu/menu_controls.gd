@@ -2,7 +2,7 @@
 extends Control
 
 # ACTIONS inputs
-const INPUT_ACTIONS = ["left","right","up","down","run","dodge","shot"] # This array will give us the order and action name in UI too
+const INPUT_ACTIONS = ["left","right","up","down","run","shot","defense"] # This array will give us the order and action name in UI too
 
 # Member Variables
 var action_used
@@ -54,10 +54,6 @@ func change_key(id, event):
 	InputMap.add_action(action_used)
 	InputMap.action_add_event(action_used, event)
 	global.save_to_config("actions", action_used, event)
-	
-#	print(InputMap.get_action_list(action_used)[0])
-#	InputMap.action_add_event(action_used, event)
-#	InputMap.action_erase_event(action_used, InputMap.get_action_list(action_used)[0])
 
 
 
