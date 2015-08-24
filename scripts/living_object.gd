@@ -18,6 +18,7 @@ var health # The amount of health
 export var hide_when_full = false # Should we hide the healthbar when it is full?
 var healthbar # The healthbar node
 var healthbarHolder # The node that holder the healthbar (used for rotation)
+var health_empty # The health node when its empty
 var time_for_next_heal = 0.0 # Time left till the next auto-heal
 var tween = Tween.new() # The Tween use to scale the life bar
 export var time_bars_smooth = 1.0 # The time that the bars use in the tween  
@@ -38,6 +39,7 @@ func _ready():
 	health = max_health
 	healthbarHolder = get_node("HealthHolder") # Take the healthbar holder node
 	healthbar = get_node("HealthHolder/HealthBar") # Take the healthbar itself
+	health_empty = get_node("HealthHolder/HealthEmpty")
 	if(hide_when_full):
 		healthbarHolder.hide() # Hide the healthbar
 	else:
@@ -110,9 +112,12 @@ func use_stamina (amount):
 	return false # Say that the use of stamina attempt was unsuccessful 
 
 func die():
+	add_player_points()
+	queue_free() # Just delete the object when dead
+
+func add_player_points():
 	if(who_kill_me != null):
 		who_kill_me.add_points(self.points)
-	queue_free() # Just delete the object when dead
 
 func tired(state):
 	is_tired = state

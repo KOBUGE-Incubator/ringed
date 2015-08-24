@@ -5,16 +5,9 @@
 	<ext_resource path="res://gfx/menu/godot_engine.png" type="Texture"></ext_resource>
 	<ext_resource path="res://fonts/middle_text.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://scenes/menu/menu_background.xml" type="PackedScene"></ext_resource>
-	<resource type="Animation" path="local://9">
-		<string name="resource/name"> "press_enter_idle" </string>
+	<resource type="Animation" path="local://11">
+		<string name="resource/name"> "bg_blur" </string>
 		<real name="length"> 1 </real>
-		<bool name="loop"> True </bool>
-		<real name="step"> 0.1 </real>
-
-	</resource>
-	<resource type="Animation" path="local://12">
-		<string name="resource/name"> "menu_buttons_anim_in" </string>
-		<real name="length"> 1.4 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
 
@@ -65,13 +58,13 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://6">
-		<string name="resource/name"> "powered_fade_in" </string>
+	<resource type="Animation" path="local://8">
+		<string name="resource/name"> "bg_fade_out" </string>
 		<real name="length"> 1 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
 		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> "GodotEngineGroup/Label:visibility/opacity" </node_path>
+		<node_path name="tracks/0/path"> "BgColor:visibility/opacity" </node_path>
 		<int name="tracks/0/interp"> 1 </int>
 		<dictionary name="tracks/0/keys" shared="false">
 			<string> "cont" </string>
@@ -82,8 +75,8 @@
 			<real_array  len="2"> 				1, 1 </real_array>
 			<string> "values" </string>
 			<array  len="2" shared="false">
-				<real> 0 </real>
 				<real> 1 </real>
+				<real> 0 </real>
 			</array>
 		</dictionary>
 
@@ -111,43 +104,6 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://7">
-		<string name="resource/name"> "godotEngineGroup_fade_out" </string>
-		<real name="length"> 1 </real>
-		<bool name="loop"> False </bool>
-		<real name="step"> 0.1 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> "GodotEngineGroup:visibility/opacity" </node_path>
-		<int name="tracks/0/interp"> 1 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> True </bool>
-			<string> "times" </string>
-			<real_array  len="2"> 				0, 1 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="2"> 				1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="2" shared="false">
-				<real> 1 </real>
-				<real> 0 </real>
-			</array>
-		</dictionary>
-
-	</resource>
-	<resource type="Animation" path="local://11">
-		<string name="resource/name"> "bg_blur" </string>
-		<real name="length"> 1 </real>
-		<bool name="loop"> False </bool>
-		<real name="step"> 0.1 </real>
-
-	</resource>
-	<resource type="Animation" path="local://10">
-		<string name="resource/name"> "press_enter_done" </string>
-		<real name="length"> 1 </real>
-		<bool name="loop"> False </bool>
-		<real name="step"> 0.1 </real>
-
-	</resource>
 	<resource type="Animation" path="local://3">
 		<string name="resource/name"> "logo_fade_out" </string>
 		<real name="length"> 1 </real>
@@ -171,13 +127,20 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://8">
-		<string name="resource/name"> "bg_fade_out" </string>
+	<resource type="Animation" path="local://9">
+		<string name="resource/name"> "press_enter_idle" </string>
+		<real name="length"> 1 </real>
+		<bool name="loop"> True </bool>
+		<real name="step"> 0.1 </real>
+
+	</resource>
+	<resource type="Animation" path="local://7">
+		<string name="resource/name"> "godotEngineGroup_fade_out" </string>
 		<real name="length"> 1 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
 		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> "BgColor:visibility/opacity" </node_path>
+		<node_path name="tracks/0/path"> "GodotEngineGroup:visibility/opacity" </node_path>
 		<int name="tracks/0/interp"> 1 </int>
 		<dictionary name="tracks/0/keys" shared="false">
 			<string> "cont" </string>
@@ -190,6 +153,43 @@
 			<array  len="2" shared="false">
 				<real> 1 </real>
 				<real> 0 </real>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://12">
+		<string name="resource/name"> "menu_buttons_anim_in" </string>
+		<real name="length"> 1.4 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+
+	</resource>
+	<resource type="Animation" path="local://10">
+		<string name="resource/name"> "press_enter_done" </string>
+		<real name="length"> 1 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+
+	</resource>
+	<resource type="Animation" path="local://6">
+		<string name="resource/name"> "powered_fade_in" </string>
+		<real name="length"> 1 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "GodotEngineGroup/Label:visibility/opacity" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 1 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<real> 0 </real>
+				<real> 1 </real>
 			</array>
 		</dictionary>
 
@@ -231,17 +231,17 @@
 				<string> "playback/process_mode" </string>
 				<string> "playback/default_blend_time" </string>
 				<string> "root/root" </string>
-				<string> "anims/press_enter_idle" </string>
-				<string> "anims/menu_buttons_anim_in" </string>
+				<string> "anims/bg_blur" </string>
 				<string> "anims/bg_white_to_black" </string>
 				<string> "anims/godotEngine_fade_in" </string>
-				<string> "anims/powered_fade_in" </string>
-				<string> "anims/logo_fade_in" </string>
-				<string> "anims/godotEngineGroup_fade_out" </string>
-				<string> "anims/bg_blur" </string>
-				<string> "anims/press_enter_done" </string>
-				<string> "anims/logo_fade_out" </string>
 				<string> "anims/bg_fade_out" </string>
+				<string> "anims/logo_fade_in" </string>
+				<string> "anims/logo_fade_out" </string>
+				<string> "anims/press_enter_idle" </string>
+				<string> "anims/godotEngineGroup_fade_out" </string>
+				<string> "anims/menu_buttons_anim_in" </string>
+				<string> "anims/press_enter_done" </string>
+				<string> "anims/powered_fade_in" </string>
 				<string> "playback/active" </string>
 				<string> "playback/speed" </string>
 				<string> "blend_times" </string>
@@ -285,13 +285,13 @@
 				<resource  resource_type="Script" path="res://scripts/menu/game_intro.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -800, -1053.04 </vector2>
+							<vector2> -954.735, -632 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -432,17 +432,17 @@
 				<resource  resource_type="Texture" path="res://gfx/menu/kobuge_logo.png">  </resource>
 				<int> 1 </int>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://9">  </resource>
-				<resource  resource_type="Animation" path="local://12">  </resource>
+				<resource  resource_type="Animation" path="local://11">  </resource>
 				<resource  resource_type="Animation" path="local://4">  </resource>
 				<resource  resource_type="Animation" path="local://5">  </resource>
-				<resource  resource_type="Animation" path="local://6">  </resource>
-				<resource  resource_type="Animation" path="local://2">  </resource>
-				<resource  resource_type="Animation" path="local://7">  </resource>
-				<resource  resource_type="Animation" path="local://11">  </resource>
-				<resource  resource_type="Animation" path="local://10">  </resource>
-				<resource  resource_type="Animation" path="local://3">  </resource>
 				<resource  resource_type="Animation" path="local://8">  </resource>
+				<resource  resource_type="Animation" path="local://2">  </resource>
+				<resource  resource_type="Animation" path="local://3">  </resource>
+				<resource  resource_type="Animation" path="local://9">  </resource>
+				<resource  resource_type="Animation" path="local://7">  </resource>
+				<resource  resource_type="Animation" path="local://12">  </resource>
+				<resource  resource_type="Animation" path="local://10">  </resource>
+				<resource  resource_type="Animation" path="local://6">  </resource>
 				<bool> True </bool>
 				<real> 1 </real>
 				<array  len="0" shared="false">

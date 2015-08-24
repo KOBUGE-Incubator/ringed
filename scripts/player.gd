@@ -188,9 +188,10 @@ func do_dodge(action): # Function to make dodge with doble key
 		prev_dodge = Input.is_action_pressed(prev_move_action) # Before leave this method we save the last input_pressed state if is the same action that before
 
 func amount_of_damage(from): # We override the function defined in living_object.gd
-	if(from != self): # Don't receive self-damage
-		return 1.0
-	return 0
+	return 1.0 # We can suicide
+#	if(from != self): # Don't receive self-damage
+#		return 1.0
+#	return 0
 
 func die(): # We override the function defined in living_object.gd
 	set_layer_mask(0) # Disable Collisions

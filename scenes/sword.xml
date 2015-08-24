@@ -39,7 +39,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="44">
+			<string_array  len="45">
 				<string> "Sword" </string>
 				<string> "Node2D" </string>
 				<string> "script/script" </string>
@@ -49,9 +49,10 @@
 				<string> "extent" </string>
 				<string> "swing_cooldown" </string>
 				<string> "swing_speed" </string>
-				<string> "normalize_speed" </string>
 				<string> "damage_speed" </string>
 				<string> "highlight_holdness" </string>
+				<string> "ammo" </string>
+				<string> "c_ammo" </string>
 				<string> "Area2D" </string>
 				<string> "transform/pos" </string>
 				<string> "input/pickable" </string>
@@ -88,13 +89,13 @@
 			<string> "node_count" </string>
 			<int> 8 </int>
 			<string> "nodes" </string>
-			<int_array  len="152"> 				-1, -1, 1, 0, -1, 10, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 0, 0, 0, 12, 0, -1, 9, 13, 10, 14, 11, 15, 12, 16, 13, 17, 14, 18, 15, 19, 16, 20, 17, 21, 18, 0, 1, 0, 22, 22, -1, 4, 13, 19, 23, 20, 24, 21, 25, 22, 0, 1, 0, 26, 26, -1, 4, 13, 23, 23, 24, 27, 12, 28, 14, 0, 0, 0, 1, 29, -1, 1, 13, 10, 0, 4, 0, 22, 22, -1, 7, 30, 11, 31, 25, 13, 26, 23, 24, 24, 21, 25, 27, 32, 28, 0, 4, 0, 34, 33, -1, 8, 35, 25, 36, 29, 37, 30, 38, 31, 39, 11, 40, 18, 41, 32, 42, 33, 0, 0, 0, 22, 22, -1, 5, 43, 14, 13, 19, 23, 20, 24, 21, 25, 22, 0 </int_array>
+			<int_array  len="154"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 12, 10, 0, 0, 0, 13, 0, -1, 9, 14, 11, 15, 12, 16, 13, 17, 14, 18, 15, 19, 16, 20, 17, 21, 18, 22, 19, 0, 1, 0, 23, 23, -1, 4, 14, 20, 24, 21, 25, 22, 26, 23, 0, 1, 0, 27, 27, -1, 4, 14, 24, 24, 25, 28, 13, 29, 15, 0, 0, 0, 1, 30, -1, 1, 14, 11, 0, 4, 0, 23, 23, -1, 7, 31, 12, 32, 26, 14, 27, 24, 25, 25, 22, 26, 28, 33, 29, 0, 4, 0, 35, 34, -1, 8, 36, 26, 37, 30, 38, 31, 39, 32, 40, 12, 41, 19, 42, 33, 43, 34, 0, 0, 0, 23, 23, -1, 5, 44, 15, 14, 20, 24, 21, 25, 22, 26, 23, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="34" shared="false">
+			<array  len="35" shared="false">
 				<resource  resource_type="Script" path="res://scripts/sword.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -225,12 +226,13 @@
 				</dictionary>
 				<real> 20 </real>
 				<real> 0.1 </real>
-				<real> 240 </real>
+				<real> 230 </real>
+				<real> 0.4 </real>
 				<real> 0.3 </real>
-				<real> 0.2 </real>
-				<real> 10 </real>
 				<real> 5 </real>
-				<real> 0.15 </real>
+				<real> 0.2 </real>
+				<int> 0 </int>
+				<int> -1 </int>
 				<vector2> -0.19371, 17.434 </vector2>
 				<bool> True </bool>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>

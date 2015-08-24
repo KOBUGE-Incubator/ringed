@@ -6,7 +6,6 @@ export var damage_percent_idle = 0.1 # Percent of damage to apply while not swin
 export var extent = 90.0 # Max +/- degree
 export var swing_cooldown = 1.0 # Time (sec) between two swings
 export var swing_speed = 0.35 # Speed of swing in seconds
-export var normalize_speed = 60.0 # The speed with which the target_angle goes back to 0
 export var damage_speed = 60.0 # The speed with which damage_multiplier goes to damage_percent_idle
 export var highlight_holdness = 1.0 # The highlight follow speed in seconds + or - the swing speed
 var sword_area
@@ -20,8 +19,8 @@ var tween = Tween.new()
 export var ammo = 0 
 export var c_ammo = -1 # -1 for infinite ammo
 
-
 func _init():
+	tween.set_tween_process_mode(0) # This option makes that the tween use fixed process
 	add_child(tween)
 
 func _ready():
@@ -29,34 +28,19 @@ func _ready():
 	highlight = get_node("Highlight")
 	animation = get_node("Highlight/Animation")
 	sword_area.connect("body_enter", self, "hit")
-#	set_process(true)
 	animation.play("blink")
 	set_fixed_process(true)
 
-#func _process(delta):
-	# Interpolate the angle
-#	pass
-#	var t_dir = Vector2(0,1).rotated(sword_area.get_rot()) # We make a unit vector (one that has a length of one) poiting in the final direction
-#	var c_dir = Vector2(0,1).rotated(highlight.get_rot()) # Then we make another unit vector in the current direction
-#	c_dir = c_dir.linear_interpolate(t_dir, highlight_holdness * delta) # We interpolate between them
-#	highlight.set_rot(atan2(c_dir.x,c_dir.y)) # Then we use the angle of the interpolated vector as the rotation
-
 func shot():
-	if(swing_time_left <= 0):
-		target_angle = target_dir * extent
-		target_dir = -target_dir
+	if(swing_time_left <= 0): # To prevent ultra fast swings
+		target_angle = target_dir * extent # The new angle
+		target_dir = -target_dir # To switch the swing direction
 		damage_multiplier = 1.0
 		make_swing()
-		swing_time_left = swing_cooldown
+		swing_time_left = swing_cooldown # Reset the cooldown
 
 func _fixed_process(delta):
-	swing_time_left -= delta
-#	# Interpolate the angle
-#	var t_dir = Vector2(0,1).rotated(target_angle) # We make a unit vector (one that has a length of one) poiting in the final direction
-#	var c_dir = Vector2(0,1).rotated(sword_area.get_rot()) # Then we make another unit vector in the current direction
-#	c_dir = c_dir.linear_interpolate(t_dir, swing_speed * delta) # We interpolate between them
-#	sword_area.set_rot(atan2(c_dir.x,c_dir.y)) # Then we use the angle of the interpolated vector as the rotation
-#	target_angle = lerp(target_angle, 0.0, normalize_speed*delta)
+	swing_time_left -= delta # When it is <= 0 we can make another swing
 	damage_multiplier = lerp(damage_multiplier, damage_percent_idle, damage_speed*delta)
 
 func hit(other):

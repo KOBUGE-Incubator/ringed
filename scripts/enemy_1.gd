@@ -9,14 +9,16 @@ var spider_sound # The sounds of the spiders
 var spider_sound_ID # The ID of the spider
 var player # The player node
 export var points = 100 # The amount of points that the enemy give us
+var animations
 
 func _ready():
 	add_to_group("enemies") # Mark it as an enemy
 	spider_sound = get_node("SpiderSound")
 	spider_sound_ID = spider_sound.play("spider_sound")
-	var anim_player = get_node("AnimatedSprite/AnimationPlayer") 
-	anim_player.seek(randf() * anim_player.get_current_animation_length())
-	
+	animations = get_node("AnimatedSprite/AnimationPlayer")
+	animations.play("walking")
+	animations.seek(randf() * animations.get_current_animation_length())
+
 
 func logic(delta): # We override the function defined in moveable_object.gd
 	cooldown_left -= delta # Decrease the cooldown by the time elapsed
@@ -46,4 +48,22 @@ func get_points():
 
 func set_points(points_new):
 	points = points_new
-	
+
+func disable_spider():
+	set_layer_mask(0) # Disable Collisions
+	set_collision_mask(0) # Disable Collisions
+	healthbarHolder.hide()
+	healthbar.hide()
+	health_empty.hide()
+	damage = 0
+	speed = 0
+	rotation_speed = 0
+
+func die():
+	disable_spider()
+	add_player_points()
+	animations.connect("finished", self, "end_die_animation")
+	animations.play("die")
+
+func end_die_animation():
+	queue_free()
