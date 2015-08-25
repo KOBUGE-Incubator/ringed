@@ -8,7 +8,7 @@ var target_angle = 0.0 # The angle we want to look at
 func _ready():
 	set_fixed_process(true) # We use _fixed_process to move
 
-func _fixed_process(delta):	
+func _fixed_process(delta):
 	logic(delta) # Use the logic function to change the force and target angle
 	if(force.length_squared() > 1): # When we try to move with a force greater than one (length_squared is used because it is faster) 
 		force = force.normalized() # Normalize the force vector, so its length equals one

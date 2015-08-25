@@ -18,12 +18,16 @@ var animation
 var tween = Tween.new()
 export var ammo = 0 
 export var c_ammo = -1 # -1 for infinite ammo
+#Sounds
+var sounds
+export var sound_swing_name = ""
 
 func _init():
 	tween.set_tween_process_mode(0) # This option makes that the tween use fixed process
 	add_child(tween)
 
 func _ready():
+	sounds = get_node("SamplePlayer2D")
 	sword_area = get_node("Sword")
 	highlight = get_node("Highlight")
 	animation = get_node("Highlight/Animation")
@@ -49,6 +53,7 @@ func hit(other):
 			other.damage(get_parent().get_parent(), damage * damage_multiplier)
 
 func make_swing():
+	sounds.play(sound_swing_name)
 	var start_angle_sword = sword_area.get_rot()
 	var end_angle_sword = start_angle_sword - ((target_dir*extent)/100)
 	tween.interpolate_method(sword_area, "set_rot", start_angle_sword , end_angle_sword, swing_speed , tween.TRANS_QUART, tween.EASE_OUT)

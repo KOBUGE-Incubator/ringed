@@ -15,13 +15,14 @@ func _process(d):
 	c_weapon = player.current_gun_node
 	set_ammo_text()
 	set_weapon_preview()
+	check_reloading()
 
 func set_ammo_text():
 	var ammo_text
 	if(c_weapon.c_ammo < 0):
 		ammo_text = "enjoy!"
 	else:
-		ammo_text = str(c_weapon.c_ammo)+"/"+str(c_weapon.ammo)
+		ammo_text = str(c_weapon.c_ammo_clip_size)+"/"+str(c_weapon.c_ammo)
 	self.get_node("Label").set_text(ammo_text)
 
 func set_weapon_preview ():
@@ -51,4 +52,10 @@ func get_scale_factor(c_size,target_size):
 	var delta_size = c_size - target_size
 	var delta_scale_factor = delta_size/c_size
 	return (1-delta_scale_factor)
-	pass
+
+func check_reloading():
+	if(c_weapon.c_ammo >= 0):
+		if(c_weapon.is_reloading):
+			self.set_opacity(0.3)
+		else:
+			self.set_opacity(1)

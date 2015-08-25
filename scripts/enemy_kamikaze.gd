@@ -21,6 +21,7 @@ func do_kamikaze():
 	spider_sound.stop_voice(spider_sound_ID) # We stop the original spider sound
 	if(spider_explote_ID == null): # If is the first and onlne time that the spider attacks
 		if(!spider_sound.is_voice_active(spider_sound_ID)): # Is the orginial spider sound stoped
+			drop_item()
 			spider_explote_ID = spider_sound.play("spider_explote") # Reproduces spider explotion sound
 			animations.play("die") # Play de spider dead animation
 			disable_spider()

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="7" version="1.1" version_name="Godot Engine v1.1.r1580.(August,2nd-2015)">
+	<ext_resource path="res://scripts/items/consumables/pickup_item.gd" type="Script"></ext_resource>
+	<ext_resource path="res://gfx/items/consumables/ammo_gun_1.png" type="Texture"></ext_resource>
+	<ext_resource path="res://audio/samples/items/pickup_items_sounds.res" type="SampleLibrary"></ext_resource>
+	<resource type="CircleShape2D" path="local://1">
+		<real name="custom_solver_bias"> 0 </real>
+		<real name="radius"> 10 </real>
+
+	</resource>
+	<resource type="Animation" path="local://2">
+		<string name="resource/name"> "idle" </string>
+		<real name="length"> 0.8 </real>
+		<bool name="loop"> True </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "Sprite:transform/pos" </node_path>
+		<int name="tracks/0/interp"> 2 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="3"> 				0, 0.00908422, 0.4 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="3"> 				1, 1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="3" shared="false">
+				<vector2> 0, 0 </vector2>
+				<vector2> 0, 0 </vector2>
+				<vector2> 0, -20 </vector2>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://3">
+		<string name="resource/name"> "pickup" </string>
+		<real name="length"> 0.5 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "Sprite:transform/scale" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 0.5 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<vector2> 0.15, 0.15 </vector2>
+				<vector2> 0.25, 0.25 </vector2>
+			</array>
+		</dictionary>
+		<string name="tracks/1/type"> "value" </string>
+		<node_path name="tracks/1/path"> "Sprite:visibility/opacity" </node_path>
+		<int name="tracks/1/interp"> 1 </int>
+		<dictionary name="tracks/1/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 0.5 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<real> 1 </real>
+				<real> 0 </real>
+			</array>
+		</dictionary>
+
+	</resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+			<string> "names" </string>
+			<string_array  len="44">
+				<string> "ammo_gun_2" </string>
+				<string> "Node2D" </string>
+				<string> "script/script" </string>
+				<string> "__meta__" </string>
+				<string> "life_time" </string>
+				<string> "type" </string>
+				<string> "affect" </string>
+				<string> "quantity" </string>
+				<string> "sound_name" </string>
+				<string> "Area2D" </string>
+				<string> "input/pickable" </string>
+				<string> "shapes/0/shape" </string>
+				<string> "shapes/0/transform" </string>
+				<string> "shapes/0/trigger" </string>
+				<string> "gravity_vec" </string>
+				<string> "gravity" </string>
+				<string> "linear_damp" </string>
+				<string> "angular_damp" </string>
+				<string> "CollisionShape2D" </string>
+				<string> "shape" </string>
+				<string> "trigger" </string>
+				<string> "Sprite" </string>
+				<string> "transform/scale" </string>
+				<string> "texture" </string>
+				<string> "modulate" </string>
+				<string> "AnimationPlayer" </string>
+				<string> "playback/process_mode" </string>
+				<string> "playback/default_blend_time" </string>
+				<string> "root/root" </string>
+				<string> "anims/idle" </string>
+				<string> "anims/pickup" </string>
+				<string> "playback/active" </string>
+				<string> "playback/speed" </string>
+				<string> "blend_times" </string>
+				<string> "autoplay" </string>
+				<string> "SamplePlayer2D" </string>
+				<string> "params/volume_db" </string>
+				<string> "params/pitch_scale" </string>
+				<string> "params/attenuation/min_distance" </string>
+				<string> "params/attenuation/max_distance" </string>
+				<string> "params/attenuation/distance_exp" </string>
+				<string> "config/polyphony" </string>
+				<string> "config/samples" </string>
+				<string> "config/pitch_random" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 6 </int>
+			<string> "nodes" </string>
+			<int_array  len="116"> 				-1, -1, 1, 0, -1, 7, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 0, 0, 0, 9, 9, -1, 8, 10, 7, 11, 8, 12, 9, 13, 10, 14, 11, 15, 12, 16, 13, 17, 14, 0, 1, 0, 18, 18, -1, 2, 19, 8, 20, 10, 0, 0, 0, 21, 21, -1, 3, 22, 15, 23, 16, 24, 17, 0, 0, 0, 25, 25, -1, 9, 26, 18, 27, 19, 28, 20, 29, 21, 30, 22, 31, 7, 32, 14, 33, 23, 34, 24, 0, 0, 0, 35, 35, -1, 8, 36, 19, 37, 14, 38, 14, 39, 25, 40, 14, 41, 18, 42, 26, 43, 19, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="27" shared="false">
+				<resource  resource_type="Script" path="res://scripts/items/consumables/pickup_item.gd">  </resource>
+				<dictionary  shared="false">
+					<string> "__editor_plugin_screen__" </string>
+					<string> "2D" </string>
+					<string> "__editor_plugin_states__" </string>
+					<dictionary  shared="false">
+						<string> "2D" </string>
+						<dictionary  shared="false">
+							<string> "ofs" </string>
+							<vector2> -113.908, -86.438 </vector2>
+							<string> "snap_grid" </string>
+							<bool> False </bool>
+							<string> "snap_offset" </string>
+							<vector2> 0, 0 </vector2>
+							<string> "snap_pixel" </string>
+							<bool> False </bool>
+							<string> "snap_relative" </string>
+							<bool> False </bool>
+							<string> "snap_rotation" </string>
+							<bool> False </bool>
+							<string> "snap_rotation_offset" </string>
+							<real> 0 </real>
+							<string> "snap_rotation_step" </string>
+							<real> 0.261799 </real>
+							<string> "snap_show_grid" </string>
+							<bool> False </bool>
+							<string> "snap_step" </string>
+							<vector2> 10, 10 </vector2>
+							<string> "zoom" </string>
+							<real> 5.162339 </real>
+						</dictionary>
+						<string> "3D" </string>
+						<dictionary  shared="false">
+							<string> "ambient_light_color" </string>
+							<color> 0.15, 0.15, 0.15, 1 </color>
+							<string> "default_light" </string>
+							<bool> True </bool>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "show_grid" </string>
+							<bool> True </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
+							<string> "viewports" </string>
+							<array  len="4" shared="false">
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> True </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+							</array>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
+						</dictionary>
+					</dictionary>
+					<string> "__editor_run_settings__" </string>
+					<dictionary  shared="false">
+						<string> "custom_args" </string>
+						<string> "-l $scene" </string>
+						<string> "run_mode" </string>
+						<int> 0 </int>
+					</dictionary>
+				</dictionary>
+				<real> 4 </real>
+				<string> "AMMO" </string>
+				<string> "Bomb" </string>
+				<int> 2 </int>
+				<string> "pickup_ammo" </string>
+				<bool> True </bool>
+				<resource  resource_type="Shape2D" path="local://1">  </resource>
+				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
+				<bool> False </bool>
+				<vector2> 0, 1 </vector2>
+				<real> 98 </real>
+				<real> 0.1 </real>
+				<real> 1 </real>
+				<vector2> 0.15, 0.15 </vector2>
+				<resource  resource_type="Texture" path="res://gfx/items/consumables/ammo_gun_1.png">  </resource>
+				<color> 1, 0.449533, 0.449217, 1 </color>
+				<int> 1 </int>
+				<real> 0 </real>
+				<node_path> ".." </node_path>
+				<resource  resource_type="Animation" path="local://2">  </resource>
+				<resource  resource_type="Animation" path="local://3">  </resource>
+				<array  len="0" shared="false">
+				</array>
+				<string> "idle" </string>
+				<real> 2048 </real>
+				<resource  resource_type="SampleLibrary" path="res://audio/samples/items/pickup_items_sounds.res">  </resource>
+			</array>
+			<string> "version" </string>
+			<int> 1 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>

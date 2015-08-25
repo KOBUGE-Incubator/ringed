@@ -21,15 +21,27 @@ var shotLight # The node of the shot's light
 var shot_occluder # The occluder that the shot light projects
 var player # The player
 var gun_animations # The AnimationPlayer node of the gun
-export var ammo = 600 
-export var c_ammo = 600 # -1 for infinite ammo
-
+export var max_ammo = 600 # The limit of the ammo capacity
+var c_ammo # -1 for infinite ammo
+export var ammo_clip_size = 50 
+var c_ammo_clip_size = 0
+export var reload_time = 2.5 # In seconds
+var timer = Timer.new()
+var is_reloading = false
+#Sounds
+var sounds
+var sounds_shot_ID
+export var sound_shot_name = ""
 
 func _ready():
+	set_reload_timer(reload_time)
+	c_ammo = max_ammo
+	c_ammo_clip_size = ammo_clip_size
 	bullet_offset = get_node("Bullet").get_pos() + get_parent().get_pos() + get_pos() # We need the position of the tip of the rifle
 	shotLight = get_node("ShotLight")
 	shot_occluder = get_node("ShotOccluder")
 	gun_animations = get_node("GunAnimations")
+	sounds = get_node("SamplePlayer2D")
 	player = get_parent().get_parent() # The player
 	bullet_holder = player.get_parent() # Get the parent (world) of the player
 	if(bullet_setting != ""):
@@ -42,13 +54,21 @@ func _ready():
 		bullet_casing_scn = load(bullet_casing_scn_path)
 		bullet_casing_holder = player.get_parent() # Get the parent (world) of the player
 	set_fixed_process(true)
+
 func _fixed_process(delta):
 	time_for_next_shot -= delta # We decrease the time till the next shot by the time elapsed
 	if(time_for_next_shot <= 0 and hasShotLight == true): # We turn off the shot's light 
 		shotLight.set_enabled(false)
 		shot_occluder.set_enabled(false)
+
+func set_reload_timer(time):
+		add_child(timer)
+		timer.set_one_shot(true)
+		timer.set_wait_time(time)
+		timer.connect("timeout",self,"reload_ends")
+
 func shot():
-	if((c_ammo != 0) or (c_ammo == -1)): # We don't have more ammo
+	if(((c_ammo_clip_size != 0) or (c_ammo == -1)) and (is_reloading == false)): # We don't have more ammo
 		if (hasShotLight == true):
 			shotLight.set_enabled(false) # We disable the shot's light
 			shot_occluder.set_enabled(false) # Whe disable the shot's occluder
@@ -75,7 +95,8 @@ func shot():
 				bullet.set_linear_velocity(player.get_linear_velocity() * bullet.take_player_speed)
 			bullet.source = get_parent().get_parent() # The player shoots the bullet
 			time_for_next_shot = shot_cooldown # To prevent ultra-fast fire
-			c_ammo -= 1
+			c_ammo_clip_size -= 1
+			sounds.play(sound_shot_name)
 
 func do_recoil():
 	if(gun_animations):
@@ -91,3 +112,24 @@ func do_recoil():
 			casing.force = Vector2(-casing.speed,0).rotated(rotation + deg2rad(180+variation)) # We set its course
 			casing.set_angular_velocity(casing_spin) 
 			casing.source = "player" # The player shoots the bullet
+
+func add_ammo(quantity):
+	c_ammo += quantity
+	if(c_ammo > max_ammo):
+		c_ammo = max_ammo
+
+func do_reload():
+	if(c_ammo_clip_size < ammo_clip_size): # We can reload
+		if(!is_reloading):
+			is_reloading = true
+			timer.start() # When the timer is timeout it will cal reload_ends method
+
+func reload_ends():
+	var ammo_needed = ammo_clip_size - c_ammo_clip_size
+	if(c_ammo < ammo_needed):
+		c_ammo_clip_size += c_ammo
+		c_ammo = 0
+	else:
+		c_ammo_clip_size += ammo_needed
+		c_ammo -= ammo_needed
+	is_reloading = false

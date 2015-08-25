@@ -25,6 +25,7 @@ var gunSounds # The sounds of the guns
 var stepSounds # The sounds of the steps
 var playerSounds # The sounds that the player make
 # Miscellaneous
+export var can_pickup = true
 var run_stamina_to_use = .045
 var dodge_stamina_to_use = 2.5
 export var run_speed = 1.4 # This will multiply the walk speed
@@ -133,12 +134,12 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		do_dodge(action)
 	if(Input.is_action_pressed("shot")):
 		current_gun_node.shot()
-		if(current_gun == 0): # If is the gun 1 that is fired
-			if gun_sound_delay == 0:
-				gunSounds.play("gun1") # Reproduces the gun 1 sound
-			gun_sound_delay += 1
-			if gun_sound_delay > 6:
-				gun_sound_delay = 0
+#		if(current_gun == 0): # If is the gun 1 that is fired
+#			if gun_sound_delay == 0:
+#				gunSounds.play("gun1") # Reproduces the gun 1 sound
+#			gun_sound_delay += 1
+#			if gun_sound_delay > 6:
+#				gun_sound_delay = 0
 	else:
 		gun_sound_delay = 0
 	# If we are pressing "Next Weapon" and we have no cooldown left
@@ -148,6 +149,9 @@ func logic(delta): # We override the function defined in moveable_object.gd
 		switch_weapon = -1
 	if(switch_weapon != 0):
 		change_weapon(0)
+	if(Input.is_action_pressed("reload")):
+		if(current_gun_node.has_method("do_reload")):
+			current_gun_node.do_reload()
 	target_angle = get_pos().angle_to_point( relative_mouse_pos ) + deg2rad(0) # Set the angle in which the player looks
 	get_node("../cursor").set_pos(relative_mouse_pos) # Move the cursor
 
