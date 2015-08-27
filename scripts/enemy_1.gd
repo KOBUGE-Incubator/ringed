@@ -80,4 +80,3 @@ func drop_item():
 		var item = items[item_index].instance()
 		item.set_global_pos(self.get_global_pos())
 		self.get_parent().add_child(item)
-		print(item_index)

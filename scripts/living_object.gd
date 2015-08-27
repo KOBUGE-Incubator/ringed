@@ -17,6 +17,7 @@ export var max_health = 6.0 # The maximum amount of health the creature can have
 var health # The amount of health
 export var hide_when_full = false # Should we hide the healthbar when it is full?
 var healthbar # The healthbar node
+var healthbar_scale
 var healthbarHolder # The node that holder the healthbar (used for rotation)
 var health_empty # The health node when its empty
 var time_for_next_heal = 0.0 # Time left till the next auto-heal
@@ -39,6 +40,7 @@ func _ready():
 	health = max_health
 	healthbarHolder = get_node("HealthHolder") # Take the healthbar holder node
 	healthbar = get_node("HealthHolder/HealthBar") # Take the healthbar itself
+	healthbar_scale = healthbar.get_scale()
 	health_empty = get_node("HealthHolder/HealthEmpty")
 	if(hide_when_full):
 		healthbarHolder.hide() # Hide the healthbar
@@ -65,7 +67,7 @@ func _fixed_process(delta):
 		time_for_next_heal = heal_cooldown # We restart the auto-heal timer
 
 func update_health(amount): # Update the healthbar (or die)
-	tween.interpolate_method(healthbar, "set_scale", Vector2(health/max_health,1), Vector2(get_porcent_life(amount), 1), time_bars_smooth, tween.TRANS_QUART, tween.EASE_OUT)
+	tween.interpolate_method(healthbar, "set_scale", Vector2((health/max_health)*healthbar_scale.x,healthbar_scale.y), Vector2(get_porcent_life(amount)*healthbar_scale.x, healthbar_scale.y), time_bars_smooth, tween.TRANS_QUART, tween.EASE_OUT)
 	tween.start()
 	if(health <= 0):
 		die() # Die when no health is left

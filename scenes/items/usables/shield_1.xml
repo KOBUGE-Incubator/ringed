@@ -64,13 +64,13 @@
 				<resource  resource_type="Script" path="res://scripts/items/usables/shield.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -115.888, -43.3921 </vector2>
+							<vector2> -79.2197, -33.4863 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -90,7 +90,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 6.337997 </real>
+							<real> 8.622047 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
