@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 var collider 
 var source
@@ -16,6 +16,3 @@ func shield_collision(body):
 	if((body != source)&&(body.get_type() == "RigidBody2D")&&(is_visible())):
 		body.set_linear_velocity(body.get_linear_velocity()*(-bounce))
 		sounds.play(sound_bounce)
-		print(body.get_linear_velocity())
-
-
