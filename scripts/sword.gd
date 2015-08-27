@@ -18,6 +18,7 @@ var animation
 var tween = Tween.new()
 export var ammo = 0 
 export var c_ammo = -1 # -1 for infinite ammo
+var source
 #Sounds
 var sounds
 export var sound_swing_name = ""
@@ -27,6 +28,7 @@ func _init():
 	add_child(tween)
 
 func _ready():
+	source = get_parent().get_parent()
 	sounds = get_node("SamplePlayer2D")
 	sword_area = get_node("Sword")
 	highlight = get_node("Highlight")
@@ -50,7 +52,7 @@ func _fixed_process(delta):
 func hit(other):
 	if(is_visible()):
 		if(other.has_method("damage")):
-			other.damage(get_parent().get_parent(), damage * damage_multiplier)
+			other.damage(source, damage * damage_multiplier)
 
 func make_swing():
 	sounds.play(sound_swing_name)

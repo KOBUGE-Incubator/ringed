@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="22" version="1.1" version_name="Godot Engine v1.1.r1580.(August,2nd-2015)">
+<resource_file type="PackedScene" subresource_count="23" version="1.1" version_name="Godot Engine v1.1.r1580.(August,2nd-2015)">
 	<ext_resource path="res://scripts/player.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gfx/flashlight.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gfx/light.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scenes/gun.xml" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scenes/gun_bomb.xml" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scenes/sword.xml" type="PackedScene"></ext_resource>
+	<ext_resource path="res://scenes/items/usables/shield_1.xml" type="PackedScene"></ext_resource>
 	<ext_resource path="res://gfx/player.png" type="Texture"></ext_resource>
 	<ext_resource path="res://materials/unshaded.res" type="CanvasItemMaterial"></ext_resource>
 	<ext_resource path="res://gfx/healthbar_empty.png" type="Texture"></ext_resource>
@@ -15,15 +16,15 @@
 	<ext_resource path="res://audio/samples/guns.res" type="SampleLibrary"></ext_resource>
 	<ext_resource path="res://audio/samples/steps.res" type="SampleLibrary"></ext_resource>
 	<ext_resource path="res://audio/samples/player.res" type="SampleLibrary"></ext_resource>
+	<resource type="CapsuleShape2D" path="local://7">
+		<real name="custom_solver_bias"> 0 </real>
+		<real name="radius"> 4.714767 </real>
+		<real name="height"> 19.676949 </real>
+
+	</resource>
 	<resource type="CircleShape2D" path="local://6">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 19 </real>
-
-	</resource>
-	<resource type="CapsuleShape2D" path="local://1">
-		<real name="custom_solver_bias"> 0 </real>
-		<real name="radius"> 4 </real>
-		<real name="height"> 35 </real>
 
 	</resource>
 	<resource type="CanvasItemShaderGraph" path="local://2">
@@ -196,7 +197,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="129">
+			<string_array  len="131">
 				<string> "player" </string>
 				<string> "RigidBody2D" </string>
 				<string> "input/pickable" </string>
@@ -266,10 +267,10 @@
 				<string> "shadow/item_mask" </string>
 				<string> "material/material" </string>
 				<string> "Light2D2" </string>
+				<string> "GunCollider" </string>
 				<string> "CollisionShape2D" </string>
 				<string> "shape" </string>
 				<string> "trigger" </string>
-				<string> "CollisionShape2D1" </string>
 				<string> "Guns" </string>
 				<string> "Node2D" </string>
 				<string> "Normal" </string>
@@ -277,6 +278,8 @@
 				<string> "Bomb" </string>
 				<string> "visibility/visible" </string>
 				<string> "Sword" </string>
+				<string> "Shields" </string>
+				<string> "Shield" </string>
 				<string> "Sprite" </string>
 				<string> "Camera2D" </string>
 				<string> "anchor_mode" </string>
@@ -328,16 +331,16 @@
 				<string> "PlayerSounds" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 22 </int>
+			<int> 24 </int>
 			<string> "nodes" </string>
-			<int_array  len="552"> 				-1, -1, 1, 0, -1, 44, 2, 0, 3, 1, 4, 2, 5, 0, 6, 3, 7, 4, 8, 0, 9, 5, 10, 5, 11, 6, 12, 7, 13, 7, 14, 8, 15, 7, 16, 0, 17, 9, 18, 9, 19, 0, 20, 0, 21, 10, 22, 11, 23, 8, 24, 12, 25, 13, 26, 14, 27, 15, 28, 16, 29, 17, 30, 0, 31, 18, 32, 19, 33, 20, 34, 0, 35, 7, 36, 19, 37, 0, 38, 7, 39, 21, 40, 20, 41, 22, 42, 23, 43, 10, 44, 24, 45, 25, 0, 0, 0, 47, 46, -1, 20, 48, 26, 49, 27, 50, 10, 51, 28, 52, 11, 53, 7, 54, 29, 55, 30, 11, 9, 56, 8, 57, 31, 58, 32, 59, 33, 60, 9, 61, 5, 62, 0, 63, 34, 64, 35, 65, 36, 66, 5, 0, 0, 0, 47, 47, -1, 21, 67, 37, 48, 38, 49, 39, 50, 10, 51, 40, 52, 11, 53, 41, 54, 29, 55, 42, 11, 9, 56, 7, 57, 31, 58, 32, 59, 33, 60, 9, 61, 5, 62, 0, 63, 34, 64, 35, 65, 36, 66, 5, 0, 0, 0, 47, 68, -1, 21, 67, 37, 48, 43, 49, 39, 50, 10, 51, 40, 52, 11, 53, 41, 54, 29, 55, 22, 11, 9, 56, 7, 57, 31, 58, 32, 59, 33, 60, 9, 61, 5, 62, 10, 63, 34, 64, 35, 65, 36, 66, 5, 0, 0, 0, 69, 69, -1, 3, 48, 44, 70, 1, 71, 0, 0, 0, 0, 69, 72, -1, 3, 48, 45, 70, 3, 71, 0, 0, 0, 0, 74, 73, -1, 1, 48, 46, 0, 6, 0, 74, 75, 47, 2, 76, 48, 27, 49, 0, 6, 0, 74, 77, 50, 3, 76, 48, 78, 0, 27, 51, 0, 6, 0, 74, 79, 52, 3, 76, 48, 78, 0, 27, 53, 0, 0, 0, 80, 80, -1, 2, 48, 54, 51, 55, 0, 0, 0, 81, 81, -1, 15, 82, 5, 83, 0, 84, 10, 85, 56, 86, 57, 87, 58, 88, 58, 89, 59, 90, 59, 91, 10, 92, 10, 93, 60, 94, 60, 95, 60, 96, 60, 0, 0, 0, 74, 97, -1, 1, 98, 6, 0, 12, 0, 80, 99, -1, 6, 67, 61, 48, 62, 51, 63, 100, 0, 101, 10, 102, 64, 0, 12, 0, 80, 103, -1, 7, 67, 61, 48, 62, 98, 6, 51, 65, 100, 0, 101, 10, 102, 64, 0, 0, 0, 74, 104, -1, 1, 98, 6, 0, 15, 0, 80, 105, -1, 6, 67, 61, 48, 66, 51, 67, 100, 0, 101, 10, 102, 68, 0, 15, 0, 80, 106, -1, 7, 67, 61, 48, 69, 98, 6, 51, 70, 100, 0, 101, 10, 102, 68, 0, 0, 0, 107, 107, -1, 9, 108, 5, 109, 8, 110, 71, 111, 72, 112, 73, 113, 10, 114, 7, 115, 74, 116, 75, 0, 0, 0, 118, 117, -1, 8, 119, 8, 120, 7, 121, 7, 122, 76, 123, 7, 124, 5, 125, 77, 126, 8, 0, 0, 0, 118, 127, -1, 8, 119, 8, 120, 7, 121, 7, 122, 76, 123, 7, 124, 5, 125, 78, 126, 8, 0, 0, 0, 118, 128, -1, 8, 119, 8, 120, 7, 121, 7, 122, 76, 123, 7, 124, 5, 125, 79, 126, 8, 0 </int_array>
+			<int_array  len="576"> 				-1, -1, 1, 0, -1, 44, 2, 0, 3, 1, 4, 2, 5, 0, 6, 3, 7, 4, 8, 0, 9, 5, 10, 5, 11, 6, 12, 7, 13, 7, 14, 8, 15, 7, 16, 0, 17, 9, 18, 9, 19, 0, 20, 0, 21, 10, 22, 11, 23, 8, 24, 12, 25, 13, 26, 14, 27, 15, 28, 16, 29, 17, 30, 0, 31, 18, 32, 19, 33, 20, 34, 0, 35, 7, 36, 19, 37, 0, 38, 7, 39, 21, 40, 20, 41, 22, 42, 23, 43, 10, 44, 24, 45, 25, 0, 0, 0, 47, 46, -1, 20, 48, 26, 49, 27, 50, 10, 51, 28, 52, 11, 53, 7, 54, 29, 55, 30, 11, 9, 56, 8, 57, 31, 58, 32, 59, 33, 60, 9, 61, 5, 62, 0, 63, 34, 64, 35, 65, 36, 66, 5, 0, 0, 0, 47, 47, -1, 21, 67, 37, 48, 38, 49, 39, 50, 10, 51, 40, 52, 11, 53, 41, 54, 29, 55, 42, 11, 9, 56, 7, 57, 31, 58, 32, 59, 33, 60, 9, 61, 5, 62, 0, 63, 34, 64, 35, 65, 36, 66, 5, 0, 0, 0, 47, 68, -1, 21, 67, 37, 48, 43, 49, 39, 50, 10, 51, 40, 52, 11, 53, 41, 54, 29, 55, 22, 11, 9, 56, 7, 57, 31, 58, 32, 59, 33, 60, 9, 61, 5, 62, 10, 63, 34, 64, 35, 65, 36, 66, 5, 0, 0, 0, 70, 69, -1, 3, 48, 44, 71, 1, 72, 0, 0, 0, 0, 70, 70, -1, 3, 48, 45, 71, 3, 72, 0, 0, 0, 0, 74, 73, -1, 1, 48, 46, 0, 6, 0, 74, 75, 47, 2, 76, 48, 27, 49, 0, 6, 0, 74, 77, 50, 3, 76, 48, 78, 0, 27, 51, 0, 6, 0, 74, 79, 52, 3, 76, 48, 78, 0, 27, 53, 0, 0, 0, 74, 80, -1, 1, 48, 54, 0, 10, 0, 74, 81, 55, 4, 76, 48, 78, 0, 27, 56, 14, 57, 0, 0, 0, 82, 82, -1, 2, 48, 58, 51, 59, 0, 0, 0, 83, 83, -1, 15, 84, 5, 85, 0, 86, 10, 87, 60, 88, 61, 89, 62, 90, 62, 91, 63, 92, 63, 93, 10, 94, 10, 95, 64, 96, 64, 97, 64, 98, 64, 0, 0, 0, 74, 99, -1, 1, 100, 6, 0, 14, 0, 82, 101, -1, 6, 67, 65, 48, 66, 51, 67, 102, 0, 103, 10, 104, 68, 0, 14, 0, 82, 105, -1, 7, 67, 65, 48, 66, 100, 6, 51, 69, 102, 0, 103, 10, 104, 68, 0, 0, 0, 74, 106, -1, 1, 100, 6, 0, 17, 0, 82, 107, -1, 6, 67, 65, 48, 70, 51, 71, 102, 0, 103, 10, 104, 72, 0, 17, 0, 82, 108, -1, 7, 67, 65, 48, 73, 100, 6, 51, 74, 102, 0, 103, 10, 104, 72, 0, 0, 0, 109, 109, -1, 9, 110, 5, 111, 8, 112, 75, 113, 76, 114, 77, 115, 10, 116, 7, 117, 78, 118, 79, 0, 0, 0, 120, 119, -1, 8, 121, 8, 122, 7, 123, 7, 124, 80, 125, 7, 126, 5, 127, 81, 128, 8, 0, 0, 0, 120, 129, -1, 8, 121, 8, 122, 7, 123, 7, 124, 80, 125, 7, 126, 5, 127, 82, 128, 8, 0, 0, 0, 120, 130, -1, 8, 121, 8, 122, 7, 123, 7, 124, 80, 125, 7, 126, 5, 127, 83, 128, 8, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="80" shared="false">
+			<array  len="84" shared="false">
 				<bool> False </bool>
+				<resource  resource_type="Shape2D" path="local://7">  </resource>
+				<matrix32> 1, -0, 0, 1, 0.382446, -19.534 </matrix32>
 				<resource  resource_type="Shape2D" path="local://6">  </resource>
 				<matrix32> 1, -0, 0, 1, -0.460541, -0.338449 </matrix32>
-				<resource  resource_type="Shape2D" path="local://1">  </resource>
-				<matrix32> 1, -0, 0, 1, -0.460541, -27.1862 </matrix32>
 				<int> 1 </int>
 				<int> 2 </int>
 				<real> 1 </real>
@@ -356,7 +359,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -93.3372, -71.1152 </vector2>
+							<vector2> -149.483, -141.238 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -376,7 +379,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 5.720014 </real>
+							<real> 2.51753 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -507,8 +510,8 @@
 				<real> 0.9 </real>
 				<real> 0.6 </real>
 				<vector2> -1.20362, 3.38628 </vector2>
+				<vector2> 0.382446, -19.534 </vector2>
 				<vector2> -0.460541, -0.338449 </vector2>
-				<vector2> -0.460541, -27.1862 </vector2>
 				<vector2> 1.35597, -14.9158 </vector2>
 				<resource  resource_type="PackedScene" path="res://scenes/gun.xml">  </resource>
 				<node_path> "" </node_path>
@@ -918,6 +921,140 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<vector2> -0.359131, -41.5244 </vector2>
+				<resource  resource_type="PackedScene" path="res://scenes/items/usables/shield_1.xml">  </resource>
+				<dictionary  shared="false">
+					<string> "__editor_plugin_screen__" </string>
+					<string> "Script" </string>
+					<string> "__editor_plugin_states__" </string>
+					<dictionary  shared="false">
+						<string> "2D" </string>
+						<dictionary  shared="false">
+							<string> "ofs" </string>
+							<vector2> -385.085, -73.096 </vector2>
+							<string> "snap_grid" </string>
+							<bool> False </bool>
+							<string> "snap_offset" </string>
+							<vector2> 0, 0 </vector2>
+							<string> "snap_pixel" </string>
+							<bool> False </bool>
+							<string> "snap_relative" </string>
+							<bool> False </bool>
+							<string> "snap_rotation" </string>
+							<bool> False </bool>
+							<string> "snap_rotation_offset" </string>
+							<real> 0 </real>
+							<string> "snap_rotation_step" </string>
+							<real> 0.261799 </real>
+							<string> "snap_show_grid" </string>
+							<bool> False </bool>
+							<string> "snap_step" </string>
+							<vector2> 10, 10 </vector2>
+							<string> "zoom" </string>
+							<real> 2.050555 </real>
+						</dictionary>
+						<string> "3D" </string>
+						<dictionary  shared="false">
+							<string> "ambient_light_color" </string>
+							<color> 0.15, 0.15, 0.15, 1 </color>
+							<string> "default_light" </string>
+							<bool> True </bool>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "show_grid" </string>
+							<bool> True </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
+							<string> "viewports" </string>
+							<array  len="4" shared="false">
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> True </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+							</array>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
+						</dictionary>
+					</dictionary>
+					<string> "__editor_run_settings__" </string>
+					<dictionary  shared="false">
+						<string> "custom_args" </string>
+						<string> "-l $scene" </string>
+						<string> "run_mode" </string>
+						<int> 0 </int>
+					</dictionary>
+				</dictionary>
+				<real> 2.5 </real>
 				<vector2> 0, -22 </vector2>
 				<resource  resource_type="Texture" path="res://gfx/player.png">  </resource>
 				<real> 6 </real>

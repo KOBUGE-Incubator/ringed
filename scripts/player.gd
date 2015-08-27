@@ -45,6 +45,7 @@ var dodge_number_keys = 0 # We need 2 to get a dodge
 var move_actions = ["right","left","down","up"] # We use this array to save the actions names and change them easy in the code
 var prev_move_action = "" # We use this to know what was the previous action (for moves), it is used in do_dodge() to know when we change of action 
 var points = 0 # The amount of points that the player has
+var _is_defending = false
 
 func _ready():
 	time_for_next_doble_key = dodge_doble_key_cooldown
@@ -133,15 +134,20 @@ func logic(delta): # We override the function defined in moveable_object.gd
 	for action in move_actions:
 		do_dodge(action)
 	if(Input.is_action_pressed("shot")):
-		current_gun_node.shot()
+		if not(_is_defending):
+			current_gun_node.shot()
+	if(Input.is_action_pressed("defense")):
+		do_defence(true)
+	else:
+		do_defence(false)
 #		if(current_gun == 0): # If is the gun 1 that is fired
 #			if gun_sound_delay == 0:
 #				gunSounds.play("gun1") # Reproduces the gun 1 sound
 #			gun_sound_delay += 1
 #			if gun_sound_delay > 6:
 #				gun_sound_delay = 0
-	else:
-		gun_sound_delay = 0
+#	else:
+#		gun_sound_delay = 0
 	# If we are pressing "Next Weapon" and we have no cooldown left
 	if(Input.is_action_pressed("Next_weapon") && time_for_next_gun_change <= 0):
 		switch_weapon = 1
@@ -168,7 +174,19 @@ func change_weapon(gun_switch):
 		current_gun_node.show() # Show it
 		time_for_next_gun_change = gun_change_cooldown # To prevent ultra-fast change
 		switch_weapon = 0 # To prevent locking
-		
+
+func do_defence(flag):
+	_is_defending = flag
+	var guns = get_node("Guns")
+	var shields = get_node("Shields")
+	var shield = shields.get_child(0)
+	if(flag):
+		guns.hide()
+		shield.show()
+	else:
+		guns.show()
+		shield.hide()
+
 func do_dodge(action): # Function to make dodge with doble key 
 	if(Input.is_action_pressed(action)):
 		if(prev_move_action != action): # Is not the first iteration and the prev actions is not like the actual one
