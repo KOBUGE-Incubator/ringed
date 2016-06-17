@@ -21,7 +21,7 @@ The default key bindings can be configured via the in-game menu.
 
 ## License
 
-Ringed - 2D top-down shooter made with Godot Engine
+Ringed - 2D top-down shooter made with Godot Engine  
 Copyright (C) 2015-2016  KOBUGE Games
 
 This program is free software: you can redistribute it and/or modify
