@@ -30,7 +30,7 @@ func set_weapon_preview ():
 	var c_sprite = get_node("Sprite")
 	if(c_sprite):
 		self.remove_child(c_sprite)
-		c_sprite.queue_free()
+		c_sprite.free()
 	#Make the weapon preview in the spot
 	var spot_size = self.get_size()
 	new_sprite.show() #Always show the sprite

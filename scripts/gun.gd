@@ -81,7 +81,7 @@ func shot():
 					if(child extends RigidBody2D):
 						holder.remove_child(child)
 						bullet = child
-				holder.queue_free()
+				holder.free()
 			bullet_holder.add_child(bullet) # Then we add it to the scene
 			bullet.set_pos(player.get_pos() + bullet_offset.rotated(rotation)) # We move the bullet to the right position
 			bullet.set_rot(rotation) # Also we rotate it
